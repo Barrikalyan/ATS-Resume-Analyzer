@@ -96,7 +96,7 @@ def test_create_session_creates_twenty_questions():
     assert len(set(types)) >= 2
 
 
-def test_all_questions_can_be_answered_and_report_generated():
+def test_all_questions_can_be_answered_and_report_generated(monkeypatch):
     session = manager.create_session('Data Science Engineer', context={'matched_skills': ['Python'], 'projects': ['Proj']})
     assert len(session.all_questions) == 20
     public_questions = [gemini_service.sanitize_public_question(q) for q in session.all_questions]
@@ -115,9 +115,109 @@ def test_all_questions_can_be_answered_and_report_generated():
     # After all answers, session should be finished
     assert session.is_finished is True
 
+    monkeypatch.setattr(
+        gemini_service,
+        'evaluate_quiz_submission',
+        lambda *args, **kwargs: pytest.fail('Final report should use the saved per-answer evaluations'),
+    )
     report = session.get_final_report()
     assert 'percentage' in report
     assert 'isSelected' in report
     assert report.get('isFinished', True) is True
     assert report.get('maxScore') == 200
     assert len(report.get('results', [])) == 20
+    assert report.get('percentage') == 100
+    assert session.get_final_report() == report
+    assert len(session.history) == 20
+
+
+def test_mock_quizzes_are_role_specific_and_complete():
+    full_stack = gemini_service.get_mock_full_quiz('Full Stack Developer')['questions']
+    cyber_security = gemini_service.get_mock_full_quiz('Cyber Security Analyst')['questions']
+
+    assert len(full_stack) == len(cyber_security) == 20
+    assert len({question['question'] for question in full_stack}) == 20
+    assert len({question['question'] for question in cyber_security}) == 20
+    assert sum(question['type'] == 'mcq' for question in full_stack) == 12
+    assert sum(question['type'] == 'code_snippet' for question in full_stack) == 8
+    assert sum(question['type'] == 'mcq' for question in cyber_security) == 12
+    assert sum(question['type'] == 'code_snippet' for question in cyber_security) == 8
+    assert any('React' in question['question'] for question in full_stack)
+    assert any('SIEM' in question['question'] for question in cyber_security)
+    assert not any('business analytics' in question['question'].lower() for question in cyber_security)
+    assert not {question['question'] for question in full_stack} & {question['question'] for question in cyber_security}
+
+
+def test_incomplete_ai_quiz_report_uses_local_evaluation(monkeypatch):
+    question = {
+        'id': 1,
+        'question': 'Which control limits an exposed service account?',
+        'type': 'mcq',
+        'options': ['Least privilege', 'Shared admin account'],
+        'correctAnswer': 'Least privilege',
+        'points': 10,
+    }
+    monkeypatch.setattr(gemini_service, '_call_llm_json', lambda *args, **kwargs: {'results': []})
+
+    report = gemini_service.evaluate_quiz_submission(
+        [question],
+        [{'questionId': 1, 'userAnswer': 'Least privilege'}],
+    )
+
+    assert len(report['results']) == 1
+    assert report['results'][0]['isCorrect'] is True
+    assert report['percentage'] == 100
+
+
+def test_supabase_session_persistence(monkeypatch):
+    class FakeResponse:
+        def __init__(self, data):
+            self.data = data
+
+    class FakeSupabase:
+        def __init__(self):
+            self.rows = {}
+            self.operation = None
+
+        def table(self, name):
+            assert name == 'quiz_sessions'
+            return self
+
+        def upsert(self, rows, on_conflict=None):
+            self.operation = 'upsert'
+            self.upsert_rows = rows
+            return self
+
+        def select(self, fields):
+            self.operation = 'select'
+            return self
+
+        def execute(self):
+            if self.operation == 'upsert':
+                for row in self.upsert_rows:
+                    self.rows[row['session_id']] = row['data']
+                return FakeResponse([])
+            return FakeResponse([
+                {'session_id': session_id, 'data': data}
+                for session_id, data in self.rows.items()
+            ])
+
+    session = manager.QuizSession.__new__(manager.QuizSession)
+    session.session_id = 'session-1'
+    session.field = 'FullStackDeveloper'
+    session.context = {'matched_skills': ['Python']}
+    session.all_questions = [{'id': 1, 'question': 'Question'}]
+    session.public_questions = []
+    session.history = []
+    session.current_index = 0
+    session.max_questions = 1
+    session.is_finished = False
+
+    client = FakeSupabase()
+    monkeypatch.setattr(manager, 'supabase', client)
+    manager._persist_sessions(session)
+
+    restored = manager._load_sessions()
+    assert restored['session-1'].field == session.field
+    assert restored['session-1'].context == session.context
+    assert restored['session-1'].all_questions == session.all_questions

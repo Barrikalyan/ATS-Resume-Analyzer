@@ -3,3 +3,4 @@ uvicorn
 google-genai
 python-dotenv
 pydantic
+supabase>=2.0,<3.0

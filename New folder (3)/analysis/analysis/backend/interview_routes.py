@@ -6,6 +6,27 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 import os
 import shutil
+import tempfile
+import uuid
+
+try:
+    from supabase import create_client
+except ImportError:
+    create_client = None
+
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_KEY")
+supabase = None
+if bool(SUPABASE_URL) != bool(SUPABASE_KEY):
+    raise RuntimeError("Set both SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to enable Supabase interview storage")
+if os.environ.get("ENVIRONMENT", "development").lower() == "production" and not (SUPABASE_URL and SUPABASE_KEY):
+    raise RuntimeError("Supabase must be configured in production; local interview uploads are disabled")
+if SUPABASE_URL and SUPABASE_KEY:
+    if SUPABASE_KEY.startswith("sb_publishable_"):
+        raise RuntimeError("Use a Supabase secret/service-role key on the backend, not a publishable key")
+    if create_client is None:
+        raise RuntimeError("Supabase SDK is unavailable; install the Interview backend requirements")
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 try:
     from database import get_db
@@ -53,7 +74,8 @@ video_service = VideoAnalysisService()
 
 # Create uploads directory
 UPLOAD_DIR = "uploads"
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+if supabase is None:
+    os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
 @router.post("/analyze-video")
@@ -66,14 +88,10 @@ async def analyze_interview_video(
     Complete video interview analysis combining voice and face.
     This is a standalone endpoint for analyzing a single interview clip.
     """
-    # Save uploaded video
-    file_extension = os.path.splitext(video.filename)[1]
-    video_filename = f"analysis_{os.urandom(4).hex()}{file_extension}"
-    video_path = os.path.join(UPLOAD_DIR, video_filename)
-    
-    with open(video_path, "wb") as buffer:
-        shutil.copyfileobj(video.file, buffer)
-    
+    file_extension = os.path.splitext(video.filename or "")[1].lower()[:16]
+    with tempfile.NamedTemporaryFile(prefix="analysis_", suffix=file_extension, delete=False) as temporary_video:
+        video_path = temporary_video.name
+        temporary_video.write(await video.read())
     try:
         # Run complete analysis
         results = video_service.analyze_interview(video_path, question, job_role)
@@ -81,8 +99,7 @@ async def analyze_interview_video(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
     finally:
-        # Optionally cleanup files if needed, but for now we keep them in UPLOAD_DIR
-        pass
+        os.remove(video_path)
 
 
 
@@ -229,12 +246,25 @@ async def submit_answer(
     # Save audio file if provided
     audio_path = None
     if audio_file:
-        file_extension = os.path.splitext(audio_file.filename)[1]
-        audio_filename = f"session_{session_id}_q{question.question_number}{file_extension}"
-        audio_path = os.path.join(UPLOAD_DIR, audio_filename)
-        
-        with open(audio_path, "wb") as buffer:
-            shutil.copyfileobj(audio_file.file, buffer)
+        file_extension = os.path.splitext(audio_file.filename or "")[1].lower()[:16]
+        if supabase is not None:
+            audio_path = f"{session_id}/{uuid.uuid4().hex}{file_extension}"
+            try:
+                supabase.storage.from_("interview-assets").upload(
+                    audio_path,
+                    await audio_file.read(),
+                    {
+                        "content-type": audio_file.content_type or "application/octet-stream",
+                        "upsert": "true",
+                    },
+                )
+            except Exception as upload_error:
+                raise HTTPException(status_code=502, detail="Interview audio storage failed") from upload_error
+        else:
+            audio_filename = f"session_{session_id}_q{question.question_number}{file_extension}"
+            audio_path = os.path.join(UPLOAD_DIR, audio_filename)
+            with open(audio_path, "wb") as buffer:
+                shutil.copyfileobj(audio_file.file, buffer)
     
     # Create answer record
     answer = VoiceAnswer(

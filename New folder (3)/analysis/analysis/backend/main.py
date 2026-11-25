@@ -36,7 +36,7 @@ app.include_router(interview_router)
 app.include_router(simple_router)
 
 # Serve uploaded files
-if os.path.exists("uploads"):
+if os.environ.get("ENVIRONMENT", "development").lower() != "production" and os.path.exists("uploads"):
     app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # Initialize database on startup

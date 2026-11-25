@@ -486,13 +486,15 @@ def generate_full_quiz(field: str, context: dict = None):
 
     Requirements:
     1. Use the candidate's actual resume evidence: resume text, matched skills, missing skills, projects, experience, and role.
-    2. Questions must be tailored to this specific candidate and role, not generic interview trivia.
+    2. At least 16 questions must assess the core responsibilities and technologies of "{field}", not generic interview trivia.
     3. Questions must test understanding of claimed skills and project decisions.
     4. Generate only two question types: "mcq" and "code_snippet".
     5. Vary the difficulty: easy, medium, and hard.
     6. Ensure different sessions generate different question sets even if the candidate context is similar.
     7. Keep each question grounded in technical reasoning the candidate would actually need for this role.
-    8. Return valid JSON only, with no markdown fences.
+    8. Do not use data-science, business-analytics, or machine-learning topics unless they are relevant to "{field}" or the candidate's resume.
+    9. Avoid repeating a question concept with only a different project or technology name.
+    10. Return valid JSON only, with no markdown fences.
 
     JSON Schema:
     {{
@@ -587,7 +589,22 @@ def evaluate_quiz_submission(questions: list, user_answers_list: list):
     if MOCK_AI and client is None and not GROQ_API_KEY:
         return get_mock_evaluation_result(questions, user_answers_list)
     try:
-        return _call_llm_json(prompt, timeout_seconds=75)
+        evaluated = _call_llm_json(prompt, timeout_seconds=75)
+        results = evaluated.get("results") if isinstance(evaluated, dict) else None
+        expected_ids = [str(question.get("id")) for question in questions]
+        result_ids = [
+            str(result.get("questionId"))
+            for result in results
+            if isinstance(result, dict) and result.get("questionId") is not None
+        ] if isinstance(results, list) else []
+        if (
+            not isinstance(results, list)
+            or len(results) != len(questions)
+            or len(result_ids) != len(questions)
+            or sorted(result_ids) != sorted(expected_ids)
+        ):
+            raise ValueError("AI returned an incomplete or mismatched quiz report")
+        return evaluated
     except Exception as e:
         print(f"LLM Evaluation Error (evaluate_quiz_submission): {e}")
         print("Falling back to local technical quiz evaluator.")
@@ -600,6 +617,10 @@ import random
 
 def get_mock_full_quiz(field: str, context: dict = None):
     context = context or {}
+    role_specific_quiz = _get_role_specific_mock_quiz(field)
+    if role_specific_quiz is not None:
+        return role_specific_quiz
+
     skills = []
     if isinstance(context, dict):
         skills = context.get("matched_skills") or []
@@ -872,6 +893,76 @@ def get_mock_evaluation_result(questions: list, user_answers_list: list):
         "overallFeedback": f"Candidate completed technical quiz evaluation with score of {perc}%.",
         "isSelected": perc >= 70
     }
+
+
+def _get_role_specific_mock_quiz(field: str):
+    normalized_role = re.sub(r"[^a-z0-9]", "", str(field).lower())
+    security_role = any(term in normalized_role for term in ("cyber", "security", "infosec"))
+    full_stack_role = any(term in normalized_role for term in ("fullstack", "webdeveloper", "frontend", "backend"))
+    if not security_role and not full_stack_role:
+        return None
+
+    if security_role:
+        questions = [
+            ("easy", "mcq", "Which control most directly limits the damage if a service account is compromised?", ["Granting only the permissions required for its task", "Sharing one administrator account across services", "Disabling audit logs", "Using a longer session timeout"], "Granting only the permissions required for its task", "Least privilege limits the actions an exposed account can perform."),
+            ("easy", "mcq", "How should an application prevent SQL injection in a login query?", ["Use parameterized queries", "Strip spaces from the submitted password", "Hide the database error page", "Encrypt the SQL query string"], "Use parameterized queries", "Bound parameters keep user input separate from executable SQL."),
+            ("easy", "mcq", "What is the safest way to render untrusted text in a web page?", ["Context-aware output encoding", "Insert it directly as HTML", "Base64-encode it in the browser", "Remove only angle brackets"], "Context-aware output encoding", "Output encoding prevents untrusted input from becoming executable markup or script."),
+            ("medium", "mcq", "Which second factor best resists credential phishing?", ["A hardware security key using WebAuthn", "A password reset question", "An SMS code reused for every service", "A code stored beside the password"], "A hardware security key using WebAuthn", "Origin-bound public-key authentication is resistant to common phishing proxies."),
+            ("medium", "mcq", "A workstation is confirmed to be encrypting shared files. What is the first containment action?", ["Isolate the host from affected networks while preserving evidence", "Delete all security logs", "Reboot every server", "Restore backups before identifying the scope"], "Isolate the host from affected networks while preserving evidence", "Containment limits spread while preserving artifacts for investigation."),
+            ("medium", "mcq", "What must a TLS client verify before trusting a server certificate?", ["The certificate chain, validity period, and hostname", "Only that the certificate file is present", "That the server uses a familiar IP address", "That the page contains a padlock icon"], "The certificate chain, validity period, and hostname", "Certificate validation establishes trust for the intended host."),
+            ("medium", "mcq", "How should passwords be stored for later verification?", ["Use a password-hashing function such as Argon2id with a unique salt", "Encrypt them with a reversible key stored beside the database", "Store a fast SHA-256 hash without a salt", "Encode them with Base64"], "Use a password-hashing function such as Argon2id with a unique salt", "A salted, deliberately expensive password hash raises the cost of offline guessing."),
+            ("medium", "mcq", "Why segment a network containing production servers from office workstations?", ["To constrain lateral movement after a workstation compromise", "To eliminate the need for endpoint monitoring", "To make all internal services publicly reachable", "To avoid patching internal systems"], "To constrain lateral movement after a workstation compromise", "Segmentation limits reachable assets and reduces blast radius."),
+            ("medium", "mcq", "Which detail most helps correlate an authentication event across distributed services?", ["A synchronized timestamp and request or trace identifier", "The browser window size", "A user-facing display name only", "The CSS bundle version"], "A synchronized timestamp and request or trace identifier", "Consistent time and correlation identifiers connect events across systems."),
+            ("hard", "mcq", "A critical vulnerability is reported on an internet-facing service. What should drive remediation priority?", ["Exploitability, exposure, asset impact, and available mitigations", "The number of characters in the advisory", "The order vulnerabilities appear in a scanner report", "Whether the service has a dark-mode interface"], "Exploitability, exposure, asset impact, and available mitigations", "Risk-based triage prioritizes likely, consequential exploitation."),
+            ("hard", "mcq", "A SIEM flags a sudden spike in failed logins from one host. What is the best first step?", ["Validate the alert against source, identity, and surrounding events", "Disable all authentication logging", "Assume every event is malicious and wipe the host", "Ignore it if no user reported a problem"], "Validate the alert against source, identity, and surrounding events", "Triage should establish context and corroborating evidence before response."),
+            ("hard", "mcq", "Which backup design best supports recovery from ransomware that can reach production credentials?", ["Keep tested, immutable or offline backups with separate access controls", "Mirror production files with the same administrator credentials", "Keep the only backup mounted read-write on the production server", "Back up only after an incident"], "Keep tested, immutable or offline backups with separate access controls", "Isolated, tested backups reduce the chance that ransomware destroys recovery copies."),
+            ("easy", "code_snippet", "Write a Python call that queries a user by ID using a parameterized SQL statement.", [], "cursor.execute(\"SELECT * FROM users WHERE id = %s\", (user_id,))", "Binding the ID as a parameter prevents it from being interpreted as SQL."),
+            ("easy", "code_snippet", "Show a Python comparison for two secret values that avoids ordinary early-exit string comparison.", [], "hmac.compare_digest(token, expected_token)", "A constant-time comparison reduces timing leakage for secret values."),
+            ("medium", "code_snippet", "Write Python to generate a cryptographically secure URL-safe token with 32 bytes of entropy.", [], "secrets.token_urlsafe(32)", "The secrets module uses a cryptographically secure random source."),
+            ("medium", "code_snippet", "Write a Python check that rejects a requested path if its resolved location is outside the trusted base directory.", [], "resolved_path = (base_dir / requested_path).resolve()\nif base_dir.resolve() not in resolved_path.parents and resolved_path != base_dir.resolve():\n    raise ValueError(\"Path outside allowed directory\")", "Resolve paths before checking containment to prevent traversal through .. segments."),
+            ("medium", "code_snippet", "Write Python to extract IPv4-formatted addresses from a security log line.", [], "re.findall(r\"\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b\", log_line)", "Regular-expression extraction can identify address candidates for later validation and investigation."),
+            ("medium", "code_snippet", "Write the Python call to hash a password using Argon2id with the argon2-cffi PasswordHasher.", [], "PasswordHasher().hash(password)", "PasswordHasher applies a salted, configurable password-hashing scheme."),
+            ("hard", "code_snippet", "Write a Python expression that checks whether an IP address belongs to an allowed CIDR range.", [], "ipaddress.ip_address(client_ip) in ipaddress.ip_network(allowed_cidr)", "The ipaddress module safely parses and checks network membership."),
+            ("hard", "code_snippet", "Show how to reject an HTTP request when its CSRF token does not match the session token.", [], "if not hmac.compare_digest(request_token, session_token):\n    raise PermissionError(\"Invalid CSRF token\")", "Rejecting mismatched tokens prevents the state-changing request from proceeding."),
+        ]
+    else:
+        questions = [
+            ("easy", "mcq", "In a React form, where should the current value of a controlled input come from?", ["Component state passed through value and updated by onChange", "A direct DOM query on every render", "A CSS custom property", "The browser history stack"], "Component state passed through value and updated by onChange", "Controlled inputs keep the displayed value synchronized with React state."),
+            ("easy", "mcq", "Which HTTP method is normally appropriate for retrieving a resource without changing server state?", ["GET", "POST", "PATCH", "DELETE"], "GET", "GET is intended for safe resource retrieval."),
+            ("easy", "mcq", "What is the safest way to store a browser session identifier for an authenticated web app?", ["An HttpOnly, Secure cookie with an appropriate SameSite policy", "A global JavaScript variable", "A URL query parameter", "A value embedded in the HTML source"], "An HttpOnly, Secure cookie with an appropriate SameSite policy", "HttpOnly limits script access and Secure restricts transmission to HTTPS."),
+            ("medium", "mcq", "Why should a database transaction wrap a multi-step order update?", ["It keeps related writes atomic if a later step fails", "It makes every query run in parallel", "It prevents the API from validating input", "It removes the need for indexes"], "It keeps related writes atomic if a later step fails", "Transactions prevent partial updates across related database operations."),
+            ("medium", "mcq", "Which pagination approach is generally more stable for a large, frequently changing table?", ["Keyset pagination using a stable indexed cursor", "Increasing OFFSET without limit", "Loading every row into the browser", "Sorting by a non-unique display label"], "Keyset pagination using a stable indexed cursor", "A stable cursor avoids many offset-pagination costs and shifting-page problems."),
+            ("medium", "mcq", "What is the main purpose of invalidating a cache after a successful update?", ["Preventing clients from reading stale values", "Making database writes reversible", "Disabling authorization checks", "Reducing the number of application routes"], "Preventing clients from reading stale values", "Cache invalidation keeps cached reads consistent with updated data."),
+            ("medium", "mcq", "What should an API return when a client sends invalid request data?", ["A suitable 4xx response with a clear validation error", "A 200 response with a fabricated success object", "A 500 response containing a stack trace", "A redirect to the database"], "A suitable 4xx response with a clear validation error", "Client input errors should be reported as client errors without leaking internals."),
+            ("medium", "mcq", "How should a web application reduce cross-site scripting risk when displaying user-submitted text?", ["Escape or encode output for its HTML context", "Trust all text after a client-side check", "Store the text in a cookie", "Disable server-side validation"], "Escape or encode output for its HTML context", "Context-aware output encoding prevents text from executing as markup or script."),
+            ("medium", "mcq", "What does a composite database index help with most directly?", ["Queries filtering or sorting by its indexed column sequence", "Reducing the size of every response body", "Replacing input validation", "Encrypting database backups"], "Queries filtering or sorting by its indexed column sequence", "Composite indexes support matching access patterns in their defined column order."),
+            ("medium", "mcq", "What is a useful safeguard against duplicate payment requests after a network retry?", ["An idempotency key checked by the server", "A longer browser timeout", "Disabling database constraints", "A new random order ID on every retry"], "An idempotency key checked by the server", "Idempotency keys let retries return the original result without repeating the side effect."),
+            ("hard", "mcq", "A React component fetches data when its search term changes. How should it avoid an older response replacing newer results?", ["Abort the previous request or ignore its result during cleanup", "Make every request synchronous", "Store results only in a module global", "Add a fixed delay after rendering"], "Abort the previous request or ignore its result during cleanup", "Cancelling or discarding stale requests avoids races between responses."),
+            ("hard", "mcq", "Which test best catches a contract mismatch between an API and its database-backed service before deployment?", ["An integration test that exercises the real boundary with representative data", "A snapshot of the page's background color", "A test that only checks whether the process starts", "A manual check of variable names"], "An integration test that exercises the real boundary with representative data", "Integration tests validate behavior across component and data boundaries."),
+            ("easy", "code_snippet", "Write JavaScript to remove duplicate IDs from an array while preserving their order.", [], "[...new Set(ids)]", "Set preserves insertion order and removes duplicate values."),
+            ("easy", "code_snippet", "Write the React state update that increments count without relying on a stale closure.", [], "setCount(current => current + 1)", "The functional state update receives the latest state value."),
+            ("medium", "code_snippet", "Write SQL to fetch the five newest orders by creation time.", [], "SELECT * FROM orders ORDER BY created_at DESC LIMIT 5;", "Ordering by creation time and limiting the result returns the newest five rows."),
+            ("medium", "code_snippet", "Show a parameterized Node.js database query that selects a user by ID.", [], "db.query('SELECT * FROM users WHERE id = $1', [userId])", "A bound parameter prevents the ID from becoming executable SQL."),
+            ("medium", "code_snippet", "Write JavaScript that throws an error when a fetch response is not successful.", [], "if (!response.ok) throw new Error(`Request failed: ${response.status}`)", "Checking response.ok prevents failed HTTP responses from being treated as success."),
+            ("medium", "code_snippet", "Write an Express validation guard that returns HTTP 400 when req.params.id is not a positive integer.", [], "const id = Number(req.params.id);\nif (!Number.isInteger(id) || id <= 0) return res.sendStatus(400);", "Validating at the API boundary rejects malformed identifiers early."),
+            ("hard", "code_snippet", "Show the SQL transaction commands needed to commit a successful operation and roll back on failure.", [], "await client.query('BEGIN');\ntry {\n  await performWrites(client);\n  await client.query('COMMIT');\n} catch (error) {\n  await client.query('ROLLBACK');\n  throw error;\n}", "A transaction commits all related writes or rolls them all back."),
+            ("hard", "code_snippet", "Write JavaScript that cancels a previous fetch request using AbortController.", [], "controller.abort()", "Aborting the previous request prevents stale asynchronous work from updating the UI."),
+        ]
+
+    generated = []
+    for index, (difficulty, question_type, text, options, answer, explanation) in enumerate(questions, start=1):
+        generated.append({
+            "id": index,
+            "difficulty": difficulty,
+            "type": question_type,
+            "question": text,
+            "options": options,
+            "correctAnswer": answer,
+            "explanation": explanation,
+            "points": 10,
+        })
+    random.shuffle(generated)
+    return {"questions": generated}
 
 
 def get_mock_single_question(field, difficulty, qtype=None):

@@ -10,6 +10,7 @@ import json
 import os
 import shutil
 import requests
+import uuid
 from datetime import datetime, timezone
 from typing import List
 try:
@@ -19,8 +20,8 @@ except Exception as e:
     Client = None
     print('WARNING: Supabase SDK unavailable; optional Supabase features are disabled:', e)
 
-# Persistence helpers for safe concurrent access to applications.json
-from backend.persistence import ensure_data_file, read_applications, write_applications
+# Persistence helpers for Supabase or local development storage
+from backend.persistence import configure_supabase, delete_application, ensure_data_file, read_applications, save_application
 
 def _find_project_root(start_dir: Path) -> Path:
     for candidate in [start_dir, *start_dir.parents]:
@@ -96,16 +97,23 @@ from backend.aggregator import aggregate_candidate
 
 # Supabase Configuration (optional)
 SUPABASE_URL = os.environ.get('SUPABASE_URL')
-SUPABASE_KEY = os.environ.get('SUPABASE_KEY')
+SUPABASE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY') or os.environ.get('SUPABASE_KEY')
 supabase = None
-if create_client and SUPABASE_URL and SUPABASE_KEY:
-    try:
-        supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-    except Exception as e:
-        print('WARNING: Supabase client initialization failed:', e)
+if bool(SUPABASE_URL) != bool(SUPABASE_KEY):
+    raise RuntimeError('Set both SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to enable Supabase')
+if os.environ.get('ENVIRONMENT', 'development').lower() == 'production' and not (SUPABASE_URL and SUPABASE_KEY):
+    raise RuntimeError('Supabase must be configured in production; local JSON persistence is disabled')
+if SUPABASE_URL and SUPABASE_KEY:
+    if SUPABASE_KEY.startswith('sb_publishable_'):
+        raise RuntimeError('Use a Supabase secret/service-role key on the backend, not a publishable key')
+    if create_client is None:
+        raise RuntimeError('Supabase SDK is unavailable; install the backend requirements')
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+    configure_supabase(supabase)
 
-# Ensure data dir exists and initialize data file
-ensure_data_file(DATA_FILE)
+# Keep the local JSON store only for development without Supabase.
+if supabase is None:
+    ensure_data_file(DATA_FILE)
 
 @app.get("/")
 def read_root():
@@ -153,40 +161,31 @@ async def analyze_resume(role: str = Form(...), file: UploadFile = File(...)):
         else:
              status = "Rejected"
              
-        # Upload to Supabase Storage if configured
-        resume_url = ""
+        # Keep resume objects private; recruiter access uses short-lived signed URLs.
+        resume_path = ""
         if supabase is not None:
             try:
                 bucket_name = "resumes"
-                file_path = f"{role}/{file.filename}"
-                
-                # Reset file pointer to beginning before uploading
+                extension = Path(file.filename or "").suffix.lower()[:16]
+                file_path = f"{role}/{uuid.uuid4().hex}{extension}"
                 await file.seek(0)
                 file_data = await file.read()
-                
-                # Upload the file
                 supabase.storage.from_(bucket_name).upload(
-                    file_path, 
+                    file_path,
                     file_data,
-                    {"content-type": file.content_type, "x-upsert": "true"}
+                    {"content-type": file.content_type or "application/octet-stream", "upsert": "true"}
                 )
-                
-                # Get Public URL
-                resume_url = supabase.storage.from_(bucket_name).get_public_url(file_path)
-                print(f"DEBUG: Resume uploaded to Supabase: {resume_url}")
-            except Exception as upload_err:
-                import traceback
-                print(f"ERROR: Supabase upload failed for {file.filename}")
-                print(f"Exception Type: {type(upload_err)}")
-                print(f"Exception Message: {str(upload_err)}")
-                traceback.print_exc()
+                resume_path = file_path
+            except Exception as upload_error:
+                print(f"ERROR: Supabase resume upload failed: {upload_error}")
+                raise HTTPException(status_code=502, detail="Resume storage failed") from upload_error
              
         return {
             "filename": file.filename,
             "text_preview": text[:200] + "...",
             "analysis": result,
             "suggested_status": status,
-            "resume_url": resume_url
+            "resume_path": resume_path
         }
     except HTTPException as he:
         # Re-raise HTTPExceptions as-is
@@ -325,11 +324,9 @@ async def start_round2(payload: dict):
             }
 
         # Persist session id against candidate
-        for app in apps:
-            if app.get('id') == candidate_id:
-                app['quiz_session_id'] = session_id
-                app['quiz_started_at'] = datetime.now(timezone.utc).isoformat()
-        write_applications(DATA_FILE, apps)
+        target['quiz_session_id'] = session_id
+        target['quiz_started_at'] = datetime.now(timezone.utc).isoformat()
+        save_application(DATA_FILE, target)
 
         # Ensure correctAnswer not leaked
         if question and isinstance(question, dict):
@@ -404,7 +401,8 @@ async def round2_submit(payload: dict):
                         app['quiz_report_full'] = report
                         if isinstance(report, dict):
                             app['quiz_score'] = report.get('percentage') or report.get('totalScore')
-                write_applications(DATA_FILE, apps)
+                        save_application(DATA_FILE, app)
+                        break
             except Exception as e:
                 print('WARNING: Failed to persist quiz report:', e)
 
@@ -497,13 +495,10 @@ async def start_round3(payload: dict):
         if not session_id:
             raise HTTPException(status_code=502, detail='Interview session could not be created')
 
-        for app in apps:
-            if app.get('id') == candidate_id:
-                app['interview_session_id'] = session_id
-                app['interview_started_at'] = datetime.now(timezone.utc).isoformat()
-                app['status'] = 'Interview Ready'
-
-        write_applications(DATA_FILE, apps)
+        target['interview_session_id'] = session_id
+        target['interview_started_at'] = datetime.now(timezone.utc).isoformat()
+        target['status'] = 'Interview Ready'
+        save_application(DATA_FILE, target)
 
         return {
             'candidate_id': candidate_id,
@@ -617,7 +612,7 @@ async def submit_round3_result(payload: dict):
             "evaluated_at": datetime.now(timezone.utc).isoformat()
         }
         
-        write_applications(DATA_FILE, apps)
+        save_application(DATA_FILE, target)
         return {
             "success": True,
             "candidate_id": candidate_id,
@@ -647,11 +642,11 @@ async def update_quiz_score(payload: dict):
         for app in apps:
             if app['id'] == target_id:
                 app['quiz_score'] = quiz_score
+                save_application(DATA_FILE, app)
                 found = True
                 break
         
         if found:
-            write_applications(DATA_FILE, apps)
             return {"success": True}
         else:
             raise HTTPException(status_code=404, detail="Candidate not found")
@@ -716,15 +711,10 @@ async def submit_application(application: dict):
     """    Saves the application to the JSON DB.
     """
     try:
-        apps = read_applications(DATA_FILE)
-        
         # Add ID
-        application['id'] = f"REF-{len(apps) + 1000}"
+        application['id'] = f"REF-{uuid.uuid4().hex[:10].upper()}"
         application['timestamp'] = "Just now"
-        
-        apps.append(application)
-        
-        write_applications(DATA_FILE, apps)
+        save_application(DATA_FILE, application)
             
         return application
     except Exception as e:
@@ -736,12 +726,20 @@ def get_candidates(recruiter=Depends(verify_recruiter)):
     Returns all applications for the recruiter.
     """
     try:
-        try:
-            return read_applications(DATA_FILE)
-        except Exception:
-            return []
+        apps = read_applications(DATA_FILE)
+        if supabase is not None:
+            for candidate in apps:
+                resume_path = candidate.get("resume_path")
+                if resume_path:
+                    signed_url = supabase.storage.from_("resumes").create_signed_url(
+                        resume_path,
+                        600,
+                    )
+                    candidate["resume_url"] = signed_url.get("signedURL") or signed_url.get("signedUrl") or ""
+        return apps
     except Exception as e:
-        return []
+        print("ERROR fetching candidates:", e)
+        raise HTTPException(status_code=503, detail="Unable to retrieve candidate records") from e
 
 @app.post("/update_status")
 async def update_status(payload: dict, recruiter=Depends(verify_recruiter)):
@@ -759,11 +757,11 @@ async def update_status(payload: dict, recruiter=Depends(verify_recruiter)):
         for app in apps:
             if app['id'] == target_id:
                 app['status'] = new_status
+                save_application(DATA_FILE, app)
                 found = True
                 break
         
         if found:
-            write_applications(DATA_FILE, apps)
             return {"success": True}
         else:
             raise HTTPException(status_code=404, detail="Candidate not found")
@@ -777,20 +775,20 @@ async def delete_candidate(candidate_id: str, recruiter=Depends(verify_recruiter
     Deletes a candidate application from the JSON DB.
     """
     try:
-        if not os.path.exists(DATA_FILE):
-            raise HTTPException(status_code=404, detail="Data file not found")
-            
         apps = read_applications(DATA_FILE)
-            
-        initial_count = len(apps)
-        apps = [app for app in apps if app.get('id') != candidate_id]
-        
-        if len(apps) == initial_count:
+        candidate = next((item for item in apps if item.get('id') == candidate_id), None)
+        if candidate is None:
             raise HTTPException(status_code=404, detail="Candidate not found")
-            
-        write_applications(DATA_FILE, apps)
+
+        resume_path = candidate.get("resume_path")
+        if supabase is not None and resume_path:
+            supabase.storage.from_("resumes").remove([resume_path])
+
+        delete_application(DATA_FILE, candidate_id)
             
         return {"success": True, "message": f"Candidate {candidate_id} deleted"}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

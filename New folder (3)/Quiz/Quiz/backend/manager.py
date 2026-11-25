@@ -16,6 +16,25 @@ import threading
 SESSION_STORE_PATH = os.environ.get('QUIZ_SESSION_STORE_PATH') or os.path.join(os.path.dirname(__file__), 'quiz_sessions.json')
 GENERATION_TIMEOUT_SECONDS = float(os.environ.get('QUIZ_GENERATION_TIMEOUT_SECONDS', '120'))
 ALLOW_LOCAL_FALLBACK = os.environ.get('QUIZ_ALLOW_LOCAL_FALLBACK', 'true').strip().lower() != 'false'
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY') or os.environ.get('SUPABASE_KEY')
+supabase = None
+
+try:
+    from supabase import create_client
+except ImportError:
+    create_client = None
+
+if bool(SUPABASE_URL) != bool(SUPABASE_KEY):
+    raise RuntimeError('Set both SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to enable Supabase quiz persistence')
+if os.environ.get('ENVIRONMENT', os.environ.get('APP_ENV', 'development')).lower() == 'production' and not (SUPABASE_URL and SUPABASE_KEY):
+    raise RuntimeError('Supabase must be configured in production; local quiz-session persistence is disabled')
+if SUPABASE_URL and SUPABASE_KEY:
+    if SUPABASE_KEY.startswith('sb_publishable_'):
+        raise RuntimeError('Use a Supabase secret/service-role key on the backend, not a publishable key')
+    if create_client is None:
+        raise RuntimeError('Supabase SDK is unavailable; install the Quiz backend requirements')
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 def _generate_quiz_with_timeout(field: str, context: dict):
@@ -50,21 +69,36 @@ def _ensure_session_store():
             json.dump({}, file)
 
 
-def _persist_sessions():
+def _session_data(session):
+    return {
+        'session_id': session.session_id,
+        'field': session.field,
+        'context': getattr(session, 'context', {}),
+        'all_questions': session.all_questions,
+        'public_questions': getattr(session, 'public_questions', []),
+        'history': session.history,
+        'current_index': session.current_index,
+        'max_questions': session.max_questions,
+        'is_finished': session.is_finished,
+    }
+
+
+def _persist_sessions(session=None):
+    if supabase is not None:
+        targets = [session] if session is not None else list(sessions.values())
+        rows = [
+            {'session_id': item.session_id, 'data': _session_data(item)}
+            for item in targets
+        ]
+        if rows:
+            supabase.table('quiz_sessions').upsert(rows, on_conflict='session_id').execute()
+        return
+
     _ensure_session_store()
-    payload = {}
-    for session_id, session in sessions.items():
-        payload[session_id] = {
-            'session_id': session.session_id,
-            'field': session.field,
-            'context': getattr(session, 'context', {}),
-            'all_questions': session.all_questions,
-            'public_questions': getattr(session, 'public_questions', []),
-            'history': session.history,
-            'current_index': session.current_index,
-            'max_questions': session.max_questions,
-            'is_finished': session.is_finished,
-        }
+    payload = {
+        session_id: _session_data(session)
+        for session_id, session in sessions.items()
+    }
     with open(SESSION_STORE_PATH, 'w', encoding='utf-8') as file:
         json.dump(payload, file, ensure_ascii=False, indent=2)
 
@@ -84,14 +118,22 @@ def _restore_session(session_id: str, data: dict):
 
 
 def _load_sessions():
-    _ensure_session_store()
-    if not os.path.exists(SESSION_STORE_PATH):
-        return {}
-    try:
-        with open(SESSION_STORE_PATH, 'r', encoding='utf-8') as file:
-            raw = json.load(file)
-    except Exception:
-        return {}
+    if supabase is not None:
+        response = supabase.table('quiz_sessions').select('session_id,data').execute()
+        raw = {
+            str(row['session_id']): row['data']
+            for row in response.data
+            if isinstance(row.get('data'), dict)
+        }
+    else:
+        _ensure_session_store()
+        if not os.path.exists(SESSION_STORE_PATH):
+            return {}
+        try:
+            with open(SESSION_STORE_PATH, 'r', encoding='utf-8') as file:
+                raw = json.load(file)
+        except Exception:
+            return {}
     if not isinstance(raw, dict):
         return {}
     restored = {}
@@ -147,6 +189,12 @@ class QuizSession:
             t = str(q.get('type', 'mcq')).lower()
             existing_by_type.setdefault(t, []).append(q)
 
+        local_fallback_questions = gemini_service.get_mock_full_quiz(field, self.context).get('questions', [])
+        fallback_by_type = {}
+        for question in local_fallback_questions:
+            question_type = str(question.get('type', 'mcq')).lower()
+            fallback_by_type.setdefault(question_type, []).append(question)
+
         selected = []
         excluded_texts = [q.get('question') for q in self.all_questions if isinstance(q.get('question'), str)]
         seen_questions = set()
@@ -156,6 +204,19 @@ class QuizSession:
             bucket = existing_by_type.get(desired, [])
             chosen = None
             for candidate in bucket:
+                question_text = candidate.get('question')
+                if isinstance(question_text, str) and question_text in seen_questions:
+                    continue
+                chosen = candidate
+                break
+            if chosen is not None:
+                selected.append(chosen)
+                if isinstance(chosen.get('question'), str):
+                    seen_questions.add(chosen.get('question'))
+                    excluded_texts.append(chosen.get('question'))
+                continue
+
+            for candidate in fallback_by_type.get(desired, []):
                 question_text = candidate.get('question')
                 if isinstance(question_text, str) and question_text in seen_questions:
                     continue
@@ -340,7 +401,7 @@ class QuizSession:
         if self.current_index >= self.max_questions:
             self.is_finished = True
 
-        _persist_sessions()
+        _persist_sessions(self)
         return {
             "status": "accepted",
             "isCorrect": evaluation["isCorrect"],
@@ -350,55 +411,29 @@ class QuizSession:
         }
 
     def get_final_report(self):
-        answers = [
-            {
-                "questionId": record["question"].get("id"),
-                "userAnswer": record.get("userAnswer"),
-            }
-            for record in self.history
-        ]
-        evaluated = gemini_service.evaluate_quiz_submission(self.all_questions, answers)
-        expected_max_score = sum(int(question.get("points", 10) or 10) for question in self.all_questions)
-        results = evaluated.get("results") if isinstance(evaluated, dict) else None
-        if not isinstance(results, list) or len(results) != len(self.history):
-            raise RuntimeError("Gemini returned an incomplete quiz evaluation")
-        total_score = sum(
-            min(max(int(result.get("pointsAwarded", 0) or 0), 0), 10)
-            for result in results
-        )
-        percentage = round((total_score / expected_max_score * 100), 2) if expected_max_score else 0
-        return {
-            "totalScore": total_score,
-            "maxScore": expected_max_score,
-            "percentage": percentage,
-            "results": results,
-            "overallFeedback": evaluated.get("overallFeedback", "Gemini evaluated the submitted answers for technical correctness."),
-            "isSelected": percentage >= 70,
-            "isFinished": True,
-        }
-
-        # Kept below as a reference for the legacy local evaluator.
         results = []
         total_score = 0
         max_score = 0
         for record in self.history:
             question = record["question"]
-            evaluation = record["evaluation"]
-            total_score += evaluation.get("pointsAwarded", 0)
-            max_score += evaluation.get("maxPoints", 0)
+            evaluation = record.get("evaluation") or {}
+            question_max = int(evaluation.get("maxPoints") or question.get("points", 10) or 10)
+            question_score = min(max(int(evaluation.get("pointsAwarded", 0) or 0), 0), question_max)
+            total_score += question_score
+            max_score += question_max
             results.append({
                 "questionId": question.get("id"),
                 "question": question.get("question"),
                 "isCorrect": evaluation.get("isCorrect", False),
-                "pointsAwarded": evaluation.get("pointsAwarded", 0),
-                "maxPoints": evaluation.get("maxPoints", 0),
+                "pointsAwarded": question_score,
+                "maxPoints": question_max,
                 "userAnswer": record.get("userAnswer"),
                 "correctAnswer": question.get("correctAnswer"),
                 "feedback": evaluation.get("feedback", ""),
             })
 
         percentage = round((total_score / max_score * 100), 2) if max_score else 0
-        report = {
+        return {
             "totalScore": total_score,
             "maxScore": max_score,
             "percentage": percentage,
@@ -407,7 +442,6 @@ class QuizSession:
             "isSelected": percentage >= 70,
             "isFinished": True,
         }
-        return report
 
 
 sessions: Dict[str, QuizSession] = _load_sessions()
@@ -415,7 +449,7 @@ sessions: Dict[str, QuizSession] = _load_sessions()
 def create_session(field: str, context: dict = None) -> QuizSession:
     session = QuizSession(field, context=context)
     sessions[session.session_id] = session
-    _persist_sessions()
+    _persist_sessions(session)
     return session
 
 def get_session(session_id: str) -> Optional[QuizSession]:

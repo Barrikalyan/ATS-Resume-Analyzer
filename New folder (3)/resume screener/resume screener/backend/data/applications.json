@@ -2628,5 +2628,3564 @@
       "round3_cleared": false,
       "evaluated_at": "2026-11-25T08:40:14.054004+00:00"
     }
+  },
+  {
+    "name": "alex",
+    "role": "DataScienceEngineer",
+    "score": 70.92,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 69.5,
+        "experience": 91.8,
+        "education": 73.4,
+        "projects": 30,
+        "format": 76.8
+      },
+      "final_score": 70.92,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 69.5,
+        "experience": 91.8,
+        "education": 73.4,
+        "projects": 30,
+        "format": 76.8
+      },
+      "feedback": {
+        "skills": "Strong Python/SQL foundation; add Data Visualization (Matplotlib/Seaborn) and Feature Engineering to pass ATS filtering.",
+        "experience": "Great metrics at Grubhub, but the June 2025 start date is a future-dated typo that kills recruiter trust. Fix immediately.",
+        "education": "B.S. Statistics is a perfect match for this role; explicitly list a 'Probability' course to satisfy the keyword requirement.",
+        "projects": "No dedicated projects section; add 2-3 GitHub projects showing end-to-end model evaluation and feature engineering workflows.",
+        "ats": "Missing critical keywords like 'Jupyter Notebook' and 'Data Visualization' despite having the technical background."
+      },
+      "ai_analysis": {
+        "final_score": 72,
+        "breakdown": {
+          "skills_match": 75,
+          "experience_relevance": 85,
+          "education": 95,
+          "projects": 30,
+          "presentation": 65
+        },
+        "dimension_feedback": {
+          "skills": "Strong Python/SQL foundation; add Data Visualization (Matplotlib/Seaborn) and Feature Engineering to pass ATS filtering.",
+          "experience": "Great metrics at Grubhub, but the June 2025 start date is a future-dated typo that kills recruiter trust. Fix immediately.",
+          "education": "B.S. Statistics is a perfect match for this role; explicitly list a 'Probability' course to satisfy the keyword requirement.",
+          "projects": "No dedicated projects section; add 2-3 GitHub projects showing end-to-end model evaluation and feature engineering workflows.",
+          "ats": "Missing critical keywords like 'Jupyter Notebook' and 'Data Visualization' despite having the technical background."
+        },
+        "strengths": [
+          "Quantifiable impact metrics like '12.8% forecast precision' and '284ms scoring latency'.",
+          "Direct experience with production-level deployment using AWS and Flask.",
+          "Highly relevant educational background in Statistics from a reputable university.",
+          "Experience at a high-growth tech company (Grubhub) handling high-volume datasets."
+        ],
+        "weaknesses": [
+          "Future-dated work entry (June 2025) suggests poor attention to detail.",
+          "Complete absence of Data Visualization tools which is core to the Engineer role.",
+          "Lack of 'Feature Engineering' and 'Model Evaluation' as explicit keywords.",
+          "Missing a projects section to demonstrate technical depth beyond work tasks."
+        ],
+        "improvements": [
+          "Correct the Grubhub employment dates to reflect current/past reality.",
+          "Insert a dedicated 'Tools' or 'Visualization' section including Matplotlib, Seaborn, or Tableau.",
+          "Add a 'Projects' section featuring 2-3 GitHub repositories with technical descriptions.",
+          "Explicitly list 'Probability' and 'Feature Engineering' in the skills list."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "The candidate possesses the core mathematical and programming foundations required for a Data Science Engineer. While there are critical keyword gaps and a major date typo, the Grubhub experience shows high-level competence in productionizing models.",
+        "final_report": {
+          "executive_summary": "Kandice is a strong candidate with a solid Statistics background and proven experience in production-level machine learning at Grubhub. The resume suffers from a lack of visualization keywords and a significant date error that must be resolved. With minor ATS optimization, this candidate is a top-tier contender for the role.",
+          "category_analysis": {
+            "skills": {
+              "status": "Gap",
+              "strengths": [
+                "Python (Pandas/NumPy)",
+                "Scikit-learn",
+                "SQL (Postgres/MySQL)",
+                "AWS"
+              ],
+              "weaknesses": [
+                "Data Visualization",
+                "Feature Engineering",
+                "Model Evaluation"
+              ],
+              "recommendations": [
+                "Add Matplotlib/Seaborn to skills list",
+                "Include Jupyter Notebook"
+              ]
+            },
+            "experience": {
+              "status": "Strength",
+              "strengths": [
+                "High-scale modeling",
+                "Inference pipeline deployment",
+                "Productionizing models via Flask"
+              ],
+              "weaknesses": [
+                "Future-dated entry typo",
+                "Irrelevant lab technician tasks"
+              ],
+              "recommendations": [
+                "Fix Grubhub date",
+                "Focus lab tech bullets more on data/SQL than manual batch review"
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "B.S. Statistics degree alignment"
+              ],
+              "weaknesses": [
+                "Missing specific relevant coursework names"
+              ],
+              "recommendations": [
+                "List Probability and Linear Algebra as key courses"
+              ]
+            },
+            "presentation": {
+              "status": "Gap",
+              "strengths": [
+                "Clean layout",
+                "Quantified achievements"
+              ],
+              "weaknesses": [
+                "ATS keyword missingness",
+                "Critical date typo"
+              ],
+              "recommendations": [
+                "Proofread dates",
+                "Optimize for visualization keywords"
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "Data Visualization",
+              "Feature Engineering",
+              "Model Evaluation"
+            ],
+            "medium_priority_missing": [
+              "Jupyter Notebook",
+              "Probability",
+              "Seaborn"
+            ],
+            "learning_roadmap": [
+              "Master Tableau or PowerBI for dashboarding",
+              "Explore advanced model interpretability libraries like SHAP/LIME"
+            ]
+          },
+          "experience_enhancement": [
+            "Recalibrate the Lab Technician role to highlight Python-based automation over manual reporting.",
+            "Ensure Grubhub bullets mention the specific 'Model Evaluation' metrics used (e.g., RMSE, F1-score)."
+          ],
+          "project_showcase_tips": [
+            "Include a project on 'Demand Forecasting' with a link to the code.",
+            "Showcase an end-to-end ETL to ML pipeline project."
+          ],
+          "ats_optimization_checklist": [
+            "Fix the June 2025 date typo",
+            "Add 'Data Visualization' to skills",
+            "Add 'Jupyter Notebook' to skills",
+            "Include 'Probability' in education section"
+          ],
+          "action_plan": [
+            "Immediate fix: Change June 2025 start date to the correct year.",
+            "Keyword Injection: Add Visualization and Feature Engineering to the Skills block.",
+            "Project Addition: Link to GitHub and describe 2 key engineering projects.",
+            "Formatting: Ensure the contact info is standard and ATS-readable."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "The candidate possesses the core mathematical and programming foundations required for a Data Science Engineer. While there are critical keyword gaps and a major date typo, the Grubhub experience shows high-level competence in productionizing models.",
+      "final_report": {
+        "executive_summary": "Kandice is a strong candidate with a solid Statistics background and proven experience in production-level machine learning at Grubhub. The resume suffers from a lack of visualization keywords and a significant date error that must be resolved. With minor ATS optimization, this candidate is a top-tier contender for the role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Python (Pandas/NumPy)",
+              "Scikit-learn",
+              "SQL (Postgres/MySQL)",
+              "AWS"
+            ],
+            "weaknesses": [
+              "Data Visualization",
+              "Feature Engineering",
+              "Model Evaluation"
+            ],
+            "recommendations": [
+              "Add Matplotlib/Seaborn to skills list",
+              "Include Jupyter Notebook"
+            ]
+          },
+          "experience": {
+            "status": "Strength",
+            "strengths": [
+              "High-scale modeling",
+              "Inference pipeline deployment",
+              "Productionizing models via Flask"
+            ],
+            "weaknesses": [
+              "Future-dated entry typo",
+              "Irrelevant lab technician tasks"
+            ],
+            "recommendations": [
+              "Fix Grubhub date",
+              "Focus lab tech bullets more on data/SQL than manual batch review"
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "B.S. Statistics degree alignment"
+            ],
+            "weaknesses": [
+              "Missing specific relevant coursework names"
+            ],
+            "recommendations": [
+              "List Probability and Linear Algebra as key courses"
+            ]
+          },
+          "presentation": {
+            "status": "Gap",
+            "strengths": [
+              "Clean layout",
+              "Quantified achievements"
+            ],
+            "weaknesses": [
+              "ATS keyword missingness",
+              "Critical date typo"
+            ],
+            "recommendations": [
+              "Proofread dates",
+              "Optimize for visualization keywords"
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Data Visualization",
+            "Feature Engineering",
+            "Model Evaluation"
+          ],
+          "medium_priority_missing": [
+            "Jupyter Notebook",
+            "Probability",
+            "Seaborn"
+          ],
+          "learning_roadmap": [
+            "Master Tableau or PowerBI for dashboarding",
+            "Explore advanced model interpretability libraries like SHAP/LIME"
+          ]
+        },
+        "experience_enhancement": [
+          "Recalibrate the Lab Technician role to highlight Python-based automation over manual reporting.",
+          "Ensure Grubhub bullets mention the specific 'Model Evaluation' metrics used (e.g., RMSE, F1-score)."
+        ],
+        "project_showcase_tips": [
+          "Include a project on 'Demand Forecasting' with a link to the code.",
+          "Showcase an end-to-end ETL to ML pipeline project."
+        ],
+        "ats_optimization_checklist": [
+          "Fix the June 2025 date typo",
+          "Add 'Data Visualization' to skills",
+          "Add 'Jupyter Notebook' to skills",
+          "Include 'Probability' in education section"
+        ],
+        "action_plan": [
+          "Immediate fix: Change June 2025 start date to the correct year.",
+          "Keyword Injection: Add Visualization and Feature Engineering to the Skills block.",
+          "Project Addition: Link to GitHub and describe 2 key engineering projects.",
+          "Formatting: Ensure the contact info is standard and ATS-readable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Python",
+        "Statistics",
+        "Pandas",
+        "NumPy",
+        "Machine Learning",
+        "SQL",
+        "Data Cleaning"
+      ],
+      "direct_matched_skills": [
+        "Python",
+        "Statistics",
+        "Pandas",
+        "NumPy",
+        "Machine Learning",
+        "SQL"
+      ],
+      "inferred_skills": [
+        {
+          "skill": "Data Cleaning",
+          "via": "Pandas"
+        }
+      ],
+      "missing_skills": [
+        "Probability",
+        "Data Visualization",
+        "Feature Engineering",
+        "Model Evaluation",
+        "Jupyter Notebook"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 70.92
+    },
+    "status": "Shortlisted",
+    "resume_path": "",
+    "id": "REF-87FE6EEF4D",
+    "timestamp": "Just now",
+    "quiz_session_id": "31738454-5770-4a1b-8252-7a928c0fad63",
+    "quiz_started_at": "2026-11-25T13:44:03.152363+00:00",
+    "quiz_report_full": {
+      "totalScore": 130,
+      "maxScore": 200,
+      "percentage": 65.0,
+      "results": [
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Missing values and schema drift",
+          "feedback": "Correct. Validating schema consistency and missingness is foundational for model reliability."
+        },
+        {
+          "questionId": 20,
+          "question": "In distributed DataScienceEngineer architectures, why should message consumers be idempotent?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "feedback": "Correct. Idempotency is critical in distributed systems to handle retry logic safely."
+        },
+        {
+          "questionId": 4,
+          "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Data leakage and biased evaluation",
+          "feedback": "Correct. Preprocessing global data before the split often leads to unintentional data leakage."
+        },
+        {
+          "questionId": 15,
+          "question": "When monitoring a Python system from business analytics system, which signal most strongly suggests production degradation or drift?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "feedback": "Correct. These telemetry metrics are standard indicators of performance degradation."
+        },
+        {
+          "questionId": 2,
+          "question": "Write a SQL query to count rows where Python is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "select count(*)\nfrom table_name \nwhere html not null html>0;",
+          "feedback": "The SQL is syntactically invalid. It lacks the 'IS' keyword for null checks, missing the 'AND' operator, and uses 'html' instead of a valid column reference."
+        },
+        {
+          "questionId": 14,
+          "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "df.group('region')['revnue'].sum;",
+          "feedback": "Incorrect syntax. Pandas uses 'groupby', not 'group'. There is a typo in 'revenue', and the sum function requires parentheses to execute."
+        },
+        {
+          "questionId": 9,
+          "question": "For a Python-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To prevent information leakage into evaluation data",
+          "feedback": "Correct. Fitting parameters on the full dataset leaks information from the test set into training."
+        },
+        {
+          "questionId": 8,
+          "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "3",
+          "feedback": "Correct. The numbers are 0, 2, and 4."
+        },
+        {
+          "questionId": 13,
+          "question": "Which checks are appropriate when validating Python and Statistics code used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Measured output against an expected result",
+          "feedback": "The user selected a logical validation step, but the reference answer specifically identifies 'Input and null handling' as the primary check for robust pipelines."
+        },
+        {
+          "questionId": 11,
+          "question": "A Python model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+          "feedback": "Correct. This is the standard practice to prevent data leakage."
+        },
+        {
+          "questionId": 16,
+          "question": "For a DataScienceEngineer service handling concurrent requests with Python, which caching strategy prevents stale reads after writes?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "feedback": "Correct. Write-through ensures the cache stays consistent with the database."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "def fun(num):\nresult =1;\n if num<0:\n   break;\n else: \n for i in range(1,num):\n  result=result*i\n print(result)\n ",
+          "feedback": "The code contains several errors: 'break' is used outside of a loop, the range(1, num) excludes the value of 'num' itself, and it prints rather than returning the result."
+        },
+        {
+          "questionId": 7,
+          "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Zero points awarded for skipped question."
+        },
+        {
+          "questionId": 17,
+          "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a DataScienceEngineer endpoint?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "429 Too Many Requests with a Retry-After header",
+          "feedback": "Correct. 429 is the standard status code for rate limiting."
+        },
+        {
+          "questionId": 10,
+          "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Zero points awarded for skipped question."
+        },
+        {
+          "questionId": 6,
+          "question": "When a resume highlights Python and Statistics, which practice best validates that those skills were used on a real project?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Correct. Technical depth is best proven through explaining decisions and outcomes."
+        },
+        {
+          "questionId": 12,
+          "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "feedback": "Correct. Handling unseen categories is essential for production robustness."
+        },
+        {
+          "questionId": 18,
+          "question": "Write a function or query in Python (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Zero points awarded for skipped question."
+        },
+        {
+          "questionId": 3,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a DataScienceEngineer model used in business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Correct. Accuracy is unreliable for imbalanced datasets."
+        },
+        {
+          "questionId": 19,
+          "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To catch contract mismatches across services and databases early",
+          "feedback": "Correct. Integration tests ensure different components work together correctly."
+        }
+      ],
+      "overallFeedback": "The candidate demonstrated strong knowledge in conceptual Data Science and DevOps practices, including data leakage prevention, monitoring, and rate limiting. However, they struggled significantly with coding tasks, showing syntax errors in both SQL and Pandas, and logic errors in Python. Additionally, skipping three technical implementation questions brought down the final score.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 65.0
+  },
+  {
+    "name": "maxx",
+    "role": "Cybersecurity",
+    "score": 77.16,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 61.7,
+        "experience": 91.8,
+        "education": 94.5,
+        "projects": 59.4,
+        "format": 86.2
+      },
+      "final_score": 77.16,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 61.7,
+        "experience": 91.8,
+        "education": 94.5,
+        "projects": 59.4,
+        "format": 86.2
+      },
+      "feedback": {
+        "skills": "Excellent offensive security/pentesting profile. Must add GRC, Cryptography, and Firewalls to meet broader Cybersecurity requirements.",
+        "experience": "Strong professional progression. Impact is currently too descriptive; quantify risk reduction and vulnerability remediation metrics.",
+        "education": "Relevant B.Tech degree and CEH certification. Adding OSCP or CISSP-Associate would significantly boost senior-level credibility.",
+        "projects": "Bug hunting achievements are high-tier but lack technical depth. Detail the 'how' behind your most critical CVE/vulnerability finds.",
+        "ats": "Good structure, but redundant bullet points (e.g., 'Bug Hunting') waste space. Use a 'Technical Stack' section for better indexing."
+      },
+      "ai_analysis": {
+        "final_score": 78,
+        "breakdown": {
+          "skills_match": 70,
+          "experience_relevance": 85,
+          "education": 90,
+          "projects": 65,
+          "presentation": 75
+        },
+        "dimension_feedback": {
+          "skills": "Excellent offensive security/pentesting profile. Must add GRC, Cryptography, and Firewalls to meet broader Cybersecurity requirements.",
+          "experience": "Strong professional progression. Impact is currently too descriptive; quantify risk reduction and vulnerability remediation metrics.",
+          "education": "Relevant B.Tech degree and CEH certification. Adding OSCP or CISSP-Associate would significantly boost senior-level credibility.",
+          "projects": "Bug hunting achievements are high-tier but lack technical depth. Detail the 'how' behind your most critical CVE/vulnerability finds.",
+          "ats": "Good structure, but redundant bullet points (e.g., 'Bug Hunting') waste space. Use a 'Technical Stack' section for better indexing."
+        },
+        "strengths": [
+          "Elite track record in bug hunting with Hall of Fame status at major firms like Mastercard and Western Union.",
+          "Direct experience integrating security tools (Checkmarx, ThreadFix) into CI/CD pipelines for DevSecOps.",
+          "Diverse platform expertise spanning Web, Mobile (iOS/Android), API, and Cloud configuration reviews.",
+          "Active contribution to high-stakes security platforms like Synack Red Team and Cobalt.io."
+        ],
+        "weaknesses": [
+          "Critical keyword gaps in defensive security: missing IDS/IPS, Firewalls, Incident Response, and SIEM depth.",
+          "Lack of GRC (Governance, Risk, Compliance) exposure which is essential for corporate cybersecurity roles.",
+          "Vague impact descriptions—mentions '25+ applications' but doesn't detail the business value or risk mitigation achieved."
+        ],
+        "improvements": [
+          "Quantify experience: 'Remediated X% of critical vulnerabilities within one sprint cycle' instead of 'Reported vulnerabilities'.",
+          "Create a dedicated 'Technical Environment' section for each role to list specific tools like Burp Suite, Zap, or SonarQube.",
+          "Consolidate 'Independent Researcher' bullets to make room for a section on specific CVEs or high-impact research papers."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "Ninad shows exceptional technical proficiency in offensive security and application testing with a proven track record at ArisGlobal and major bug bounty platforms. While the resume lacks defensive infrastructure keywords, his specialized skills in DevSecOps and pentesting make him a top-tier candidate for AppSec or Red Team roles.",
+        "final_report": {
+          "executive_summary": "Ninad is a highly skilled Application Security Engineer and Ethical Hacker with a strong background in offensive security, pentesting, and bug hunting. He demonstrates solid leadership in AppSec projects and DevSecOps implementation, though his profile is currently skewed heavily toward 'red team' activities. To transition into a well-rounded Cybersecurity lead role, he needs to emphasize defensive strategies, risk management, and compliance frameworks.",
+          "category_analysis": {
+            "skills": {
+              "status": "Gap",
+              "strengths": [
+                "Web & Mobile Pentesting",
+                "Source Code Analysis",
+                "DevSecOps Integration"
+              ],
+              "weaknesses": [
+                "Governance, Risk & Compliance (GRC)",
+                "Network Defense (Firewalls, IDS)",
+                "Incident Response"
+              ],
+              "recommendations": [
+                "Add certifications like CompTIA Security+ or CISSP",
+                "List specific compliance standards worked with (OWASP Top 10, NIST, PCI-DSS)"
+              ]
+            },
+            "experience": {
+              "status": "Strength",
+              "strengths": [
+                "End-to-end security testing leadership",
+                "Consistent high-level performance on Synack and Cobalt",
+                "Professional growth from intern to lead roles"
+              ],
+              "weaknesses": [
+                "Repetitive task descriptions",
+                "Lack of percentage-based efficiency metrics"
+              ],
+              "recommendations": [
+                "Use the STAR method for bullet points",
+                "Highlight specific threat modeling methodologies used (e.g., STRIDE)"
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "B.Tech in CSE from a reputable institute",
+                "CEH Certification"
+              ],
+              "weaknesses": [
+                "Missing advanced offensive certs like OSCP"
+              ],
+              "recommendations": [
+                "Pursue OSCP to solidify 'Core Pentester' claims"
+              ]
+            },
+            "presentation": {
+              "status": "Gap",
+              "strengths": [
+                "Clean, readable layout",
+                "Good use of whitespace"
+              ],
+              "weaknesses": [
+                "Repeating 'Bug Hunting' across multiple roles",
+                "Social links consume significant space"
+              ],
+              "recommendations": [
+                "Summarize bug bounty work into a single section to highlight variety"
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "Risk Management",
+              "Incident Response",
+              "Firewall Configuration",
+              "IDS/IPS"
+            ],
+            "medium_priority_missing": [
+              "Cyber Laws",
+              "ISO 27001",
+              "Cryptography"
+            ],
+            "learning_roadmap": [
+              "Obtain a Cloud Security certification (AWS/Azure)",
+              "Deep dive into SIEM architecture and SOC operations",
+              "Study NIST Cybersecurity Framework for risk management"
+            ]
+          },
+          "experience_enhancement": [
+            "Detail the 'Source Code Review' process—mention if it was manual or tool-assisted (e.g., Checkmarx, Snyk).",
+            "Mention specific cloud environments audited during Cobalt.io projects (AWS, Azure, or GCP)."
+          ],
+          "project_showcase_tips": [
+            "Instead of 'Finding vulnerabilities', say 'Identified and mitigated P1 Business Logic vulnerabilities in Fintech APIs'.",
+            "Describe the 'Security Workbook' in terms of user reach or technical complexity."
+          ],
+          "ats_optimization_checklist": [
+            "Add a 'Technical Skills' grid for ATS parsing",
+            "Include keywords: Vulnerability Management, Remediation, Threat Modeling, NIST, OWASP",
+            "Ensure phone number and email are in standard format"
+          ],
+          "action_plan": [
+            "Rewrite experience bullets to focus on 'Achieved X by doing Y as measured by Z'.",
+            "Integrate missing defensive keywords into the Skills section.",
+            "Expand on the 'Security Analyst' intern role to show defensive breadth.",
+            "Add a 'Key Vulnerabilities Discovered' section to highlight Bug Bounty prestige."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Ninad shows exceptional technical proficiency in offensive security and application testing with a proven track record at ArisGlobal and major bug bounty platforms. While the resume lacks defensive infrastructure keywords, his specialized skills in DevSecOps and pentesting make him a top-tier candidate for AppSec or Red Team roles.",
+      "final_report": {
+        "executive_summary": "Ninad is a highly skilled Application Security Engineer and Ethical Hacker with a strong background in offensive security, pentesting, and bug hunting. He demonstrates solid leadership in AppSec projects and DevSecOps implementation, though his profile is currently skewed heavily toward 'red team' activities. To transition into a well-rounded Cybersecurity lead role, he needs to emphasize defensive strategies, risk management, and compliance frameworks.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Web & Mobile Pentesting",
+              "Source Code Analysis",
+              "DevSecOps Integration"
+            ],
+            "weaknesses": [
+              "Governance, Risk & Compliance (GRC)",
+              "Network Defense (Firewalls, IDS)",
+              "Incident Response"
+            ],
+            "recommendations": [
+              "Add certifications like CompTIA Security+ or CISSP",
+              "List specific compliance standards worked with (OWASP Top 10, NIST, PCI-DSS)"
+            ]
+          },
+          "experience": {
+            "status": "Strength",
+            "strengths": [
+              "End-to-end security testing leadership",
+              "Consistent high-level performance on Synack and Cobalt",
+              "Professional growth from intern to lead roles"
+            ],
+            "weaknesses": [
+              "Repetitive task descriptions",
+              "Lack of percentage-based efficiency metrics"
+            ],
+            "recommendations": [
+              "Use the STAR method for bullet points",
+              "Highlight specific threat modeling methodologies used (e.g., STRIDE)"
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "B.Tech in CSE from a reputable institute",
+              "CEH Certification"
+            ],
+            "weaknesses": [
+              "Missing advanced offensive certs like OSCP"
+            ],
+            "recommendations": [
+              "Pursue OSCP to solidify 'Core Pentester' claims"
+            ]
+          },
+          "presentation": {
+            "status": "Gap",
+            "strengths": [
+              "Clean, readable layout",
+              "Good use of whitespace"
+            ],
+            "weaknesses": [
+              "Repeating 'Bug Hunting' across multiple roles",
+              "Social links consume significant space"
+            ],
+            "recommendations": [
+              "Summarize bug bounty work into a single section to highlight variety"
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Risk Management",
+            "Incident Response",
+            "Firewall Configuration",
+            "IDS/IPS"
+          ],
+          "medium_priority_missing": [
+            "Cyber Laws",
+            "ISO 27001",
+            "Cryptography"
+          ],
+          "learning_roadmap": [
+            "Obtain a Cloud Security certification (AWS/Azure)",
+            "Deep dive into SIEM architecture and SOC operations",
+            "Study NIST Cybersecurity Framework for risk management"
+          ]
+        },
+        "experience_enhancement": [
+          "Detail the 'Source Code Review' process—mention if it was manual or tool-assisted (e.g., Checkmarx, Snyk).",
+          "Mention specific cloud environments audited during Cobalt.io projects (AWS, Azure, or GCP)."
+        ],
+        "project_showcase_tips": [
+          "Instead of 'Finding vulnerabilities', say 'Identified and mitigated P1 Business Logic vulnerabilities in Fintech APIs'.",
+          "Describe the 'Security Workbook' in terms of user reach or technical complexity."
+        ],
+        "ats_optimization_checklist": [
+          "Add a 'Technical Skills' grid for ATS parsing",
+          "Include keywords: Vulnerability Management, Remediation, Threat Modeling, NIST, OWASP",
+          "Ensure phone number and email are in standard format"
+        ],
+        "action_plan": [
+          "Rewrite experience bullets to focus on 'Achieved X by doing Y as measured by Z'.",
+          "Integrate missing defensive keywords into the Skills section.",
+          "Expand on the 'Security Analyst' intern role to show defensive breadth.",
+          "Add a 'Key Vulnerabilities Discovered' section to highlight Bug Bounty prestige."
+        ]
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "Network Security",
+        "Ethical Hacking",
+        "Penetration Testing",
+        "Linux",
+        "Vulnerability Assessment",
+        "SIEM Tools"
+      ],
+      "direct_matched_skills": [
+        "Ethical Hacking",
+        "Penetration Testing",
+        "Linux",
+        "Vulnerability Assessment",
+        "SIEM Tools"
+      ],
+      "inferred_skills": [
+        {
+          "skill": "Network Security",
+          "via": "Penetration Testing"
+        }
+      ],
+      "missing_skills": [
+        "Cryptography",
+        "Firewalls",
+        "Intrusion Detection Systems",
+        "Incident Response",
+        "Risk Management",
+        "Cyber Laws",
+        "Compliance"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 77.16
+    },
+    "status": "Shortlisted",
+    "resume_path": "",
+    "id": "REF-0E9FCB2360",
+    "timestamp": "Just now",
+    "quiz_session_id": "01c83af6-932e-4690-9bd0-42d8e161691b",
+    "quiz_started_at": "2026-11-25T14:09:48.503593+00:00",
+    "quiz_report_full": {
+      "totalScore": 120,
+      "maxScore": 200,
+      "percentage": 60.0,
+      "results": [
+        {
+          "questionId": 3,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a Cybersecurity model used in business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Correct. The candidate correctly identified that imbalanced classes require metrics more nuanced than raw accuracy."
+        },
+        {
+          "questionId": 11,
+          "question": "A Network Security model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+          "feedback": "Correct. This demonstrates a solid understanding of preventing data leakage in the ML pipeline."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "3",
+          "feedback": "Incorrect. The candidate provided an integer (likely the answer to a different question) instead of the requested iterative code snippet."
+        },
+        {
+          "questionId": 16,
+          "question": "For a Cybersecurity service handling concurrent requests with Network Security, which caching strategy prevents stale reads after writes?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "feedback": "Correct. The user identified the proper mechanism for maintaining cache consistency."
+        },
+        {
+          "questionId": 17,
+          "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a Cybersecurity endpoint?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "429 Too Many Requests with a Retry-After header",
+          "feedback": "Correct. HTTP 429 is the standard for rate-limiting, and using the Retry-After header is best practice."
+        },
+        {
+          "questionId": 9,
+          "question": "For a Network Security-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To prevent information leakage into evaluation data",
+          "feedback": "Correct. Fitting on the training set ensures the model doesn't 'see' statistics from the test set during the pipeline preparation."
+        },
+        {
+          "questionId": 7,
+          "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Candidate skipped this technical description question."
+        },
+        {
+          "questionId": 6,
+          "question": "When a resume highlights Network Security and Ethical Hacking, which practice best validates that those skills were used on a real project?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Correct. Discussing architectural tradeoffs is the gold standard for verifying project experience."
+        },
+        {
+          "questionId": 15,
+          "question": "When monitoring a Network Security system from business analytics system, which signal most strongly suggests production degradation or drift?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "feedback": "Correct. Monitoring telemetry shifts is key to identifying operational or data-driven degradation."
+        },
+        {
+          "questionId": 13,
+          "question": "Which checks are appropriate when validating Network Security and Ethical Hacking code used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Measured output against an expected result",
+          "feedback": "Incorrect. While verifying output is part of testing, the correct option provided in the reference emphasized 'Input and null handling' as a primary validation check."
+        },
+        {
+          "questionId": 10,
+          "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Candidate skipped the SQL coding task."
+        },
+        {
+          "questionId": 12,
+          "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "feedback": "Correct. Implementing safe fallbacks for unseen categorical levels is vital for production stability."
+        },
+        {
+          "questionId": 20,
+          "question": "In distributed Cybersecurity architectures, why should message consumers be idempotent?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "feedback": "Correct. Idempotency is crucial in distributed systems to handle inevitable message redeliveries."
+        },
+        {
+          "questionId": 18,
+          "question": "Write a function or query in Network Security (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Candidate skipped the deduplication logic task."
+        },
+        {
+          "questionId": 19,
+          "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To catch contract mismatches across services and databases early",
+          "feedback": "Correct. Integration tests serve to verify boundaries and service contracts."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Missing values and schema drift",
+          "feedback": "Correct. These are foundational data quality issues that impact model performance."
+        },
+        {
+          "questionId": 2,
+          "question": "Write a SQL query to count rows where Network Security is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Candidate skipped the SQL filtering task."
+        },
+        {
+          "questionId": 14,
+          "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Candidate skipped the Pandas aggregation task."
+        },
+        {
+          "questionId": 8,
+          "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Candidate skipped the code logic prediction task."
+        },
+        {
+          "questionId": 4,
+          "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Data leakage and biased evaluation",
+          "feedback": "Correct. Preprocessing before splitting is a primary cause of evaluation bias."
+        }
+      ],
+      "overallFeedback": "The candidate shows strong theoretical proficiency in machine learning pipelines, system design, and monitoring. However, they skipped or failed every coding-based task (SQL, Python, and Algorithm descriptions), leading to a significant loss of points. For a technical role, these practical implementation skills are essential.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 60.0
+  },
+  {
+    "name": "mohann",
+    "role": "Cybersecurity",
+    "score": 74.76,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 61.7,
+        "experience": 91.8,
+        "education": 89,
+        "projects": 56.6,
+        "format": 86.2
+      },
+      "final_score": 74.76,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 61.7,
+        "experience": 91.8,
+        "education": 89,
+        "projects": 56.6,
+        "format": 86.2
+      },
+      "feedback": {
+        "skills": "Exceptional offensive security/pentesting match; missing GRC and defensive keywords like Firewalls, IDS, and Cryptography.",
+        "experience": "Strong technical depth in AppSec; needs to quantify impact with metrics like vulnerability remediation rate or risk reduction %.",
+        "education": "Relevant B.Tech degree and CEH; however, senior roles expect advanced certifications like OSCP, CISSP, or CISM.",
+        "projects": "Security Workbook is too generic; detail specific complex vulnerabilities found or tools developed with measurable results.",
+        "ats": "Modern layout may struggle with legacy parsers; ensure critical keywords like 'Risk Management' and 'Compliance' are integrated."
+      },
+      "ai_analysis": {
+        "final_score": 74,
+        "breakdown": {
+          "skills_match": 70,
+          "experience_relevance": 85,
+          "education": 80,
+          "projects": 60,
+          "presentation": 75
+        },
+        "dimension_feedback": {
+          "skills": "Exceptional offensive security/pentesting match; missing GRC and defensive keywords like Firewalls, IDS, and Cryptography.",
+          "experience": "Strong technical depth in AppSec; needs to quantify impact with metrics like vulnerability remediation rate or risk reduction %.",
+          "education": "Relevant B.Tech degree and CEH; however, senior roles expect advanced certifications like OSCP, CISSP, or CISM.",
+          "projects": "Security Workbook is too generic; detail specific complex vulnerabilities found or tools developed with measurable results.",
+          "ats": "Modern layout may struggle with legacy parsers; ensure critical keywords like 'Risk Management' and 'Compliance' are integrated."
+        },
+        "strengths": [
+          "Elite offensive track record with Hall of Fame recognitions from Mastercard and Western Union.",
+          "Proven experience in DevSecOps and CI/CD security integration at ArisGlobal.",
+          "Diverse pentesting portfolio covering Web, Mobile, API, and Cloud configurations.",
+          "Active contributor to major bug bounty platforms like Synack and Cobalt.io."
+        ],
+        "weaknesses": [
+          "Significant gap in defensive security domains like Incident Response and IDS/IPS.",
+          "Absence of regulatory compliance knowledge (GDPR, SOC2, ISO 27001).",
+          "Lack of quantifiable business impact in work experience descriptions.",
+          "Missing fundamental cybersecurity pillars like Cryptography and Risk Management."
+        ],
+        "improvements": [
+          "Incorporate metrics: 'Identified 25+ vulnerabilities' should become 'Reduced application risk by X% through remediation.'",
+          "Add a dedicated 'Technical Environment' section to include missing keywords like Firewalls, SIEM, and SOC.",
+          "Update projects to focus on the 'Researcher Spotlight' with specific technical challenges overcome.",
+          "Switch to a single-column, standard ATS-friendly template to ensure 100% parsing accuracy."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "The candidate is a top-tier offensive security specialist with verified real-world impact. While missing some defensive and administrative keywords, their technical depth in AppSec makes them a high-value asset.",
+        "final_report": {
+          "executive_summary": "Ninad is a highly skilled Application Security Engineer and Bug Bounty Hunter with 5+ years of hands-on experience in offensive security. He demonstrates expert-level proficiency in penetration testing across multiple platforms and has successfully integrated security into DevOps pipelines. While his profile is heavily skewed toward offensive operations, his technical pedigree is exceptional.",
+          "category_analysis": {
+            "skills": {
+              "status": "Gap",
+              "strengths": [
+                "Penetration Testing",
+                "DevSecOps",
+                "Vulnerability Assessment"
+              ],
+              "weaknesses": [
+                "Compliance/GRC",
+                "Incident Response",
+                "Cryptography"
+              ],
+              "recommendations": [
+                "Acquire a foundational GRC certification or list familiar frameworks like OWASP Top 10."
+              ]
+            },
+            "experience": {
+              "status": "Strength",
+              "strengths": [
+                "Leadership in AppSec teams",
+                "Verified Red Team experience at Synack",
+                "Cloud configuration reviews"
+              ],
+              "weaknesses": [
+                "Lack of high-level risk reporting for executive stakeholders"
+              ],
+              "recommendations": [
+                "Focus on the 'Why' behind findings—explain the business risk of the vulnerabilities discovered."
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "B.Tech in CS",
+                "Certified Ethical Hacker (CEH)"
+              ],
+              "weaknesses": [
+                "Missing senior-level certifications (OSCP/CISSP)"
+              ],
+              "recommendations": [
+                "Highlight any ongoing studies for advanced certifications to show commitment to growth."
+              ]
+            },
+            "presentation": {
+              "status": "Strength",
+              "strengths": [
+                "Clean layout",
+                "Clear career progression"
+              ],
+              "weaknesses": [
+                "Two-column format risk",
+                "Generic project descriptions"
+              ],
+              "recommendations": [
+                "Move to a single-column format to prioritize readability for all ATS types."
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "Risk Management",
+              "Incident Response",
+              "Firewalls",
+              "Compliance"
+            ],
+            "medium_priority_missing": [
+              "Cryptography",
+              "Cyber Laws",
+              "Intrusion Detection Systems"
+            ],
+            "learning_roadmap": [
+              "OSCP for advanced offensive validation",
+              "CISSP for management and compliance breadth",
+              "Hands-on Blue Team labs for Incident Response"
+            ]
+          },
+          "experience_enhancement": [
+            "Quantify the scale of the 25+ applications reviewed at ArisGlobal by user base or revenue protected.",
+            "Detail specific Cloud (AWS/Azure/GCP) environments reviewed at Cobalt.io.",
+            "Explain the impact of the 'DevSecOps' implementation—e.g., decreased time-to-production security checks."
+          ],
+          "project_showcase_tips": [
+            "Describe one high-severity vulnerability found in a Hall of Fame company and how it was responsibly disclosed.",
+            "Link the 'Security Workbook' to a GitHub repository with stars/forks as social proof."
+          ],
+          "ats_optimization_checklist": [
+            "Change 'Hacker' to 'Security Engineer' in title for better keyword matching.",
+            "Ensure phone number and email are in the header without icons.",
+            "Spell out abbreviations like 'SIEM' and 'GRC' at least once.",
+            "List tools (BurpSuite, Checkmarx) in a dedicated technical skills section."
+          ],
+          "action_plan": [
+            "Convert resume to a single-column ATS-friendly template.",
+            "Add quantifiable metrics to every professional experience bullet point.",
+            "Integrate missing compliance and defensive keywords into a 'Skills' or 'Knowledge' section.",
+            "Research and add 1-2 sentences on GRC/Compliance experience gained during pentesting projects."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "The candidate is a top-tier offensive security specialist with verified real-world impact. While missing some defensive and administrative keywords, their technical depth in AppSec makes them a high-value asset.",
+      "final_report": {
+        "executive_summary": "Ninad is a highly skilled Application Security Engineer and Bug Bounty Hunter with 5+ years of hands-on experience in offensive security. He demonstrates expert-level proficiency in penetration testing across multiple platforms and has successfully integrated security into DevOps pipelines. While his profile is heavily skewed toward offensive operations, his technical pedigree is exceptional.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Penetration Testing",
+              "DevSecOps",
+              "Vulnerability Assessment"
+            ],
+            "weaknesses": [
+              "Compliance/GRC",
+              "Incident Response",
+              "Cryptography"
+            ],
+            "recommendations": [
+              "Acquire a foundational GRC certification or list familiar frameworks like OWASP Top 10."
+            ]
+          },
+          "experience": {
+            "status": "Strength",
+            "strengths": [
+              "Leadership in AppSec teams",
+              "Verified Red Team experience at Synack",
+              "Cloud configuration reviews"
+            ],
+            "weaknesses": [
+              "Lack of high-level risk reporting for executive stakeholders"
+            ],
+            "recommendations": [
+              "Focus on the 'Why' behind findings—explain the business risk of the vulnerabilities discovered."
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "B.Tech in CS",
+              "Certified Ethical Hacker (CEH)"
+            ],
+            "weaknesses": [
+              "Missing senior-level certifications (OSCP/CISSP)"
+            ],
+            "recommendations": [
+              "Highlight any ongoing studies for advanced certifications to show commitment to growth."
+            ]
+          },
+          "presentation": {
+            "status": "Strength",
+            "strengths": [
+              "Clean layout",
+              "Clear career progression"
+            ],
+            "weaknesses": [
+              "Two-column format risk",
+              "Generic project descriptions"
+            ],
+            "recommendations": [
+              "Move to a single-column format to prioritize readability for all ATS types."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Risk Management",
+            "Incident Response",
+            "Firewalls",
+            "Compliance"
+          ],
+          "medium_priority_missing": [
+            "Cryptography",
+            "Cyber Laws",
+            "Intrusion Detection Systems"
+          ],
+          "learning_roadmap": [
+            "OSCP for advanced offensive validation",
+            "CISSP for management and compliance breadth",
+            "Hands-on Blue Team labs for Incident Response"
+          ]
+        },
+        "experience_enhancement": [
+          "Quantify the scale of the 25+ applications reviewed at ArisGlobal by user base or revenue protected.",
+          "Detail specific Cloud (AWS/Azure/GCP) environments reviewed at Cobalt.io.",
+          "Explain the impact of the 'DevSecOps' implementation—e.g., decreased time-to-production security checks."
+        ],
+        "project_showcase_tips": [
+          "Describe one high-severity vulnerability found in a Hall of Fame company and how it was responsibly disclosed.",
+          "Link the 'Security Workbook' to a GitHub repository with stars/forks as social proof."
+        ],
+        "ats_optimization_checklist": [
+          "Change 'Hacker' to 'Security Engineer' in title for better keyword matching.",
+          "Ensure phone number and email are in the header without icons.",
+          "Spell out abbreviations like 'SIEM' and 'GRC' at least once.",
+          "List tools (BurpSuite, Checkmarx) in a dedicated technical skills section."
+        ],
+        "action_plan": [
+          "Convert resume to a single-column ATS-friendly template.",
+          "Add quantifiable metrics to every professional experience bullet point.",
+          "Integrate missing compliance and defensive keywords into a 'Skills' or 'Knowledge' section.",
+          "Research and add 1-2 sentences on GRC/Compliance experience gained during pentesting projects."
+        ]
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "Network Security",
+        "Ethical Hacking",
+        "Penetration Testing",
+        "Linux",
+        "Vulnerability Assessment",
+        "SIEM Tools"
+      ],
+      "direct_matched_skills": [
+        "Ethical Hacking",
+        "Penetration Testing",
+        "Linux",
+        "Vulnerability Assessment",
+        "SIEM Tools"
+      ],
+      "inferred_skills": [
+        {
+          "skill": "Network Security",
+          "via": "Penetration Testing"
+        }
+      ],
+      "missing_skills": [
+        "Cryptography",
+        "Firewalls",
+        "Intrusion Detection Systems",
+        "Incident Response",
+        "Risk Management",
+        "Cyber Laws",
+        "Compliance"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 74.76
+    },
+    "status": "Shortlisted",
+    "resume_path": "",
+    "id": "REF-DD3BC7250E",
+    "timestamp": "Just now",
+    "quiz_session_id": "31349ba6-50f8-4245-8029-bcf4ac61f646",
+    "quiz_started_at": "2026-11-25T14:25:58.693098+00:00",
+    "quiz_report_full": {
+      "totalScore": 90,
+      "maxScore": 200,
+      "percentage": 45.0,
+      "results": [
+        {
+          "questionId": 20,
+          "question": "Provide a one‑line Bash pipeline that extracts unique IP addresses from an Apache access log '/var/log/apache2/access.log' that resulted in a 404 status code.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 4,
+          "question": "Which of the following is a common vulnerability assessment tool on Linux?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Nmap",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 3,
+          "question": "In ethical hacking, which phase focuses on gathering publicly available information about the target?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Reconnaissance",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 15,
+          "question": "During a red‑team exercise, you discover that the target's internal DNS server allows zone transfers. Which of the following actions provides the most valuable intelligence?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Transfer the zone and enumerate hostnames",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 14,
+          "question": "In a Linux environment, which kernel parameter controls the maximum number of open file descriptors, and how would you permanently set it to 200000?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "max_open_files in /etc/security/limits.conf",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 11,
+          "question": "When performing vulnerability assessment on a Linux server, which command combination quickly identifies setuid binaries?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "grep setuid /etc/passwd",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 10,
+          "question": "Which of the following best describes a 'pivot' in penetration testing?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Moving laterally to another system after initial compromise",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 18,
+          "question": "Give a one‑line Bash command to display the top 5 processes consuming the most memory.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 16,
+          "question": "Write a one‑line bash command that finds all '.conf' files in /etc containing the word 'password' (case‑insensitive).",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 8,
+          "question": "Which Linux file contains the list of active firewall rules when using iptables?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "/proc/net/ip_tables_matches",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 1,
+          "question": "What is the primary purpose of a SIEM tool in a security operations center?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Perform vulnerability scanning",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 6,
+          "question": "Which protocol is typically used to securely transfer files over a network?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "FTP",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 12,
+          "question": "Which of the following is NOT a typical component of a comprehensive incident response plan?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Code obfuscation",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 19,
+          "question": "Write a single‑line awk command that prints the second column of a CSV file 'data.csv' where the first column equals 'ERROR'.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 9,
+          "question": "In a SIEM, which type of correlation rule would you use to detect a brute‑force login attack?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "User‑behavior anomaly rule",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 7,
+          "question": "During a penetration test, you discover a misconfigured Apache server exposing directory listings. Which remediation step is most appropriate?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Disable directory indexing in the Apache config",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 2,
+          "question": "Which Linux command lists all active network connections and listening ports?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "netstat -tulpn",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 17,
+          "question": "Provide a single‑line Python expression that returns True if the string variable 's' contains any digit.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Incorrect or alternative response."
+        },
+        {
+          "questionId": 5,
+          "question": "What does the acronym IDS stand for?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Intrusion Detection System",
+          "feedback": "Correct!"
+        },
+        {
+          "questionId": 13,
+          "question": "A penetration tester needs to bypass a web application firewall (WAF) that blocks known SQL injection payloads. Which technique is most likely to succeed?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Encode the payload in Unicode and double‑encode it",
+          "feedback": "Correct!"
+        }
+      ],
+      "overallFeedback": "Candidate completed technical quiz evaluation with score of 45.0%.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 45.0
+  },
+  {
+    "name": "vanda",
+    "role": "FrontendDeveloper",
+    "score": 77.86,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 64.5,
+        "experience": 84.6,
+        "education": 91,
+        "projects": 86.2,
+        "format": 91.8
+      },
+      "final_score": 77.86,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 64.5,
+        "experience": 84.6,
+        "education": 91,
+        "projects": 86.2,
+        "format": 91.8
+      },
+      "feedback": {
+        "skills": "Strong React/Angular/TS base. Add Next.js, Redux, and Unit Testing (Jest/Cypress) to match modern frontend requirements.",
+        "experience": "Heavy Cloud/DevOps focus. Pivot bullet points to highlight UI component architecture and frontend performance wins.",
+        "education": "Master’s in CS with a 4.0 GPA is exceptional; no changes needed here as it qualifies you for senior-level thresholds.",
+        "projects": "Projects lean heavily towards AI and Infrastructure. Add a dedicated frontend project focusing on Web Accessibility or Next.js.",
+        "ats": "Resume is structured well but lacks niche frontend keywords like Responsive Design, REST APIs, and Performance Optimization."
+      },
+      "ai_analysis": {
+        "final_score": 78,
+        "breakdown": {
+          "skills_match": 75,
+          "experience_relevance": 72,
+          "education": 100,
+          "projects": 75,
+          "presentation": 85
+        },
+        "dimension_feedback": {
+          "skills": "Strong React/Angular/TS base. Add Next.js, Redux, and Unit Testing (Jest/Cypress) to match modern frontend requirements.",
+          "experience": "Heavy Cloud/DevOps focus. Pivot bullet points to highlight UI component architecture and frontend performance wins.",
+          "education": "Master’s in CS with a 4.0 GPA is exceptional; no changes needed here as it qualifies you for senior-level thresholds.",
+          "projects": "Projects lean heavily towards AI and Infrastructure. Add a dedicated frontend project focusing on Web Accessibility or Next.js.",
+          "ats": "Resume is structured well but lacks niche frontend keywords like Responsive Design, REST APIs, and Performance Optimization."
+        },
+        "strengths": [
+          "Tier-1 industry experience at Microsoft and Amazon proving ability to work at scale.",
+          "Advanced academic background with a 4.0 GPA MSCS from a reputable US institution.",
+          "Strong cross-platform mobile experience with React Native and Android.",
+          "Deep understanding of the full software lifecycle, including DevOps and Cloud deployment."
+        ],
+        "weaknesses": [
+          "Overshadowing of frontend expertise by heavy Azure/Cloud/DevOps technical depth.",
+          "Missing explicit mention of frontend testing frameworks (Jest, React Testing Library).",
+          "Lack of 'Responsive Design' or 'Web Accessibility (a11y)' keywords critical for modern FE roles.",
+          "Current title 'Full Stack' may lead recruiters to overlook you for specialized Frontend roles."
+        ],
+        "improvements": [
+          "Incorporate a 'Core Competencies' section with keywords like REST APIs, State Management, and UI/UX Design.",
+          "Quantify frontend impact at Amazon/Microsoft (e.g., 'reduced bundle size by X%' or 'improved lighthouse score').",
+          "Add Next.js to the skills and projects section to align with current market demand.",
+          "Standardize job titles to 'Software Engineer (Frontend Focus)' if applying for pure FE roles."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "Deep is a high-caliber engineer with Big Tech experience and a stellar academic record. While his resume currently leans towards Full-Stack and Cloud, his proficiency in React and Angular makes him a strong candidate who can easily master specialized frontend tools.",
+        "final_report": {
+          "executive_summary": "Deep is a top-tier candidate with experience at Microsoft and Amazon and a 4.0 GPA Master's degree. His profile demonstrates strong versatility in JavaScript frameworks and cloud infrastructure. To excel in Frontend-specific applications, he needs to shift the narrative from infrastructure/DevOps toward UI architecture and frontend performance.",
+          "category_analysis": {
+            "skills": {
+              "status": "Gap",
+              "strengths": [
+                "React",
+                "Angular",
+                "TypeScript"
+              ],
+              "weaknesses": [
+                "State Management",
+                "Unit Testing",
+                "Web Accessibility"
+              ],
+              "recommendations": [
+                "Explicitly list Redux/Zustand and Jest/Cypress."
+              ]
+            },
+            "experience": {
+              "status": "Strength",
+              "strengths": [
+                "High-impact Big Tech roles",
+                "Full-stack delivery"
+              ],
+              "weaknesses": [
+                "Impact metrics are backend/infra-heavy"
+              ],
+              "recommendations": [
+                "Add UI-centric metrics like page load speed or component reusability."
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "MSCS with 4.0 GPA",
+                "Azure Certifications"
+              ],
+              "weaknesses": [],
+              "recommendations": []
+            },
+            "presentation": {
+              "status": "Strength",
+              "strengths": [
+                "Clean layout",
+                "Clear hierarchy"
+              ],
+              "weaknesses": [
+                "Lacks 'Frontend' keyword density"
+              ],
+              "recommendations": [
+                "Re-label skill categories to emphasize Web/Frontend."
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "Next.js",
+              "State Management",
+              "Unit Testing (Jest)"
+            ],
+            "medium_priority_missing": [
+              "Web Accessibility (a11y)",
+              "Responsive Design",
+              "REST APIs"
+            ],
+            "learning_roadmap": [
+              "Build a Next.js 14 project using Server Components.",
+              "Implement comprehensive testing using Playwright or Cypress.",
+              "Obtain a certification or showcase a project focused on Web Accessibility."
+            ]
+          },
+          "experience_enhancement": [
+            "Highlight React Native component optimization at Amazon.",
+            "Detail the Angular/React architectural decisions made at Microsoft India.",
+            "Mention collaboration with UX designers to implement pixel-perfect interfaces."
+          ],
+          "project_showcase_tips": [
+            "Highlight the frontend of the 'DevOps LLM Bot'—how did you make the dashboard intuitive?",
+            "Add a 'Performance Optimization' section to your portfolio site demonstrating Lighthouse scores."
+          ],
+          "ats_optimization_checklist": [
+            "Add 'Responsive Design' to Skills.",
+            "Add 'RESTful APIs' to Skills.",
+            "Ensure 'Frontend' appears in the top third of the resume."
+          ],
+          "action_plan": [
+            "Update Skills section to include Next.js and testing tools.",
+            "Rewrite 2-3 bullet points to emphasize frontend impact metrics.",
+            "Create a specific 'Frontend Engineer' version of the resume.",
+            "Include a link to a live frontend-focused portfolio project."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Deep is a high-caliber engineer with Big Tech experience and a stellar academic record. While his resume currently leans towards Full-Stack and Cloud, his proficiency in React and Angular makes him a strong candidate who can easily master specialized frontend tools.",
+      "final_report": {
+        "executive_summary": "Deep is a top-tier candidate with experience at Microsoft and Amazon and a 4.0 GPA Master's degree. His profile demonstrates strong versatility in JavaScript frameworks and cloud infrastructure. To excel in Frontend-specific applications, he needs to shift the narrative from infrastructure/DevOps toward UI architecture and frontend performance.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "React",
+              "Angular",
+              "TypeScript"
+            ],
+            "weaknesses": [
+              "State Management",
+              "Unit Testing",
+              "Web Accessibility"
+            ],
+            "recommendations": [
+              "Explicitly list Redux/Zustand and Jest/Cypress."
+            ]
+          },
+          "experience": {
+            "status": "Strength",
+            "strengths": [
+              "High-impact Big Tech roles",
+              "Full-stack delivery"
+            ],
+            "weaknesses": [
+              "Impact metrics are backend/infra-heavy"
+            ],
+            "recommendations": [
+              "Add UI-centric metrics like page load speed or component reusability."
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "MSCS with 4.0 GPA",
+              "Azure Certifications"
+            ],
+            "weaknesses": [],
+            "recommendations": []
+          },
+          "presentation": {
+            "status": "Strength",
+            "strengths": [
+              "Clean layout",
+              "Clear hierarchy"
+            ],
+            "weaknesses": [
+              "Lacks 'Frontend' keyword density"
+            ],
+            "recommendations": [
+              "Re-label skill categories to emphasize Web/Frontend."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Next.js",
+            "State Management",
+            "Unit Testing (Jest)"
+          ],
+          "medium_priority_missing": [
+            "Web Accessibility (a11y)",
+            "Responsive Design",
+            "REST APIs"
+          ],
+          "learning_roadmap": [
+            "Build a Next.js 14 project using Server Components.",
+            "Implement comprehensive testing using Playwright or Cypress.",
+            "Obtain a certification or showcase a project focused on Web Accessibility."
+          ]
+        },
+        "experience_enhancement": [
+          "Highlight React Native component optimization at Amazon.",
+          "Detail the Angular/React architectural decisions made at Microsoft India.",
+          "Mention collaboration with UX designers to implement pixel-perfect interfaces."
+        ],
+        "project_showcase_tips": [
+          "Highlight the frontend of the 'DevOps LLM Bot'—how did you make the dashboard intuitive?",
+          "Add a 'Performance Optimization' section to your portfolio site demonstrating Lighthouse scores."
+        ],
+        "ats_optimization_checklist": [
+          "Add 'Responsive Design' to Skills.",
+          "Add 'RESTful APIs' to Skills.",
+          "Ensure 'Frontend' appears in the top third of the resume."
+        ],
+        "action_plan": [
+          "Update Skills section to include Next.js and testing tools.",
+          "Rewrite 2-3 bullet points to emphasize frontend impact metrics.",
+          "Create a specific 'Frontend Engineer' version of the resume.",
+          "Include a link to a live frontend-focused portfolio project."
+        ]
+      },
+      "role": "FrontendDeveloper",
+      "matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Git"
+      ],
+      "direct_matched_skills": [
+        "JavaScript",
+        "React"
+      ],
+      "inferred_skills": [
+        {
+          "skill": "CSS",
+          "via": "Angular"
+        },
+        {
+          "skill": "Git",
+          "via": "GitHub"
+        },
+        {
+          "skill": "HTML",
+          "via": "Angular"
+        },
+        {
+          "skill": "TypeScript",
+          "via": "Angular"
+        }
+      ],
+      "missing_skills": [
+        "Next.js",
+        "State Management",
+        "REST APIs",
+        "Responsive Design",
+        "Web Accessibility",
+        "Unit Testing",
+        "Performance Optimization"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 77.86
+    },
+    "status": "Shortlisted",
+    "resume_path": "",
+    "id": "REF-0878B56B89",
+    "timestamp": "Just now",
+    "quiz_session_id": "7df57530-411e-428a-a128-2273f4f1b0ac",
+    "quiz_started_at": "2026-11-25T14:33:20.233658+00:00",
+    "quiz_report_full": {
+      "totalScore": 30,
+      "maxScore": 200,
+      "percentage": 15.0,
+      "results": [
+        {
+          "questionId": 13,
+          "question": "Write a one‑line HTML snippet that creates a button with the text 'Submit'.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 9,
+          "question": "Which of the following is a common technique to improve React rendering performance?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Storing component state in localStorage",
+          "feedback": "Incorrect. Storing state in localStorage is for persistence, not rendering performance. React.memo is the standard performance optimization tool."
+        },
+        {
+          "questionId": 20,
+          "question": "Refactor the following React component to prevent unnecessary re‑renders by using React.memo:\n\nfunction Expensive({value}){console.log('render');return <div>{value*2}</div>;}\nexport default Expensive;",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 6,
+          "question": "When working with Git, which command creates a new branch and switches to it in one step?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "git checkout -b new-feature",
+          "feedback": "Correct. This command is the standard way to create and switch branches simultaneously."
+        },
+        {
+          "questionId": 2,
+          "question": "In CSS, which selector has the highest specificity?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "header, .title",
+          "feedback": "Incorrect. ID selectors (#) have a higher weight in specificity than element or class selectors."
+        },
+        {
+          "questionId": 17,
+          "question": "Write a React functional component named 'Counter' that uses the useState hook to initialize count at 0 and renders a button that increments the count when clicked.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 16,
+          "question": "Create a TypeScript generic function 'identity' that returns the argument it receives, preserving its type.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 4,
+          "question": "In TypeScript, which declaration correctly defines a read‑only array of numbers?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "let nums: ReadonlyArray<number> = [];",
+          "feedback": "Incorrect. While ReadonlyArray exists, 'const nums: readonly number[]' is the preferred syntax for the specific declaration in the provided options."
+        },
+        {
+          "questionId": 8,
+          "question": "In a Next.js project, which folder is used for defining API routes?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "components/api",
+          "feedback": "Incorrect. Next.js uses the file-system based router where API routes are specifically located in the pages/api directory."
+        },
+        {
+          "questionId": 3,
+          "question": "What is the main difference between var and let in JavaScript?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "let is function-scoped, var is block-scoped",
+          "feedback": "Incorrect. The candidate swapped the definitions. 'let' is block-scoped, whereas 'var' is function-scoped."
+        },
+        {
+          "questionId": 19,
+          "question": "Given the React component below, identify the bug that causes an infinite render loop and provide the corrected line:\n\nfunction List({items}){const[filtered,setFiltered]=useState([]);useEffect(()=>{setFiltered(items.filter(i=>i.active));},[filtered]);return filtered.map(i=> <div key={i.id}>{i.name}</div>); }",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 12,
+          "question": "Which state‑management library integrates most naturally with React's concurrent features?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Redux (classic)",
+          "feedback": "Incorrect. Recoil was specifically built for React's concurrent rendering capabilities."
+        },
+        {
+          "questionId": 18,
+          "question": "Provide the Git command sequence to create a new branch 'feature-x', switch to it, stage all changes, commit with message 'add feature', and push to origin tracking the new branch.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 15,
+          "question": "Write a JavaScript arrow function that returns the square of a number passed as 'n'.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 5,
+          "question": "Which React hook would you use to perform a side effect only once after the component mounts?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "useLayoutEffect(() => {...});",
+          "feedback": "Incorrect. useLayoutEffect fires synchronously after mutations but before paint; the correct pattern for 'once on mount' is useEffect with an empty dependency array."
+        },
+        {
+          "questionId": 7,
+          "question": "In CSS Flexbox, what does 'justify-content: space-between' do?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Places first item at start and last item at end with space between",
+          "feedback": "Correct. This property distributes items along the main axis with the first and last items pinned to the edges."
+        },
+        {
+          "questionId": 11,
+          "question": "When handling REST API errors in a React app, which pattern best separates concerns?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Using a higher‑order component (HOC) to inject error handling logic",
+          "feedback": "Correct. Using HOCs or Error Boundaries for error management is an excellent way to decouple logic from UI components."
+        },
+        {
+          "questionId": 1,
+          "question": "Which HTML element is most appropriate for marking up a navigation menu?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "<section>",
+          "feedback": "Incorrect. The <nav> element is the semantic HTML tag specifically designed for navigation sections."
+        },
+        {
+          "questionId": 14,
+          "question": "Provide a one‑line CSS rule that sets the background color of the body to #f0f0f0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer provided. The candidate skipped this question."
+        },
+        {
+          "questionId": 10,
+          "question": "Which ARIA attribute would you use to label a custom button that only has an icon?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "aria-describedby",
+          "feedback": "Incorrect. aria-label is used to provide the main label, whereas aria-describedby is for additional descriptive text."
+        }
+      ],
+      "overallFeedback": "The candidate demonstrated basic knowledge of Git and React patterns, but skipped nearly 40% of the questions (especially code-writing tasks). Several fundamental CSS and JavaScript concepts were answered incorrectly or confused. Further study in React hooks, CSS specificity, and HTML semantics is recommended.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 15.0
+  },
+  {
+    "name": "kingg",
+    "role": "FullStackDeveloper",
+    "score": 83.78,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 84.3,
+        "experience": 71.1,
+        "education": 92.8,
+        "projects": 94.5,
+        "format": 91.8
+      },
+      "final_score": 83.78,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 84.3,
+        "experience": 71.1,
+        "education": 92.8,
+        "projects": 94.5,
+        "format": 91.8
+      },
+      "feedback": {
+        "skills": "Excellent MERN and Python/AI foundation; add AWS and Authentication (JWT/OAuth) to meet senior production requirements.",
+        "experience": "Internships show impact but are short; quantify the 'Full Stack' aspects in the Apex Planet role which currently looks UI-heavy.",
+        "education": "Strong academic progression from Diploma to B.Tech in CSE; clearly aligned with technical requirements.",
+        "projects": "Strong technical depth; enhance Relic Rush by detailing how you handled concurrency or data security for those 100+ users.",
+        "ats": "Good keyword density; missing specific 'Cloud' and 'Security' terms like AWS, OAuth, or Encryption to pass enterprise filters."
+      },
+      "ai_analysis": {
+        "final_score": 84,
+        "breakdown": {
+          "skills_match": 85,
+          "experience_relevance": 75,
+          "education": 95,
+          "projects": 90,
+          "presentation": 85
+        },
+        "dimension_feedback": {
+          "skills": "Excellent MERN and Python/AI foundation; add AWS and Authentication (JWT/OAuth) to meet senior production requirements.",
+          "experience": "Internships show impact but are short; quantify the 'Full Stack' aspects in the Apex Planet role which currently looks UI-heavy.",
+          "education": "Strong academic progression from Diploma to B.Tech in CSE; clearly aligned with technical requirements.",
+          "projects": "Strong technical depth; enhance Relic Rush by detailing how you handled concurrency or data security for those 100+ users.",
+          "ats": "Good keyword density; missing specific 'Cloud' and 'Security' terms like AWS, OAuth, or Encryption to pass enterprise filters."
+        },
+        "strengths": [
+          "Quantifiable impact in AI internship, increasing model accuracy from 72% to 88%.",
+          "Diverse project portfolio covering MERN stack, FastAPI, and Quantum Computing simulations.",
+          "Consistent internship experience across Web and AI domains while pursuing formal education.",
+          "Solid understanding of RESTful API design and database management across SQL and NoSQL."
+        ],
+        "weaknesses": [
+          "Missing critical production-level skills: Cloud (AWS/Azure) and Security (Auth/Authz).",
+          "Experience entries are relatively short (1-6 months), indicating internship-only exposure.",
+          "Lack of deployment details (e.g., CI/CD pipelines, Nginx, or specific Cloud providers used).",
+          "Resume lacks mention of Unit Testing or TDD practices essential for Full Stack roles."
+        ],
+        "improvements": [
+          "Integrate JWT or OAuth2 authentication into the Relic Rush project and document it.",
+          "Deploy at least one project on AWS (EC2/S3/Lambda) and add 'AWS' to the Skills section.",
+          "Expand on the VBS Company internship to specify the 'scalable web features' built.",
+          "Include a 'Cloud & DevOps' skill sub-category to improve ATS visibility for those keywords."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "Kalyan shows exceptional technical aptitude for an entry-level candidate, with a high CGPA and diverse internship experience. His proficiency in MERN and AI makes him a versatile hire, though he needs to bridge the gap in cloud and security to be fully productive in a corporate environment.",
+        "final_report": {
+          "executive_summary": "Kalyan is a high-potential junior developer with a strong academic background and relevant internship experience in Web and AI. He demonstrates clear competence in the MERN stack and Python-based frameworks. To reach a senior technical standard, he must acquire cloud infrastructure and application security skills.",
+          "category_analysis": {
+            "skills": {
+              "status": "Strength",
+              "strengths": [
+                "MERN Stack",
+                "FastAPI",
+                "SQL/NoSQL Proficiency"
+              ],
+              "weaknesses": [
+                "Cloud Platforms",
+                "Authentication/Authorization"
+              ],
+              "recommendations": [
+                "Learn AWS or Azure",
+                "Implement JWT in existing projects"
+              ]
+            },
+            "experience": {
+              "status": "Gap",
+              "strengths": [
+                "Real-world model optimization",
+                "Agile participation"
+              ],
+              "weaknesses": [
+                "Short duration of roles",
+                "Vague descriptions of 'scalable features'"
+              ],
+              "recommendations": [
+                "Focus on the 'Full Stack' aspect of web internships",
+                "Use more action verbs like 'Architected' or 'Secured'"
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "Consistent high CGPA",
+                "Relevant CSE degree track"
+              ],
+              "weaknesses": [],
+              "recommendations": [
+                "Highlight any relevant coursework in Cloud or Security"
+              ]
+            },
+            "presentation": {
+              "status": "Strength",
+              "strengths": [
+                "Clean layout",
+                "Good use of bullet points"
+              ],
+              "weaknesses": [
+                "Summary is a bit generic"
+              ],
+              "recommendations": [
+                "Tailor summary to emphasize 'Full Stack' specifically"
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "AWS",
+              "Authentication",
+              "Authorization",
+              "JWT"
+            ],
+            "medium_priority_missing": [
+              "CI/CD",
+              "Unit Testing",
+              "TypeScript"
+            ],
+            "learning_roadmap": [
+              "AWS Certified Cloud Practitioner",
+              "Advanced Node.js Security Patterns",
+              "TypeScript for React Developers"
+            ]
+          },
+          "experience_enhancement": [
+            "Detail the 'Sprint iterations' at VBS—mention tools like Jira or specific Agile ceremonies.",
+            "For Apex Planet, list the specific React hooks or state management libraries used."
+          ],
+          "project_showcase_tips": [
+            "Include GitHub links for every project mentioned.",
+            "For the ATS Resume Analyzer, explain the NLP methodology (e.g., Cosine Similarity, NER)."
+          ],
+          "ats_optimization_checklist": [
+            "Add 'AWS' to skills.",
+            "Add 'Unit Testing' to skills.",
+            "Ensure 'Authentication' is mentioned in project descriptions.",
+            "Format dates to include months for all entries."
+          ],
+          "action_plan": [
+            "Update Relic Rush with a secure login system using JWT.",
+            "Complete an AWS fundamental course and add the badge to certifications.",
+            "Revise the experience section to include more 'stack-specific' technical details.",
+            "Apply for Associate/Junior Full Stack roles with a focus on MERN/Python environments."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Kalyan shows exceptional technical aptitude for an entry-level candidate, with a high CGPA and diverse internship experience. His proficiency in MERN and AI makes him a versatile hire, though he needs to bridge the gap in cloud and security to be fully productive in a corporate environment.",
+      "final_report": {
+        "executive_summary": "Kalyan is a high-potential junior developer with a strong academic background and relevant internship experience in Web and AI. He demonstrates clear competence in the MERN stack and Python-based frameworks. To reach a senior technical standard, he must acquire cloud infrastructure and application security skills.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "MERN Stack",
+              "FastAPI",
+              "SQL/NoSQL Proficiency"
+            ],
+            "weaknesses": [
+              "Cloud Platforms",
+              "Authentication/Authorization"
+            ],
+            "recommendations": [
+              "Learn AWS or Azure",
+              "Implement JWT in existing projects"
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "Real-world model optimization",
+              "Agile participation"
+            ],
+            "weaknesses": [
+              "Short duration of roles",
+              "Vague descriptions of 'scalable features'"
+            ],
+            "recommendations": [
+              "Focus on the 'Full Stack' aspect of web internships",
+              "Use more action verbs like 'Architected' or 'Secured'"
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "Consistent high CGPA",
+              "Relevant CSE degree track"
+            ],
+            "weaknesses": [],
+            "recommendations": [
+              "Highlight any relevant coursework in Cloud or Security"
+            ]
+          },
+          "presentation": {
+            "status": "Strength",
+            "strengths": [
+              "Clean layout",
+              "Good use of bullet points"
+            ],
+            "weaknesses": [
+              "Summary is a bit generic"
+            ],
+            "recommendations": [
+              "Tailor summary to emphasize 'Full Stack' specifically"
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "AWS",
+            "Authentication",
+            "Authorization",
+            "JWT"
+          ],
+          "medium_priority_missing": [
+            "CI/CD",
+            "Unit Testing",
+            "TypeScript"
+          ],
+          "learning_roadmap": [
+            "AWS Certified Cloud Practitioner",
+            "Advanced Node.js Security Patterns",
+            "TypeScript for React Developers"
+          ]
+        },
+        "experience_enhancement": [
+          "Detail the 'Sprint iterations' at VBS—mention tools like Jira or specific Agile ceremonies.",
+          "For Apex Planet, list the specific React hooks or state management libraries used."
+        ],
+        "project_showcase_tips": [
+          "Include GitHub links for every project mentioned.",
+          "For the ATS Resume Analyzer, explain the NLP methodology (e.g., Cosine Similarity, NER)."
+        ],
+        "ats_optimization_checklist": [
+          "Add 'AWS' to skills.",
+          "Add 'Unit Testing' to skills.",
+          "Ensure 'Authentication' is mentioned in project descriptions.",
+          "Format dates to include months for all entries."
+        ],
+        "action_plan": [
+          "Update Relic Rush with a secure login system using JWT.",
+          "Complete an AWS fundamental course and add the badge to certifications.",
+          "Revise the experience section to include more 'stack-specific' technical details.",
+          "Apply for Associate/Junior Full Stack roles with a focus on MERN/Python environments."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "Git",
+        "GitHub",
+        "Deployment",
+        "Docker"
+      ],
+      "direct_matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "Git",
+        "GitHub",
+        "Deployment",
+        "Docker"
+      ],
+      "inferred_skills": [],
+      "missing_skills": [
+        "Authentication",
+        "Authorization",
+        "AWS"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 83.78
+    },
+    "status": "Shortlisted",
+    "resume_path": "",
+    "id": "REF-3FFA31D24E",
+    "timestamp": "Just now",
+    "quiz_session_id": "caec33c1-e747-4cf5-a6aa-9c8f94a813af",
+    "quiz_started_at": "2026-11-25T14:44:19.083782+00:00",
+    "quiz_report_full": {
+      "totalScore": 120,
+      "maxScore": 200,
+      "percentage": 60.0,
+      "results": [
+        {
+          "questionId": 10,
+          "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        },
+        {
+          "questionId": 19,
+          "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To catch contract mismatches across services and databases early",
+          "feedback": "Correct. Integration tests are vital for identifying breaking changes between decoupled components."
+        },
+        {
+          "questionId": 15,
+          "question": "When monitoring a HTML system from business analytics system, which signal most strongly suggests production degradation or drift?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "feedback": "Correct. Monitoring telemetry shifts is the standard for detecting operational degradation."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        },
+        {
+          "questionId": 8,
+          "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        },
+        {
+          "questionId": 7,
+          "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Missing values and schema drift",
+          "feedback": "Correct. Ensuring data consistency and completeness is the first step in high-quality modeling."
+        },
+        {
+          "questionId": 6,
+          "question": "When a resume highlights HTML and CSS, which practice best validates that those skills were used on a real project?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Correct. Discussion of tradeoffs demonstrates practical application rather than just theoretical knowledge."
+        },
+        {
+          "questionId": 3,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Correct. Raw accuracy is deceptive in imbalanced datasets."
+        },
+        {
+          "questionId": 18,
+          "question": "Write a function or query in HTML (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        },
+        {
+          "questionId": 13,
+          "question": "Which checks are appropriate when validating HTML and CSS code used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Measured output against an expected result",
+          "feedback": "Incorrect. While validating output is important, the reference technical validation emphasizes input and null handling as the primary metric for robustness."
+        },
+        {
+          "questionId": 11,
+          "question": "A HTML model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+          "feedback": "Correct. Preprocessing must be fit only on training data to avoid data leakage."
+        },
+        {
+          "questionId": 20,
+          "question": "In distributed FullStackDeveloper architectures, why should message consumers be idempotent?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "feedback": "Correct. Idempotency is crucial for handling unavoidable message retries in distributed systems."
+        },
+        {
+          "questionId": 9,
+          "question": "For a HTML-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To prevent information leakage into evaluation data",
+          "feedback": "Correct. Applying logic from the full dataset introduces knowledge of the test set into the training phase."
+        },
+        {
+          "questionId": 2,
+          "question": "Write a SQL query to count rows where HTML is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        },
+        {
+          "questionId": 12,
+          "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "feedback": "Correct. Handling unseen labels gracefully prevents runtime errors in production."
+        },
+        {
+          "questionId": 4,
+          "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Data leakage and biased evaluation",
+          "feedback": "Correct. Pre-split data manipulation often results in optimistic bias."
+        },
+        {
+          "questionId": 16,
+          "question": "For a FullStackDeveloper service handling concurrent requests with HTML, which caching strategy prevents stale reads after writes?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "feedback": "Correct. Synchronous updates or invalidations ensure cache consistency."
+        },
+        {
+          "questionId": 17,
+          "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a FullStackDeveloper endpoint?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "429 Too Many Requests with a Retry-After header",
+          "feedback": "Correct. Status 429 is the standard protocol for rate-limiting enforcement."
+        },
+        {
+          "questionId": 14,
+          "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "Question was skipped; no points awarded."
+        }
+      ],
+      "overallFeedback": "The candidate demonstrates strong conceptual knowledge of full-stack system design, deployment strategies, and monitoring. They answered every multiple-choice question correctly (except for one validation-specific check). However, they skipped every coding challenge, including SQL, Python logic, and data manipulation. While theoretically sound, the lack of hands-on coding evidence is a significant gap for this role.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 60.0
+  },
+  {
+    "name": "kohli",
+    "role": "BackendDeveloper",
+    "score": 59.56,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 53.7,
+        "experience": 46.3,
+        "education": 76.2,
+        "projects": 75.2,
+        "format": 75.2
+      },
+      "final_score": 59.56,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 53.7,
+        "experience": 46.3,
+        "education": 76.2,
+        "projects": 75.2,
+        "format": 75.2
+      },
+      "feedback": {
+        "skills": "Strong in Python, Node.js, SQL, MongoDB and Docker; missing auth, authz, Redis, caching, microservices, AWS.",
+        "experience": "Only 6 months of internship; need full‑time backend projects showing end‑to‑end delivery and measurable impact.",
+        "education": "Pursuing B.Tech (2024‑27) and diploma; no completed degree yet, which may limit senior backend roles.",
+        "projects": "Projects showcase full‑stack and AI work but lack depth in backend architecture, scaling metrics, or cloud deployment.",
+        "ats": "Resume has spacing errors, inconsistent headings, and missing keywords like 'authentication' and 'AWS'."
+      },
+      "ai_analysis": {
+        "final_score": 52,
+        "breakdown": {
+          "skills_match": 55,
+          "experience_relevance": 30,
+          "education": 65,
+          "projects": 55,
+          "presentation": 55
+        },
+        "dimension_feedback": {
+          "skills": "Strong in Python, Node.js, SQL, MongoDB and Docker; missing auth, authz, Redis, caching, microservices, AWS.",
+          "experience": "Only 6 months of internship; need full‑time backend projects showing end‑to‑end delivery and measurable impact.",
+          "education": "Pursuing B.Tech (2024‑27) and diploma; no completed degree yet, which may limit senior backend roles.",
+          "projects": "Projects showcase full‑stack and AI work but lack depth in backend architecture, scaling metrics, or cloud deployment.",
+          "ats": "Resume has spacing errors, inconsistent headings, and missing keywords like 'authentication' and 'AWS'."
+        },
+        "strengths": [
+          "Built scalable RESTful APIs and optimized SQL queries (VBS intern).",
+          "Developed full‑stack MERN platform serving 100+ users (Relic Rush).",
+          "Created AI resume parser using Python and FastAPI, demonstrating backend integration.",
+          "Proficient with Docker and Git for containerization and version control."
+        ],
+        "weaknesses": [
+          "Lacks experience with authentication/authorization and security.",
+          "No exposure to caching, Redis, or AWS cloud services.",
+          "Limited professional experience (<1 year) and no microservices design.",
+          "Resume formatting inconsistencies and missing key backend keywords."
+        ],
+        "improvements": [
+          "Add a project implementing JWT auth, Redis caching, and deploy on AWS.",
+          "Gain hands‑on with unit testing frameworks (pytest) and microservices patterns.",
+          "Earn a cloud certification (AWS Cloud Practitioner) and list it.",
+          "Revise resume layout: uniform headings, bullet consistency, and include missing keywords."
+        ],
+        "recommendation": "HOLD",
+        "recommendation_reasoning": "Score in mid‑range; solid foundation but critical backend gaps and limited experience. Needs skill/experience boost before shortlisting.",
+        "final_report": {
+          "executive_summary": "Candidate shows solid full‑stack fundamentals with Python, Node.js, SQL, and Docker, backed by internships and MERN projects. However, they lack core backend requirements such as authentication, caching, microservices, and cloud experience, and have only ~6 months of relevant work. Recommendation is to hold and encourage targeted skill development.",
+          "category_analysis": {
+            "skills": {
+              "status": "Gap",
+              "strengths": [
+                "Python, Node.js, SQL, MongoDB, Docker proficiency"
+              ],
+              "weaknesses": [
+                "Missing auth, authz, caching, Redis, microservices, AWS"
+              ],
+              "recommendations": [
+                "Add auth/caching projects",
+                "Learn AWS services"
+              ]
+            },
+            "experience": {
+              "status": "Gap",
+              "strengths": [
+                "Internship experience with API design"
+              ],
+              "weaknesses": [
+                "Only 0.5 yr, no end‑to‑end product ownership"
+              ],
+              "recommendations": [
+                "Seek full‑time backend role",
+                "Show measurable impact"
+              ]
+            },
+            "education": {
+              "status": "Gap",
+              "strengths": [
+                "Diploma and ongoing B.Tech in CS"
+              ],
+              "weaknesses": [
+                "Degree not yet completed"
+              ],
+              "recommendations": [
+                "Highlight expected graduation date",
+                "Add relevant coursework"
+              ]
+            },
+            "presentation": {
+              "status": "Gap",
+              "strengths": [
+                "Clear sections, includes projects"
+              ],
+              "weaknesses": [
+                "Inconsistent spacing, typos, missing keywords"
+              ],
+              "recommendations": [
+                "Standardize formatting",
+                "Insert missing backend keywords"
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "Authentication",
+              "Authorization",
+              "Caching",
+              "Redis",
+              "Microservices",
+              "AWS"
+            ],
+            "medium_priority_missing": [
+              "Unit Testing",
+              "System Design"
+            ],
+            "learning_roadmap": [
+              "Complete JWT auth tutorial",
+              "Build Redis‑cached API on AWS Lambda",
+              "Study microservices patterns (Docker Compose, Kubernetes)",
+              "Practice pytest unit tests",
+              "Take AWS Cloud Practitioner course"
+            ]
+          },
+          "experience_enhancement": [
+            "Contribute to open‑source backend library",
+            "Lead a side‑project delivering a full microservice stack",
+            "Quantify impact with latency or revenue metrics"
+          ],
+          "project_showcase_tips": [
+            "Add architecture diagrams",
+            "Include performance numbers (e.g., 30% latency reduction)",
+            "Highlight cloud deployment and scalability"
+          ],
+          "ats_optimization_checklist": [
+            "Use exact keywords from job description (authentication, AWS, Redis)",
+            "Maintain consistent heading hierarchy",
+            "Remove extra spaces and line breaks",
+            "Add a skills matrix with required tech"
+          ],
+          "action_plan": [
+            "1. Build a JWT‑protected, Redis‑cached API and deploy on AWS.",
+            "2. Earn AWS Cloud Practitioner certification and list it.",
+            "3. Write unit tests for existing projects and note coverage percentages.",
+            "4. Rewrite resume with uniform headings, bullet style, and embed missing keywords.",
+            "5. Pursue a full‑time backend role or substantial freelance project to reach 1‑year experience."
+          ]
+        },
+        "_model_used": "groq:openai/gpt-oss-120b"
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Score in mid‑range; solid foundation but critical backend gaps and limited experience. Needs skill/experience boost before shortlisting.",
+      "final_report": {
+        "executive_summary": "Candidate shows solid full‑stack fundamentals with Python, Node.js, SQL, and Docker, backed by internships and MERN projects. However, they lack core backend requirements such as authentication, caching, microservices, and cloud experience, and have only ~6 months of relevant work. Recommendation is to hold and encourage targeted skill development.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Python, Node.js, SQL, MongoDB, Docker proficiency"
+            ],
+            "weaknesses": [
+              "Missing auth, authz, caching, Redis, microservices, AWS"
+            ],
+            "recommendations": [
+              "Add auth/caching projects",
+              "Learn AWS services"
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "Internship experience with API design"
+            ],
+            "weaknesses": [
+              "Only 0.5 yr, no end‑to‑end product ownership"
+            ],
+            "recommendations": [
+              "Seek full‑time backend role",
+              "Show measurable impact"
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Diploma and ongoing B.Tech in CS"
+            ],
+            "weaknesses": [
+              "Degree not yet completed"
+            ],
+            "recommendations": [
+              "Highlight expected graduation date",
+              "Add relevant coursework"
+            ]
+          },
+          "presentation": {
+            "status": "Gap",
+            "strengths": [
+              "Clear sections, includes projects"
+            ],
+            "weaknesses": [
+              "Inconsistent spacing, typos, missing keywords"
+            ],
+            "recommendations": [
+              "Standardize formatting",
+              "Insert missing backend keywords"
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Authentication",
+            "Authorization",
+            "Caching",
+            "Redis",
+            "Microservices",
+            "AWS"
+          ],
+          "medium_priority_missing": [
+            "Unit Testing",
+            "System Design"
+          ],
+          "learning_roadmap": [
+            "Complete JWT auth tutorial",
+            "Build Redis‑cached API on AWS Lambda",
+            "Study microservices patterns (Docker Compose, Kubernetes)",
+            "Practice pytest unit tests",
+            "Take AWS Cloud Practitioner course"
+          ]
+        },
+        "experience_enhancement": [
+          "Contribute to open‑source backend library",
+          "Lead a side‑project delivering a full microservice stack",
+          "Quantify impact with latency or revenue metrics"
+        ],
+        "project_showcase_tips": [
+          "Add architecture diagrams",
+          "Include performance numbers (e.g., 30% latency reduction)",
+          "Highlight cloud deployment and scalability"
+        ],
+        "ats_optimization_checklist": [
+          "Use exact keywords from job description (authentication, AWS, Redis)",
+          "Maintain consistent heading hierarchy",
+          "Remove extra spaces and line breaks",
+          "Add a skills matrix with required tech"
+        ],
+        "action_plan": [
+          "1. Build a JWT‑protected, Redis‑cached API and deploy on AWS.",
+          "2. Earn AWS Cloud Practitioner certification and list it.",
+          "3. Write unit tests for existing projects and note coverage percentages.",
+          "4. Rewrite resume with uniform headings, bullet style, and embed missing keywords.",
+          "5. Pursue a full‑time backend role or substantial freelance project to reach 1‑year experience."
+        ]
+      },
+      "role": "BackendDeveloper",
+      "matched_skills": [
+        "Python",
+        "Node.js",
+        "SQL",
+        "MongoDB",
+        "REST APIs",
+        "Docker",
+        "Git"
+      ],
+      "direct_matched_skills": [
+        "Python",
+        "Node.js",
+        "SQL",
+        "MongoDB",
+        "REST APIs",
+        "Docker",
+        "Git"
+      ],
+      "inferred_skills": [],
+      "missing_skills": [
+        "Authentication",
+        "Authorization",
+        "Caching",
+        "Redis",
+        "Microservices",
+        "Unit Testing",
+        "System Design",
+        "AWS"
+      ],
+      "evaluation_engine": "Python ATS + groq:openai/gpt-oss-120b",
+      "overallScore": 59.56
+    },
+    "status": "On Hold",
+    "resume_path": "",
+    "id": "REF-E2217B7BAD",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "nnn",
+    "role": "FrontendDeveloper",
+    "score": 70.05,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 59.4,
+        "experience": 75.6,
+        "education": 92.8,
+        "projects": 83.5,
+        "format": 91.8
+      },
+      "final_score": 70.05,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 59.4,
+        "experience": 75.6,
+        "education": 92.8,
+        "projects": 83.5,
+        "format": 91.8
+      },
+      "feedback": {
+        "skills": "Strong React/JS foundation but missing modern staples like Next.js, Tailwind CSS, and state management libraries (Redux/Zustand).",
+        "experience": "Internships show good impact (20% performance boost) but lack specific frontend testing or architecture details; add Jest/Cypress.",
+        "education": "Outstanding academic background with a B.Tech in progress and a high GPA; highly relevant to technical requirements.",
+        "projects": "Projects lean heavily toward Backend/AI; create a dedicated Frontend project showcasing complex UI state and accessibility.",
+        "ats": "Solid layout but misses high-frequency keywords like 'TypeScript', 'Unit Testing', and 'Accessibility' in the skills section."
+      },
+      "ai_analysis": {
+        "final_score": 65,
+        "breakdown": {
+          "skills_match": 60,
+          "experience_relevance": 70,
+          "education": 95,
+          "projects": 70,
+          "presentation": 85
+        },
+        "dimension_feedback": {
+          "skills": "Strong React/JS foundation but missing modern staples like Next.js, Tailwind CSS, and state management libraries (Redux/Zustand).",
+          "experience": "Internships show good impact (20% performance boost) but lack specific frontend testing or architecture details; add Jest/Cypress.",
+          "education": "Outstanding academic background with a B.Tech in progress and a high GPA; highly relevant to technical requirements.",
+          "projects": "Projects lean heavily toward Backend/AI; create a dedicated Frontend project showcasing complex UI state and accessibility.",
+          "ats": "Solid layout but misses high-frequency keywords like 'TypeScript', 'Unit Testing', and 'Accessibility' in the skills section."
+        },
+        "strengths": [
+          "Quantified achievements in internships (e.g., 20% performance improvement, 88% model accuracy).",
+          "Proven competitive success with Top 3/Top 4 finishes in multiple hackathons.",
+          "Full-stack capabilities with a strong grasp of RESTful API design and database optimization.",
+          "Active leadership experience through event organization and technical project management."
+        ],
+        "weaknesses": [
+          "Missing modern Frontend frameworks and tools like Next.js, TypeScript, and Tailwind CSS.",
+          "No mention of automated testing (Unit/Integration) or CI/CD for web applications.",
+          "Web Accessibility (A11y) and SEO optimization are not explicitly listed in skills.",
+          "Project portfolio is currently more focused on AI/Python than deep Frontend engineering."
+        ],
+        "improvements": [
+          "Integrate TypeScript into current React projects to demonstrate type-safety proficiency.",
+          "Add a 'Professional Skills' subsection for Responsive Design, Web Accessibility, and Performance Optimization.",
+          "Include Unit Testing (Jest) or End-to-End Testing (Playwright/Cypress) in the experience bullets.",
+          "Adopt Next.js for your next project to align with modern industry shifts from standard CRA/React."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "Kalyan demonstrates high potential with measurable internship impact and strong academic performance. While he lacks some advanced frontend-specific tools, his ability to deliver results and his background in AI/Full-stack makes him a versatile and fast-learning candidate for a Junior Frontend role.",
+        "final_report": {
+          "executive_summary": "Kalyan is a high-achieving student with a solid foundation in the MERN stack and a track record of impact in internship settings. He effectively uses metrics to describe his work, which is rare for junior candidates. To secure a mid-level Frontend role, he needs to pivot his skill set toward modern ecosystem standards like Next.js and automated testing.",
+          "category_analysis": {
+            "skills": {
+              "status": "Gap",
+              "strengths": [
+                "React",
+                "JavaScript",
+                "RESTful APIs"
+              ],
+              "weaknesses": [
+                "Next.js",
+                "State Management",
+                "TypeScript"
+              ],
+              "recommendations": [
+                "Obtain a certification in Next.js or Advanced React."
+              ]
+            },
+            "experience": {
+              "status": "Strength",
+              "strengths": [
+                "Quantitative impact metrics",
+                "Agile methodology exposure"
+              ],
+              "weaknesses": [
+                "Lack of long-term project ownership"
+              ],
+              "recommendations": [
+                "Describe UI architectural decisions made during internships."
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "8.0 CGPA",
+                "Relevant B.Tech degree",
+                "Strong diploma background"
+              ],
+              "weaknesses": [],
+              "recommendations": [
+                "Highlight any specific Frontend-related coursework or electives."
+              ]
+            },
+            "presentation": {
+              "status": "Strength",
+              "strengths": [
+                "Clean layout",
+                "Good use of action verbs",
+                "Link integration"
+              ],
+              "weaknesses": [
+                "Skills section is slightly generic"
+              ],
+              "recommendations": [
+                "Group skills by 'Core', 'Libraries', and 'Tools' for better ATS parsing."
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "Next.js",
+              "TypeScript",
+              "Redux/Context API"
+            ],
+            "medium_priority_missing": [
+              "Jest/Vitest",
+              "Tailwind CSS",
+              "Web Accessibility (WCAG)"
+            ],
+            "learning_roadmap": [
+              "Master TypeScript for React",
+              "Build a server-side rendered app with Next.js",
+              "Learn testing with Vitest/React Testing Library"
+            ]
+          },
+          "experience_enhancement": [
+            "Detail how you 'optimized cross-browser compatibility' (e.g., using Polyfills or CSS Grid).",
+            "Explain the specific 'software design best practices' used for modular APIs.",
+            "Mention any code review processes you participated in during Git versioning tasks."
+          ],
+          "project_showcase_tips": [
+            "For 'Relic Rush', highlight how you handled frontend state for real-time synchronization.",
+            "Add a 'Lighthouse Score' or 'Core Web Vitals' metric to your web projects.",
+            "Showcase a project that uses a component library like Shadcn/UI or Material UI."
+          ],
+          "ats_optimization_checklist": [
+            "Ensure 'TypeScript' is explicitly listed if you have used it.",
+            "Include 'Responsive Design' as a core skill keyword.",
+            "Add 'Unit Testing' and 'Performance Optimization' to the Web Technology section.",
+            "Verify that LinkedIn and GitHub links are hyperlinked correctly."
+          ],
+          "action_plan": [
+            "Update the Skills section with specific missing keywords identified (TypeScript, Next.js).",
+            "Rewrite internship bullets to emphasize the 'How' (tools used) alongside the 'What' (results).",
+            "Develop one high-fidelity React project using TypeScript and a modern styling library.",
+            "Apply for Junior Frontend roles that value Full-stack/AI awareness.",
+            "Seek a certification in Web Accessibility to stand out in the Frontend market."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Kalyan demonstrates high potential with measurable internship impact and strong academic performance. While he lacks some advanced frontend-specific tools, his ability to deliver results and his background in AI/Full-stack makes him a versatile and fast-learning candidate for a Junior Frontend role.",
+      "final_report": {
+        "executive_summary": "Kalyan is a high-achieving student with a solid foundation in the MERN stack and a track record of impact in internship settings. He effectively uses metrics to describe his work, which is rare for junior candidates. To secure a mid-level Frontend role, he needs to pivot his skill set toward modern ecosystem standards like Next.js and automated testing.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "React",
+              "JavaScript",
+              "RESTful APIs"
+            ],
+            "weaknesses": [
+              "Next.js",
+              "State Management",
+              "TypeScript"
+            ],
+            "recommendations": [
+              "Obtain a certification in Next.js or Advanced React."
+            ]
+          },
+          "experience": {
+            "status": "Strength",
+            "strengths": [
+              "Quantitative impact metrics",
+              "Agile methodology exposure"
+            ],
+            "weaknesses": [
+              "Lack of long-term project ownership"
+            ],
+            "recommendations": [
+              "Describe UI architectural decisions made during internships."
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "8.0 CGPA",
+              "Relevant B.Tech degree",
+              "Strong diploma background"
+            ],
+            "weaknesses": [],
+            "recommendations": [
+              "Highlight any specific Frontend-related coursework or electives."
+            ]
+          },
+          "presentation": {
+            "status": "Strength",
+            "strengths": [
+              "Clean layout",
+              "Good use of action verbs",
+              "Link integration"
+            ],
+            "weaknesses": [
+              "Skills section is slightly generic"
+            ],
+            "recommendations": [
+              "Group skills by 'Core', 'Libraries', and 'Tools' for better ATS parsing."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Next.js",
+            "TypeScript",
+            "Redux/Context API"
+          ],
+          "medium_priority_missing": [
+            "Jest/Vitest",
+            "Tailwind CSS",
+            "Web Accessibility (WCAG)"
+          ],
+          "learning_roadmap": [
+            "Master TypeScript for React",
+            "Build a server-side rendered app with Next.js",
+            "Learn testing with Vitest/React Testing Library"
+          ]
+        },
+        "experience_enhancement": [
+          "Detail how you 'optimized cross-browser compatibility' (e.g., using Polyfills or CSS Grid).",
+          "Explain the specific 'software design best practices' used for modular APIs.",
+          "Mention any code review processes you participated in during Git versioning tasks."
+        ],
+        "project_showcase_tips": [
+          "For 'Relic Rush', highlight how you handled frontend state for real-time synchronization.",
+          "Add a 'Lighthouse Score' or 'Core Web Vitals' metric to your web projects.",
+          "Showcase a project that uses a component library like Shadcn/UI or Material UI."
+        ],
+        "ats_optimization_checklist": [
+          "Ensure 'TypeScript' is explicitly listed if you have used it.",
+          "Include 'Responsive Design' as a core skill keyword.",
+          "Add 'Unit Testing' and 'Performance Optimization' to the Web Technology section.",
+          "Verify that LinkedIn and GitHub links are hyperlinked correctly."
+        ],
+        "action_plan": [
+          "Update the Skills section with specific missing keywords identified (TypeScript, Next.js).",
+          "Rewrite internship bullets to emphasize the 'How' (tools used) alongside the 'What' (results).",
+          "Develop one high-fidelity React project using TypeScript and a modern styling library.",
+          "Apply for Junior Frontend roles that value Full-stack/AI awareness.",
+          "Seek a certification in Web Accessibility to stand out in the Frontend market."
+        ]
+      },
+      "role": "FrontendDeveloper",
+      "matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "REST APIs",
+        "Git"
+      ],
+      "direct_matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "REST APIs",
+        "Git"
+      ],
+      "inferred_skills": [],
+      "missing_skills": [
+        "Next.js",
+        "State Management",
+        "Responsive Design",
+        "Web Accessibility",
+        "Unit Testing",
+        "Performance Optimization"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 70.05
+    },
+    "status": "On Hold",
+    "resume_path": "",
+    "id": "REF-72E688CB73",
+    "timestamp": "Just now",
+    "quiz_session_id": "a0c864fd-ff40-4b0f-a041-039346e70edc",
+    "quiz_started_at": "2026-11-25T14:55:31.697448+00:00",
+    "quiz_report_full": {
+      "totalScore": 140,
+      "maxScore": 200,
+      "percentage": 70.0,
+      "results": [
+        {
+          "questionId": 18,
+          "question": "Write an Express validation guard that returns HTTP 400 when req.params.id is not a positive integer.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer submitted."
+        },
+        {
+          "questionId": 15,
+          "question": "Write SQL to fetch the five newest orders by creation time.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "SELECT * \nFROM orders\nORDER BY createdat DESC \nLIMIT 5;",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 9,
+          "question": "What does a composite database index help with most directly?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Queries filtering or sorting by its indexed column sequence",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 6,
+          "question": "What is the main purpose of invalidating a cache after a successful update?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Preventing clients from reading stale values",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 2,
+          "question": "Which HTTP method is normally appropriate for retrieving a resource without changing server state?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "GET",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 13,
+          "question": "Write JavaScript to remove duplicate IDs from an array while preserving their order.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "function remove(ids){\nreturn [...new set(ids)];\n}\n\nconst ids=[104,103,102,10,1,105];\nconst uniqueids = remove(ids);\nconsole.log(unique)",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 12,
+          "question": "Which test best catches a contract mismatch between an API and its database-backed service before deployment?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "An integration test that exercises the real boundary with representative data",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 3,
+          "question": "What is the safest way to store a browser session identifier for an authenticated web app?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "An HttpOnly, Secure cookie with an appropriate SameSite policy",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 19,
+          "question": "Show the SQL transaction commands needed to commit a successful operation and roll back on failure.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "START TRANSACTION;\nUPDATE accounts SET balance =balance-100 WHERE accountid=1;\nUPDATE accounts SET balance =balance-100 WHERE accountid=2;\nCOMMIT;\nROLLBACK;",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 1,
+          "question": "In a React form, where should the current value of a controlled input come from?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Component state passed through value and updated by onChange",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 14,
+          "question": "Write the React state update that increments count without relying on a stale closure.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "setCount((prevCount)=>prevCount+1);",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 11,
+          "question": "A React component fetches data when its search term changes. How should it avoid an older response replacing newer results?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Abort the previous request or ignore its result during cleanup",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 20,
+          "question": "Write JavaScript that cancels a previous fetch request using AbortController.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer submitted."
+        },
+        {
+          "questionId": 4,
+          "question": "Why should a database transaction wrap a multi-step order update?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "It keeps related writes atomic if a later step fails",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 7,
+          "question": "What should an API return when a client sends invalid request data?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "A suitable 4xx response with a clear validation error",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 10,
+          "question": "What is a useful safeguard against duplicate payment requests after a network retry?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "An idempotency key checked by the server",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 17,
+          "question": "Write JavaScript that throws an error when a fetch response is not successful.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "feedback": "No answer submitted."
+        },
+        {
+          "questionId": 5,
+          "question": "Which pagination approach is generally more stable for a large, frequently changing table?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Keyset pagination using a stable indexed cursor",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 8,
+          "question": "How should a web application reduce cross-site scripting risk when displaying user-submitted text?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Escape or encode output for its HTML context",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 16,
+          "question": "Show a parameterized Node.js database query that selects a user by ID.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "const mysql=require('mysql/promise')\nasync function getuserid(userid){\nconst connection = await mysqli.createconnect({\nhost:'localhost',\nuser:'root',\ndatabase:'mydatabase'\n});\nconst query='SELECT * FROM USERS WHERE id=?';\nconst [rows]=await connection.execute(query,[userid]);\nreturn rows[0];\n}",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      ],
+      "overallFeedback": "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+      "isSelected": true,
+      "isFinished": true
+    },
+    "quiz_score": 70.0,
+    "interview_session_id": 42,
+    "interview_started_at": "2026-11-25T15:08:51.809338+00:00",
+    "interview_score": 61.1,
+    "round3_report": {
+      "overall_score": 61.1,
+      "avg_confidence": 5.6,
+      "avg_evidence": 5.3,
+      "avg_clarity": 4.3,
+      "communication_score": 43,
+      "cultural_fit_score": 61,
+      "recommendation": "CONSIDER",
+      "executive_summary": "Kalyan demonstrates solid technical awareness, especially in diagnosing performance bottlenecks and navigating team disagreements toward pragmatic solutions, and he shows a willingness to learn from missteps such as a problematic third‑party library. However, his responses often lack concrete metrics, clear structure, and specific STAR details, making it hard to gauge impact and depth of his contributions.",
+      "questions_evaluated": [
+        {
+          "question": "Please introduce yourself, highlight your primary technical competencies, and explain what motivates your engineering approach.",
+          "category": "Professional Background & Core Strengths",
+          "answer": "Hi, my name is Kalyan, I'm a software engineer. I have a strong foundation full stop and a technologies. My core strengths are Python, Java, Manstech and Flask designer. AP design performs optimization. My recent work I focused on AI, Resume builder, HR, Microsurfaces institute. Code is not only functional but also clean and testable and easy to maintain. They're coming to rape my I start by caring requirements and cases, break the bone into small measurable milestone and prioritize long term maintainability over kick cases. Angel continues learning and cooperating with team to ship impactable, resilient software.",
+          "evaluation": {
+            "confidence": {
+              "score": 4.5,
+              "justification": "The candidate lists skills decisively but the transcript suggests significant phonetic or articulation struggles that undermine perceived authority.",
+              "key_phrases": [
+                "strong foundation",
+                "core strengths"
+              ]
+            },
+            "evidence": {
+              "score": 4,
+              "justification": "While specific tools and projects are mentioned, there are no measurable results, scale details, or specific technical trade-offs discussed.",
+              "key_phrases": [
+                "AI, Resume builder",
+                "Microsurfaces institute"
+              ]
+            },
+            "clarity": {
+              "score": 3.5,
+              "justification": "The speech is difficult to parse due to phonetic errors and malapropisms like 'break the bone' and 'kick cases'.",
+              "key_phrases": [
+                "break the bone",
+                "coming to rape my"
+              ]
+            },
+            "arrogance": {
+              "score": 1.5,
+              "justification": "The candidate presents a humble and collaborative mindset, emphasizing long-term maintainability and teamwork.",
+              "key_phrases": []
+            },
+            "overall_score": 52,
+            "feedback": "The answer provides a generic list of technologies and buzzwords without concrete evidence of impact or technical depth. Improved articulation and the use of specific STAR-format examples would significantly raise the score.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        },
+        {
+          "question": "Describe a complex technical challenge or production issue you resolved. Walk us through your diagnosis, approach, and outcome.",
+          "category": "Technical Problem Solving & Architecture",
+          "answer": "We faced a critical production issue where API responds times spike from around 200 milliseconds to over 4 seconds during peak traffic causing interminate times of uses to diagnose the root causes started by checking our application logs and APM matrix. While CPU usage on application service looked normal, database connection full utilization. But for my approach, I first ruled out an immediate flow risk fixed by adding a Composite Index under acquired columns to stabilize. That's in western, refactored a back end data fetching logic to bad stuff quarries into a single joint and introduced a short lived Reddy sketchy for frequently read data, making sure to into proper cache invalidation rules so data state consistent.",
+          "evaluation": {
+            "confidence": {
+              "score": 6,
+              "justification": "Speaks with moderate assertiveness while describing actions taken",
+              "key_phrases": [
+                "added a Composite Index",
+                "refactored a back end data fetching logic"
+              ]
+            },
+            "evidence": {
+              "score": 6,
+              "justification": "Provides situation, task, and actions but lacks clear measurable outcome or trade‑off discussion",
+              "key_phrases": [
+                "API response times spike",
+                "cache invalidation rules"
+              ]
+            },
+            "clarity": {
+              "score": 4,
+              "justification": "Answer is fragmented with grammatical errors, making the flow hard to follow",
+              "key_phrases": [
+                "critical production issue where API responds times spike"
+              ]
+            },
+            "arrogance": {
+              "score": 1,
+              "justification": "Tone remains collaborative without dismissive language",
+              "key_phrases": []
+            },
+            "overall_score": 70,
+            "feedback": "Focus on delivering a clearer, structured narrative and quantify the impact (e.g., latency reduction %) to strengthen the answer.",
+            "model_used": "groq:openai/gpt-oss-120b"
+          }
+        },
+        {
+          "question": "Tell us about a time you had a technical disagreement with a team member or stakeholder. How did you navigate it to consensus?",
+          "category": "Collaboration & Conflict Management",
+          "answer": "During a recent feature roll out, a senior team and I disagreed on how to handle real time data updates. They wanted to implement websockets immediately for instant update across the app. Well, I felt short interpolating with catching was a better fit given our tight deadline and limited infrastructure award to move past opinions. As suggested, we align under the core projects called First, specifically delivery Speed, server Load and User experience. I listen to the concerns about future scalability and then I put together a great comparison outline development stock. Maintains complexity and the actual latency requirements from the product team. Seeing the riots side by side, we realise that most users didn't need subsequent updates right away. We acted on a pace to compromise. We launched without imaging polling to meet our release deadline safely while designing the client data layer cleanly so we could swap in websockets later without providing the content.",
+          "evaluation": {
+            "confidence": {
+              "score": 8.5,
+              "justification": "The candidate conveys a logical, calm, and decisive tone when describing their decision-making process.",
+              "key_phrases": [
+                "move past opinions",
+                "phased compromise"
+              ]
+            },
+            "evidence": {
+              "score": 9,
+              "justification": "The answer follows the STAR method perfectly, citing specific trade-offs like server load, latency, and development speed.",
+              "key_phrases": [
+                "comparison outline",
+                "latency requirements"
+              ]
+            },
+            "clarity": {
+              "score": 8.2,
+              "justification": "The structure is very clear, moving from conflict to objective criteria to resolution, despite minor transcription errors.",
+              "key_phrases": [
+                "align under the core projects",
+                "swap in websockets later"
+              ]
+            },
+            "arrogance": {
+              "score": 1.5,
+              "justification": "The candidate shows maturity by listening to the senior team's concerns and prioritizing project goals over their own ego.",
+              "key_phrases": []
+            },
+            "overall_score": 88,
+            "feedback": "Excellent response that demonstrates technical depth and a high degree of collaborative maturity. To improve, ensure the specific architectural choices for the 'clean data layer' are elaborated upon to show even deeper engineering foresight.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        },
+        {
+          "question": "Describe a project or technical decision that did not go as planned. What was the impact, what did you learn, and how did you adapt?",
+          "category": "Resilience, Failure & Continuous Learning",
+          "answer": "Earlier in my career I decided to adopt A new third party library to speed up building a complex supporting feature instead of adding a custom model. On paper it looked like it would save weeks of the open time, so I integrate it without truly testing edge cases with large data sets. When we moved into a staging with production size data we ran into severe memory leaks and residue customization limits. They delayed our release by nearly a week and post the team to spend extra hours debugging issues inside a two we didn't. Biggest lesson I learned was to always validate cricket dependencies with realistic load and edge case testing before committing to done and Dubai long term flexibility just as severely as in city speed. To add beyond a mistake, opening with the team accelerated the library behind an Internet adapter interface. And get the neapets about in a components with the lightweight custom project. Since then I always stand quickly proof of concept benchmarks on real data one before introducing major depending Hindi project.",
+          "evaluation": {
+            "confidence": {
+              "score": 6,
+              "justification": "The answer includes concrete details like a third‑party library and memory leaks, but is muddled, lowering confidence.",
+              "key_phrases": [
+                "adopt a third‑party library",
+                "memory leaks"
+              ]
+            },
+            "evidence": {
+              "score": 5,
+              "justification": "It follows a STAR outline with situation, action, impact, and lesson, yet lacks clear metrics and contains incoherent filler.",
+              "key_phrases": [
+                "delayed our release by nearly a week",
+                "proof of concept benchmarks"
+              ]
+            },
+            "clarity": {
+              "score": 4,
+              "justification": "The narrative is present but many garbled phrases and irrelevant words hinder clear articulation.",
+              "key_phrases": [
+                "real data",
+                "benchmark"
+              ]
+            },
+            "arrogance": {
+              "score": 1,
+              "justification": "The candidate takes responsibility and mentions team collaboration, showing humility.",
+              "key_phrases": []
+            },
+            "overall_score": 70,
+            "feedback": "Provide a cleaner, more concise story and quantify outcomes (e.g., exact delay time, performance impact) to strengthen the response.",
+            "model_used": "groq:openai/gpt-oss-120b"
+          }
+        },
+        {
+          "question": "Where do you envision your technical leadership in the next 2-3 years, and why is this role the ideal catalyst for your growth?",
+          "category": "Future Impact & Role Alignment",
+          "answer": "Over the next two years, I am using growing into a senior technical contributor who not only Airbus impacts care about features in the delivery, but also saves architecture distance and raises engineering standards across the team to meet. Technical leadership means bridging the complex engineering execution player business outcomes, maintaining peace to throughout full core reviews and recent discussions, and helping teams see playable shortwave conference. This role is the ideal capsule for the GOAT because it come as meaningful technical competitive player ownership. Working on production system at the scale bridge challenge me to think more deeply about systems in Liberty Cross team collaboration on the maintainability. I'm excited about the opportunity to learn from strong engineers here, take on end-to-end ownership of cricket initiative and still go into a trustable technical loader.",
+          "evaluation": {
+            "confidence": {
+              "score": 3,
+              "justification": "Tone is hesitant and lacks decisive language.",
+              "key_phrases": [
+                "over the next two years",
+                "senior technical contributor"
+              ]
+            },
+            "evidence": {
+              "score": 2.5,
+              "justification": "Provides vague buzzwords without specific actions or measurable results.",
+              "key_phrases": [
+                "bridging the complex engineering execution",
+                "raise engineering standards"
+              ]
+            },
+            "clarity": {
+              "score": 2,
+              "justification": "Answer is rambling and hard to follow, with many incoherent fragments.",
+              "key_phrases": [
+                "over the next two years",
+                "technical leadership means"
+              ]
+            },
+            "arrogance": {
+              "score": 2,
+              "justification": "No dismissive or ego‑centric language; mostly self‑promotion without substance.",
+              "key_phrases": []
+            },
+            "overall_score": 48,
+            "feedback": "Provide concrete, structured examples (Situation, Task, Action, Result) and avoid mixing unrelated buzzwords; focus on clear, measurable outcomes.",
+            "model_used": "groq:openai/gpt-oss-120b"
+          }
+        }
+      ],
+      "proctoring_alerts": [
+        {
+          "code": "CAMERA_OFF",
+          "message": "Camera is turned off or hidden! Enable your webcam to avoid interview flagging.",
+          "timestamp": "8:38:47 pm"
+        },
+        {
+          "code": "CAMERA_COVERED",
+          "message": "Alert: Webcam appears covered or blocked! Please uncover your camera immediately.",
+          "timestamp": "8:38:56 pm"
+        },
+        {
+          "code": "CAMERA_OFF",
+          "message": "Camera is turned off or hidden! Enable your webcam to avoid interview flagging.",
+          "timestamp": "8:47:07 pm"
+        }
+      ],
+      "strengths": [
+        "Identifies and resolves performance issues with concrete actions (e.g., indexing, caching)",
+        "Collaborates effectively to reach consensus on architectural decisions",
+        "Shows self‑reflection by acknowledging a failed library adoption and extracting lessons"
+      ],
+      "improvement_areas": [
+        "Provide clearer, structured narratives with quantifiable outcomes (e.g., latency reduction percentages)",
+        "Use specific STAR examples to illustrate impact and responsibility",
+        "Articulate technical choices in more detail to demonstrate depth of engineering foresight"
+      ]
+    },
+    "round3_completed_at": "2026-11-25T15:17:16.106093+00:00",
+    "final_result": {
+      "round1_score": 70.05,
+      "round2_score": 70.0,
+      "round3_score": 61.1,
+      "composite_score": 67.3,
+      "verdict": "ON HOLD",
+      "recommendation": "RECOMMENDED",
+      "round1_cleared": true,
+      "round2_cleared": true,
+      "round3_cleared": false,
+      "evaluated_at": "2026-11-25T15:17:16.106235+00:00"
+    }
   }
 ]

@@ -10,13 +10,16 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
-const getRound2ErrorMessage = (message) => {
+const getRound2ErrorMessage = (message, isFinalSubmission = false) => {
     const text = String(message || '').toLowerCase();
     if (text.includes('quiz session not found') || text.includes('session not found') || text.includes('expired') || text.includes('invalid')) {
         return 'This Round 2 session has expired or is invalid. Please return to the application and start Round 2 again.';
     }
     if (text.includes('failed to fetch') || text.includes('network') || text.includes('service unavailable')) {
         return 'The Round 2 service is currently unavailable. Please try again in a moment.';
+    }
+    if (isFinalSubmission && (text.includes('incomplete') || text.includes('quiz service error: 500'))) {
+        return 'Round 2 could not finish generating your score report. Your final answer may already be saved; retry Submit Final Answer to finish the report.';
     }
     return 'Unable to continue Round 2 right now. Please try again.';
 };
@@ -210,9 +213,10 @@ export default function Round2() {
             }
         } catch (err) {
             const msg = err?.message || err;
-            setError(getRound2ErrorMessage(msg));
+            setError(getRound2ErrorMessage(msg, questionIndex + 1 >= TOTAL_QUESTIONS));
         } finally {
             setLoading(false);
+            setSubmitted(false);
         }
     };
 
@@ -235,7 +239,7 @@ export default function Round2() {
             }
         } catch (err) {
             const msg = err?.message || err;
-            setError(getRound2ErrorMessage(msg));
+            setError(getRound2ErrorMessage(msg, questionIndex + 1 >= TOTAL_QUESTIONS));
         } finally {
             setLoading(false);
             setSubmitted(false);
@@ -261,7 +265,7 @@ export default function Round2() {
             }
         } catch (err) {
             const msg = err?.message || err;
-            setError(getRound2ErrorMessage(msg));
+            setError(getRound2ErrorMessage(msg, questionIndex + 1 >= TOTAL_QUESTIONS));
         } finally {
             setLoading(false);
             setSubmitted(false);

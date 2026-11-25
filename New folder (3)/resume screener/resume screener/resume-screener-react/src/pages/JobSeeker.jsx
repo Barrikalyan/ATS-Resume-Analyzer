@@ -115,7 +115,7 @@ export default function JobSeeker() {
                 score: data.analysis.overallScore,
                 analysis: data.analysis,
                 status: data.suggested_status || (data.analysis.overallScore >= 60 ? 'Submitted' : 'Rejected'),
-                resume_url: data.resume_url
+                resume_path: data.resume_path
             };
 
             const savedApp = await submitApplication(appData);

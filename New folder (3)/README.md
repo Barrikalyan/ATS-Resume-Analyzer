@@ -184,6 +184,19 @@ npm run dev
 
 ---
 
+## ☁️ Supabase persistence
+
+The ATS API stores candidate/application records in the Supabase `applications` table and uploaded resumes in a private `resumes` Storage bucket. Without Supabase configured, local development continues to use the JSON file; production refuses to start without Supabase credentials.
+
+1. In Supabase SQL Editor, run [`supabase_schema.sql`](./supabase_schema.sql) to create the application and quiz-session tables and private resume bucket.
+2. Set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the ATS, Quiz, and Interview backend environments. The service-role/secret key is backend-only; do not put it in `VITE_` variables or expose it in the browser.
+3. Set `DATABASE_URL` on the Interview backend to your Supabase PostgreSQL connection string. Its interview tables are created on startup and protected with row-level security.
+4. Set `ENVIRONMENT=production` on the deployed backend services. Keep `ENVIRONMENT=development` for local JSON/SQLite development.
+
+The `applications` table has searchable candidate columns plus a `data` JSONB column containing the complete dossier. Quiz sessions are stored in `quiz_sessions`; Interview records are stored in the SQLAlchemy tables in Supabase PostgreSQL. Resume and optional interview-audio objects use private Storage buckets. The recruiter API returns short-lived signed URLs for resumes.
+
+---
+
 ## 🔑 Demo Access & Testing Credentials
 
 - **Job Seeker Portal:** `http://localhost:5173`

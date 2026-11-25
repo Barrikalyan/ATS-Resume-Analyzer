@@ -2,7 +2,7 @@ import os
 import requests
 from datetime import datetime, timezone
 from typing import Tuple, Optional
-from backend.persistence import read_applications, write_applications
+from backend.persistence import read_applications, save_application
 
 
 def _parse_weight_env(key: str, default: float) -> float:
@@ -185,7 +185,7 @@ def aggregate_candidate(candidate_id: str, data_file: str, interview_api_base: s
 
     # Persist into applications.json under key final_result
     target['final_result'] = final_payload
-    write_applications(data_file, apps)
+    save_application(data_file, target)
 
     response = {
         'candidate_id': candidate_id,

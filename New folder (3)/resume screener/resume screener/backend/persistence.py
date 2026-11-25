@@ -18,6 +18,13 @@ except Exception:
 
 DEFAULT_RETRY_DELAY = 0.05
 DEFAULT_TIMEOUT = 5.0
+_supabase_client = None
+
+
+def configure_supabase(client):
+    """Use Supabase for application persistence when configured."""
+    global _supabase_client
+    _supabase_client = client
 
 
 def _acquire_lock(lockfile_path: str, timeout: float = DEFAULT_TIMEOUT) -> object:
@@ -105,6 +112,14 @@ def ensure_data_file(path: str):
 
 def read_applications(path: str):
     """Read and return the list of applications. Returns empty list for missing/invalid JSON."""
+    if _supabase_client is not None:
+        response = (
+            _supabase_client.table("applications")
+            .select("data")
+            .execute()
+        )
+        return [row["data"] for row in response.data if isinstance(row.get("data"), dict)]
+
     lockfile = f"{path}.lock"
     lf = None
     try:
@@ -125,10 +140,49 @@ def read_applications(path: str):
         _release_lock(lf)
 
 
+def _application_row(app):
+    candidate_id = app.get("id")
+    if not candidate_id:
+        raise ValueError("Every application must have an id before it can be stored")
+    return {
+        "id": str(candidate_id),
+        "name": app.get("name"),
+        "email": app.get("email"),
+        "role": app.get("role"),
+        "score": app.get("score"),
+        "status": app.get("status"),
+        "resume_path": app.get("resume_path"),
+        "data": app,
+    }
+
+
+def save_application(path: str, app):
+    """Insert or update one application without rewriting unrelated records."""
+    row = _application_row(app)
+    if _supabase_client is not None:
+        _supabase_client.table("applications").upsert(row, on_conflict="id").execute()
+        return
+
+    apps = read_applications(path)
+    for index, existing in enumerate(apps):
+        if existing.get("id") == app["id"]:
+            apps[index] = app
+            break
+    else:
+        apps.append(app)
+    write_applications(path, apps)
+
+
 def write_applications(path: str, apps, *, indent: int = 2):
-    """Atomically write applications list to path using a temporary file and os.replace. Uses a lock to coordinate concurrent writers."""
+    """Write all provided records locally or upsert them in Supabase; deletes are explicit."""
     if apps is None:
         apps = []
+    if _supabase_client is not None:
+        rows = [_application_row(app) for app in apps]
+        if rows:
+            _supabase_client.table("applications").upsert(rows, on_conflict="id").execute()
+        return
+
     lockfile = f"{path}.lock"
     lf = None
     tmp = None
@@ -176,3 +230,16 @@ def write_applications(path: str, apps, *, indent: int = 2):
                 os.remove(tmp)
             except Exception:
                 pass
+
+
+def delete_application(path: str, candidate_id: str):
+    """Delete one application without replacing unrelated Supabase records."""
+    if _supabase_client is not None:
+        _supabase_client.table("applications").delete().eq("id", candidate_id).execute()
+        return
+
+    apps = read_applications(path)
+    remaining = [app for app in apps if app.get("id") != candidate_id]
+    if len(remaining) == len(apps):
+        raise KeyError(candidate_id)
+    write_applications(path, remaining)
