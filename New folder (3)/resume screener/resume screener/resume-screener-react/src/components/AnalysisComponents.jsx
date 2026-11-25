@@ -32,7 +32,7 @@ export const MultiRoundProgressTracker = ({ candidate }) => {
         ? parseFloat(candidate.interview_score)
         : (candidate.round3_report?.overall_score !== undefined ? parseFloat(candidate.round3_report.overall_score) : null);
     const r3Attempted = r3Score !== null;
-    const r3Cleared = r3Attempted && r3Score >= 60;
+    const r3Cleared = r3Attempted && r3Score >= 80;
 
     const isShortlisted = candidate.status === 'Shortlisted';
     const isRejected = candidate.status === 'Rejected';
@@ -151,7 +151,7 @@ export const Round2ReportSection = ({ candidate }) => {
                 <div style={{ textAlign: 'center', padding: '2rem 1rem', color: '#94a3b8' }}>
                     <Terminal size={36} style={{ margin: '0 auto 10px', opacity: 0.5 }} />
                     <h4 style={{ margin: 0 }}>Round 2 Technical Assessment Pending</h4>
-                    <p style={{ fontSize: '0.85rem', marginTop: '4px' }}>Candidate has not completed the 15-question technical assessment yet.</p>
+                    <p style={{ fontSize: '0.85rem', marginTop: '4px' }}>Candidate has not completed the 20-question technical assessment yet.</p>
                 </div>
             </Card>
         );
@@ -165,7 +165,7 @@ export const Round2ReportSection = ({ candidate }) => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
                 <div>
                     <div style={{ fontSize: '0.78rem', color: '#818cf8', fontWeight: 700, textTransform: 'uppercase' }}>Round 2 Technical Results</div>
-                    <h3 style={{ margin: 0, fontSize: '1.3rem' }}>15-Question Technical Evaluation</h3>
+                    <h3 style={{ margin: 0, fontSize: '1.3rem' }}>20-Question Technical Evaluation</h3>
                 </div>
                 <span className={`badge-pill ${isPassed ? 'badge-passed' : 'badge-failed'}`} style={{ fontSize: '0.85rem', padding: '6px 14px' }}>
                     {isPassed ? `PASSED (${Math.round(pct)}% >= 70%)` : `NOT QUALIFIED (${Math.round(pct)}% < 70%)`}
@@ -182,7 +182,7 @@ export const Round2ReportSection = ({ candidate }) => {
                 <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Points Awarded</div>
                     <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#38bdf8' }}>
-                        {report?.totalScore ?? 'N/A'} <span style={{ fontSize: '0.85rem', color: '#64748b' }}>/ {report?.maxScore ?? 150}</span>
+                        {report?.totalScore ?? 'N/A'} <span style={{ fontSize: '0.85rem', color: '#64748b' }}>/ {report?.maxScore ?? 200}</span>
                     </div>
                     <small style={{ color: '#64748b' }}>Calculated points</small>
                 </div>
@@ -190,7 +190,7 @@ export const Round2ReportSection = ({ candidate }) => {
                 <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
                     <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Questions Completed</div>
                     <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#a78bfa' }}>
-                        {report?.results?.length || 15}
+                        {report?.results?.length || 20}
                     </div>
                     <small style={{ color: '#64748b' }}>MCQ, SQL, Debugging, Logic</small>
                 </div>

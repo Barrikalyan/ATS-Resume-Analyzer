@@ -5,6 +5,7 @@ import random
 import re
 import httpx
 import ssl
+import requests
 from pathlib import Path
 from typing import List, Dict, Optional
 from dotenv import load_dotenv
@@ -21,7 +22,6 @@ ROOT_DIR = _find_project_root(Path(__file__).resolve().parent)
 load_dotenv(ROOT_DIR / ".env", override=False)
 
 # AGGRESSIVE SSL BYPASS for corporate firewalls
-import ssl
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -29,17 +29,18 @@ except AttributeError:
 else:
     ssl._create_default_https_context = _create_unverified_https_context
 
-# Configure Gemini
+# Configure Groq (Primary for Round 2) & Gemini (Multi-model Fallback)
 APP_ENV = os.environ.get("APP_ENV", "development").strip().lower()
 API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
 MOCK_AI_VALUE = os.environ.get("MOCK_AI")
 if MOCK_AI_VALUE is None:
-    MOCK_AI = not bool(API_KEY)
+    MOCK_AI = not (bool(API_KEY) or bool(GROQ_API_KEY))
 else:
     MOCK_AI = MOCK_AI_VALUE.strip().lower() == "true"
 ALLOW_LOCAL_FALLBACK = os.environ.get("QUIZ_ALLOW_LOCAL_FALLBACK", "true").strip().lower() != "false"
-if not API_KEY and not MOCK_AI and APP_ENV == "production":
-    raise RuntimeError("GEMINI_API_KEY environment variable is required for production Gemini integration")
+if not (API_KEY or GROQ_API_KEY) and not MOCK_AI and APP_ENV == "production":
+    raise RuntimeError("GROQ_API_KEY or GEMINI_API_KEY is required for production quiz integration")
 
 # Patch httpx which genai uses under the hood
 original_httpx_client = httpx.Client
@@ -58,18 +59,103 @@ client = (
     else None
 )
 
+GEMINI_FALLBACK_MODELS = [
+    "gemini-3.8-flash",
+    "gemini-3-flash-preview",
+    "gemini-3.1-flash-lite",
+]
+
+GROQ_FALLBACK_MODELS = [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-20b",
+]
+
+
 def _resolve_model_id(candidate: Optional[str] = None) -> str:
-    raw = (candidate or os.environ.get("GEMINI_MODEL_ID") or "gemini-3.6-flash").strip()
+    raw = (candidate or os.environ.get("GEMINI_MODEL_ID") or "gemini-3.8-flash").strip()
     if not raw:
-        return "gemini-3.6-flash"
+        return "gemini-3.8-flash"
     if raw.startswith("models/"):
         raw = raw.split("/", 1)[1]
-    deprecated = {"gemini-2.0-flash", "gemini-2.5-flash", "gemini-2.5-pro"}
+    deprecated = {"gemini-2.0-flash", "gemini-2.5-flash", "gemini-2.5-pro", "gemini-3.6-flash"}
     if raw in deprecated:
-        return "gemini-3.6-flash"
+        return "gemini-3.8-flash"
     return raw
 
+
+def _get_gemini_candidates() -> List[str]:
+    primary = _resolve_model_id()
+    ordered = [primary]
+    for m in GEMINI_FALLBACK_MODELS:
+        if m not in ordered:
+            ordered.append(m)
+    return ordered
+
+
+def _get_groq_candidates() -> List[str]:
+    preferred = os.environ.get("GROQ_MODEL_ID", "").strip()
+    ordered = []
+    if preferred:
+        ordered.append(preferred)
+    for m in GROQ_FALLBACK_MODELS:
+        if m not in ordered:
+            ordered.append(m)
+    return ordered
+
+
 MODEL_ID = _resolve_model_id()
+
+
+def _call_llm_json(prompt: str, timeout_seconds: int = 60):
+    """Try Groq models first (Round 2 primary), then fall back across Gemini Flash models."""
+    last_err = None
+
+    if GROQ_API_KEY:
+        for gm in _get_groq_candidates():
+            try:
+                resp = requests.post(
+                    "https://api.groq.com/openai/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {GROQ_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": gm,
+                        "messages": [{"role": "user", "content": prompt}],
+                        "response_format": {"type": "json_object"},
+                        "temperature": 0.4,
+                    },
+                    timeout=timeout_seconds,
+                )
+                if resp.status_code == 200:
+                    content = resp.json()["choices"][0]["message"]["content"]
+                    return _parse_json_response(content)
+                last_err = RuntimeError(f"Groq {gm} status {resp.status_code}: {resp.text[:200]}")
+                print(f"WARNING: Groq ({gm}) failed ({resp.status_code}); trying next fallback model...")
+            except Exception as exc:
+                last_err = exc
+                print(f"WARNING: Groq ({gm}) error: {exc}")
+
+    if client is not None:
+        for gem_model in _get_gemini_candidates():
+            try:
+                response = client.models.generate_content(
+                    model=gem_model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        max_output_tokens=32768,
+                    ),
+                )
+                return _parse_json_response(response.text)
+            except Exception as exc:
+                last_err = exc
+                print(f"WARNING: Gemini ({gem_model}) failed: {exc}")
+
+    if last_err is not None:
+        raise last_err
+    raise RuntimeError("No LLM provider configured (GROQ_API_KEY and GEMINI_API_KEY are missing)")
 
 
 def _normalize_context(context: Optional[dict]) -> dict:
@@ -152,8 +238,8 @@ def _validate_question_set(data: dict) -> list:
     if not isinstance(data, dict):
         raise ValueError("AI returned a non-object payload")
     questions = data.get("questions")
-    if not isinstance(questions, list) or len(questions) < 15:
-        raise ValueError("AI returned insufficient questions — expected exactly 15")
+    if not isinstance(questions, list) or len(questions) < 20:
+        raise ValueError("AI returned insufficient questions — expected 20")
     cleaned = []
     seen_ids = set()
     seen_questions = set()
@@ -332,30 +418,15 @@ def generate_single_question(field: str, difficulty: str, excluded_questions: li
     }}
     """
     
-    if client is None:
-        if MOCK_AI:
-            return get_mock_single_question(field, difficulty, qtype)
-        raise RuntimeError("Gemini client unavailable: GEMINI_API_KEY is missing and MOCK_AI is false")
+    if MOCK_AI and client is None and not GROQ_API_KEY:
+        return get_mock_single_question(field, difficulty, qtype)
     try:
-        response = client.models.generate_content(
-            model=MODEL_ID,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                max_output_tokens=32768,
-            )
-        )
-        return _parse_json_response(response.text)
+        return _call_llm_json(prompt, timeout_seconds=45)
     except Exception as e:
         import traceback
-        print(f"CRITICAL: Gemini API Error (generate_single_question): {str(e)}")
+        print(f"CRITICAL: LLM Error (generate_single_question): {str(e)}")
         print(traceback.format_exc())
-        if _is_quota_or_rate_limit_error(e):
-            print("WARNING: Gemini quota exhausted. Falling back to the local mock question generator without crashing the flow.")
-            return get_mock_single_question(field, difficulty, qtype)
-        if MOCK_AI:
-            return get_mock_single_question(field, difficulty, qtype)
-        raise
+        return get_mock_single_question(field, difficulty, qtype)
 
 def evaluate_single_answer(question: dict, user_answer: str):
     prompt = f"""
@@ -378,38 +449,27 @@ def evaluate_single_answer(question: dict, user_answer: str):
     }}
     """
 
-    if client is None:
-        if MOCK_AI:
-            is_correct = user_answer.strip().lower() == question.get("correctAnswer", "").lower()
-            return {
-                "isCorrect": is_correct,
-                "pointsAwarded": question.get("points") if is_correct else 0,
-                "maxPoints": question.get("points"),
-                "correctAnswer": question.get("correctAnswer"),
-                "feedback": "Correct!" if is_correct else "Incorrect."
-            }
-        raise RuntimeError("Gemini client unavailable: GEMINI_API_KEY is missing and MOCK_AI is false")
+    if MOCK_AI and client is None and not GROQ_API_KEY:
+        is_correct = user_answer.strip().lower() == question.get("correctAnswer", "").lower()
+        return {
+            "isCorrect": is_correct,
+            "pointsAwarded": question.get("points") if is_correct else 0,
+            "maxPoints": question.get("points"),
+            "correctAnswer": question.get("correctAnswer"),
+            "feedback": "Correct!" if is_correct else "Incorrect."
+        }
     try:
-        response = client.models.generate_content(
-            model=MODEL_ID,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json"
-            )
-        )
-        return json.loads(response.text)
+        return _call_llm_json(prompt, timeout_seconds=30)
     except Exception as e:
-        print(f"Gemini API Error (evaluate_single_answer): {e}")
-        if MOCK_AI:
-            is_correct = user_answer.strip().lower() == question.get("correctAnswer", "").lower()
-            return {
-                "isCorrect": is_correct,
-                "pointsAwarded": question.get("points") if is_correct else 0,
-                "maxPoints": question.get("points"),
-                "correctAnswer": question.get("correctAnswer"),
-                "feedback": "Correct!" if is_correct else "Incorrect."
-            }
-        raise
+        print(f"LLM Error (evaluate_single_answer): {e}")
+        is_correct = user_answer.strip().lower() == question.get("correctAnswer", "").lower()
+        return {
+            "isCorrect": is_correct,
+            "pointsAwarded": question.get("points") if is_correct else 0,
+            "maxPoints": question.get("points"),
+            "correctAnswer": question.get("correctAnswer"),
+            "feedback": "Correct!" if is_correct else "Incorrect."
+        }
 
 def generate_full_quiz(field: str, context: dict = None):
     session_signature = str(uuid.uuid4())[:8]
@@ -453,40 +513,32 @@ def generate_full_quiz(field: str, context: dict = None):
     }}
 
     Constraints:
-    - Generate exactly 15 questions total: a mix of MCQs and code snippets only.
+    - Generate exactly 20 questions total: a mix of MCQs (12) and short code/debugging/SQL snippet prompts (8).
     - Keep code snippets short and compact (one line or at most 8 lines).
     - Use single quotes inside code snippets and avoid literal newlines inside JSON string values.
-    - Aim for roughly 4-6 easy, 4-6 medium, and 2-3 hard questions, but do not force exact counts if the candidate context supports a valid spread.
-    - Use the candidate context to avoid generic questions and to make each question more specific to their actual skills and projects.
+    - Aim for roughly 6 easy, 9 medium, and 5 hard questions, grounded in the candidate's actual skills and projects.
     - Do not include any extra keys outside the schema.
     - Ensure every question has a valid `correctAnswer` and `explanation` internally for server-side grading.
     - Do not reveal the answer or explanation to the frontend; the backend will sanitize public responses.
     """
 
-    if client is None:
-        if MOCK_AI:
-            return get_mock_full_quiz(field, cleaned_context)
-        raise RuntimeError("Gemini client unavailable: GEMINI_API_KEY is missing and MOCK_AI is false")
+    if MOCK_AI and client is None and not GROQ_API_KEY:
+        return get_mock_full_quiz(field, cleaned_context)
     try:
-        response = client.models.generate_content(
-            model=MODEL_ID,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json"
-            )
-        )
-        raw_text = response.text
-        parsed = _parse_json_response(raw_text)
+        parsed = _call_llm_json(prompt, timeout_seconds=75)
         validated_questions = _validate_question_set(parsed)
         if any(str(question.get("type", "")).lower() not in {"mcq", "code_snippet"} for question in validated_questions):
-            raise ValueError("Gemini returned a question type outside mcq/code_snippet")
-        return {"questions": validated_questions}
+            for q in validated_questions:
+                if str(q.get("type", "")).lower() not in {"mcq", "code_snippet"}:
+                    q["type"] = "mcq" if q.get("options") and len(q.get("options")) > 1 else "code_snippet"
+        return {"questions": validated_questions[:20]}
     except Exception as e:
-        print(f"CRITICAL: Gemini API Error (generate_full_quiz): {e}")
-        print("WARNING: Gemini generation failed/quota exhausted. Falling back to high-quality local quiz generator so session creation succeeds.")
+        print(f"CRITICAL: LLM Quiz Error (generate_full_quiz): {e}")
+        print("WARNING: Falling back to high-quality 20-question local quiz generator so session creation succeeds.")
         return get_mock_full_quiz(field, cleaned_context)
 
 def evaluate_quiz_submission(questions: list, user_answers_list: list):
+    total_max = len(questions) * 10
     prompt = f"""
     You are an expert technical evaluator. 
     Grade the following user answers for a {len(questions)}-question technical quiz.
@@ -505,23 +557,23 @@ def evaluate_quiz_submission(questions: list, user_answers_list: list):
     5. Grade based on technical correctness, not exact wording. Do not penalize a correct practical answer merely because it differs from the reference answer.
     6. Ensure the question text and expected answer in your JSON response match the source question ID.
 
-    SCORING (15 QUESTIONS, 150 TOTAL):
+    SCORING ({len(questions)} QUESTIONS, {total_max} TOTAL):
     - Every question is worth 10 points.
-    - The 'maxScore' MUST be 150.
+    - The 'maxScore' MUST be {total_max}.
     - The 'totalScore' is the sum of points awarded.
     - The 'percentage' is (totalScore / maxScore) * 100.
 
     Output Format (JSON):
     {{
       "totalScore": number,
-    "maxScore": 150,
+      "maxScore": {total_max},
       "percentage": number,
       "results": [
         {{
           "questionId": id,
           "question": "EXACT question text from source",
           "isCorrect": boolean,
-          "pointsAwarded": number (0 OR full points based on difficulty),
+          "pointsAwarded": number (0 OR 10),
           "maxPoints": 10,
           "userAnswer": "The user's response",
           "correctAnswer": "EXACT reference answer from source",
@@ -532,22 +584,12 @@ def evaluate_quiz_submission(questions: list, user_answers_list: list):
       "isSelected": boolean (True if percentage >= 70)
     }}
     """
-    if client is None:
-        if MOCK_AI:
-            return get_mock_evaluation_result(questions, user_answers_list)
-        raise RuntimeError("Gemini client unavailable: GEMINI_API_KEY is missing and MOCK_AI is false")
+    if MOCK_AI and client is None and not GROQ_API_KEY:
+        return get_mock_evaluation_result(questions, user_answers_list)
     try:
-        response = client.models.generate_content(
-            model=MODEL_ID,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                max_output_tokens=32768,
-            )
-        )
-        return _parse_json_response(response.text)
+        return _call_llm_json(prompt, timeout_seconds=75)
     except Exception as e:
-        print(f"Gemini API Error (evaluate_quiz_submission): {e}")
+        print(f"LLM Evaluation Error (evaluate_quiz_submission): {e}")
         print("Falling back to local technical quiz evaluator.")
         return get_mock_evaluation_result(questions, user_answers_list)
 
@@ -694,10 +736,50 @@ def get_mock_full_quiz(field: str, context: dict = None):
         {
             "type": "conceptual",
             "difficulty": "easy",
-            "question": "When monitoring a {skill1} model from {project}, which signal most strongly suggests data drift?",
-            "options": ["The input feature distribution changes materially from the training distribution", "The source file has a new name", "The dashboard theme changes", "The model has a shorter class name"],
-            "correctAnswer": "The input feature distribution changes materially from the training distribution",
-            "explanation": "A distribution shift in model inputs is a direct indicator of data drift.",
+            "question": "When monitoring a {skill1} system from {project}, which signal most strongly suggests production degradation or drift?",
+            "options": ["Error rates, latency percentiles, or input distributions shift materially from baseline", "The source file has a new name", "The dashboard theme changes", "The module has a shorter class name"],
+            "correctAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+            "explanation": "Shifts in telemetry and input distributions directly indicate drift or degradation.",
+        },
+        {
+            "type": "mcq",
+            "difficulty": "medium",
+            "question": "For a {field} service handling concurrent requests with {skill1}, which caching strategy prevents stale reads after writes?",
+            "options": ["Write-through or explicit cache invalidation on mutation with bounded TTL", "Disabling database transactions", "Caching every POST response indefinitely", "Storing session secrets in client localStorage"],
+            "correctAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+            "explanation": "Coordinated invalidation or write-through keeps cache state consistent with the backing store.",
+        },
+        {
+            "type": "mcq",
+            "difficulty": "hard",
+            "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a {field} endpoint?",
+            "options": ["429 Too Many Requests with a Retry-After header", "500 Internal Server Error with stack trace", "200 OK with empty payload", "301 Moved Permanently"],
+            "correctAnswer": "429 Too Many Requests with a Retry-After header",
+            "explanation": "HTTP 429 with Retry-After signals backpressure cleanly to API consumers.",
+        },
+        {
+            "type": "code_snippet",
+            "difficulty": "medium",
+            "question": "Write a function or query in {skill1} (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+            "options": [],
+            "correctAnswer": "list(dict.fromkeys(items))",
+            "explanation": "Using dict.fromkeys or an ordered Set preserves first-seen order in O(n) time.",
+        },
+        {
+            "type": "mcq",
+            "difficulty": "easy",
+            "question": "When deploying updates for {project}, why are automated integration tests executed before production rollout?",
+            "options": ["To catch contract mismatches across services and databases early", "To skip code reviews completely", "To increase bundle file sizes", "To remove logging from APIs"],
+            "correctAnswer": "To catch contract mismatches across services and databases early",
+            "explanation": "Integration tests verify component boundaries before traffic reaches production.",
+        },
+        {
+            "type": "mcq",
+            "difficulty": "hard",
+            "question": "In distributed {field} architectures, why should message consumers be idempotent?",
+            "options": ["At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state", "Idempotency removes the need for authentication", "It forces synchronous single-threaded execution", "It disables TLS encryption"],
+            "correctAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+            "explanation": "Idempotent handlers safely tolerate retries and duplicate deliveries.",
         },
     ]
 
@@ -719,19 +801,18 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "options": template.get("options", []),
             "correctAnswer": template["correctAnswer"],
             "explanation": template["explanation"],
-            "points": 5 if template["difficulty"] == "easy" else 10 if template["difficulty"] == "medium" else 15,
+            "points": 10,
             "internal_prompt": f"Role: {field}; candidate context: {json.dumps(context, ensure_ascii=False)[:200]}",
             "grading_hint": "Use resume-aware technical reasoning and project-specific evidence.",
         }
         question_list.append(q)
 
-    # Keep the fallback technical and personalized even when Gemini is unavailable.
-    # The templates above intentionally provide more than 15 distinct questions.
-    if len(question_list) < 15:
-        raise RuntimeError("The local technical question set must contain at least 15 questions")
+    # Keep the fallback technical and personalized even when external LLMs are unavailable.
+    if len(question_list) < 20:
+        raise RuntimeError("The local technical question set must contain at least 20 questions")
 
     random.shuffle(question_list)
-    return {"questions": question_list}
+    return {"questions": question_list[:20]}
 
 
 def _clean_text_val(val):

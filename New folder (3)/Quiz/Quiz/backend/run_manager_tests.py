@@ -8,7 +8,7 @@ import os
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[0]))
 import manager
 
-EXPECTED_TYPES = {'mcq', 'sql', 'output_prediction', 'code_debugging', 'scenario', 'conceptual', 'code_snippet'}
+EXPECTED_TYPES = {'mcq', 'code_snippet'}
 
 
 def run_all():
@@ -18,8 +18,8 @@ def run_all():
         print('session_id=', s.session_id)
         nq = len(s.all_questions)
         print('num_questions=', nq)
-        if nq != 10:
-            print('FAIL: expected 10 questions, got', nq)
+        if nq != 20:
+            print('FAIL: expected 20 questions, got', nq)
             return 2
 
         types = [str(q.get('type', 'mcq')).lower() for q in s.all_questions]

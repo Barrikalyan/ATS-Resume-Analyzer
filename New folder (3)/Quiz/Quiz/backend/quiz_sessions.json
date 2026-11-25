@@ -46795,5 +46795,3266 @@
     "current_index": 15,
     "max_questions": 15,
     "is_finished": true
+  },
+  "76508740-154f-4fcd-bb33-3c3d78ad48e6": {
+    "session_id": "76508740-154f-4fcd-bb33-3c3d78ad48e6",
+    "field": "FullStackDeveloper",
+    "context": {
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "JavaScript",
+        "React",
+        "REST APIs",
+        "CSS",
+        "MongoDB",
+        "SQL",
+        "Node.js",
+        "Git",
+        "GitHub",
+        "Express.js",
+        "Deployment"
+      ],
+      "missing_skills": [
+        "Vercel",
+        "Authorization",
+        "Authentication",
+        "Netlify",
+        "AWS",
+        "HTML"
+      ],
+      "projects": [],
+      "years_of_experience": 0,
+      "resume_snippet": "{\"action_plan\": [\"Obtain Vercel certification.\", \"Rewrite experience bullets to include results.\", \"Update projects with links to source code.\", \"Ensure skills keywords are easily scannable.\"], \"ats_optimization_checklist\": [\"Use standard headings.\", \"Remove complex formatting.\", \"Target keyword density.\"], \"category_analysis\": {\"education\": {\"recommendations\": [\"Highlight specialized coursework.\"], \"status\": \"Gap\", \"strengths\": [\"Degree: B.Tech\"], \"weaknesses\": [\"Consider adding relevant certifications.\"]}, \"experience\": {\"recommendations\": [\"Quantify achievements with metrics.\", \"Clarify roles and responsibilities.\"], \"status\": \"Gap\", \"strengths\": [\"0 years of total experience\"], \"weaknesses\": [\"Relevant industry experience could be highlighted more.\"]}, \"skills\": {\"recommendations\": [\"Focus on learning missing technical skills.\", \"Update skills section with proficiency levels.\"], \"status\": \"Strength\", \"strengths\": [\"Matched 11 key skills\"], \"weaknesses\": [\"Missing 6 required skills\"]}}, \"executive_summary\": \"Rule-based assessment completed. The candidate scored 73.06% for the FullStackDeveloper role.\", \"experience_enhancement\": [\"Use STAR method for bullets.\", \"Include impact numbers ($ or %).\"], \"project_showcase_tips\": [\"Add GitHub links.\", \"Describe the tools used clearly.\"], \"skills_gap_analysis\": {\"high_priority_missing\": [\"Vercel\", \"Authorization\", \"Authentication\"], \"learning_roadmap\": [\"Complete online courses for missing tech.\", \"Build 2 small projects using new stack.\"], \"medium_priority_missing\": [\"Netlify\", \"AWS\", \"HTML\"]}}",
+      "relevant_technologies": [
+        "JavaScript",
+        "React",
+        "REST APIs",
+        "CSS",
+        "MongoDB",
+        "SQL",
+        "Node.js",
+        "Git"
+      ]
+    },
+    "all_questions": [
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+        "options": [],
+        "correctAnswer": "3",
+        "explanation": "Even numbers in range(0..4) are 0,2,4 — three items.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+        "options": [
+          "Missing values and schema drift",
+          "Irrelevant logging fields",
+          "UI color contrast",
+          "Page load speed"
+        ],
+        "correctAnswer": "Missing values and schema drift",
+        "explanation": "Feature quality and schema consistency directly affect train/test reliability.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Write a SQL query to count rows where JavaScript is not null and the value is greater than 0.",
+        "options": [],
+        "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+        "explanation": "This validates filtering logic and null handling in data pipelines.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+        "options": [
+          "Data leakage and biased evaluation",
+          "Faster processing",
+          "Color output changes",
+          "Shorter model names"
+        ],
+        "correctAnswer": "Data leakage and biased evaluation",
+        "explanation": "Leakage and leakage-like issues often arise from improper preprocessing before train/test separation.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 5,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+        "options": [],
+        "correctAnswer": "def factorial(n):\n    result = 1\n    for i in range(2, n+1):\n        result *= i\n    return result",
+        "explanation": "An iterative loop accumulates the product from 1 to n and returns the result.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When a resume highlights JavaScript and React, which practice best validates that those skills were used on a real project?",
+        "options": [
+          "Evaluating design tradeoffs and model metrics from the project",
+          "Rechecking only the resume formatting",
+          "Ignoring the project and focusing on certificates",
+          "Counting the number of libraries mentioned"
+        ],
+        "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+        "explanation": "Strong technical evidence comes from explaining decisions, systems, and measured outcomes.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 15,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When monitoring a JavaScript model from business analytics system, which signal most strongly suggests data drift?",
+        "options": [
+          "The input feature distribution changes materially from the training distribution",
+          "The source file has a new name",
+          "The dashboard theme changes",
+          "The model has a shorter class name"
+        ],
+        "correctAnswer": "The input feature distribution changes materially from the training distribution",
+        "explanation": "A distribution shift in model inputs is a direct indicator of data drift.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+        "options": [
+          "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "Drop the entire production batch",
+          "Fit the encoder on the production labels",
+          "Replace the category with a random value"
+        ],
+        "correctAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+        "explanation": "Inference pipelines must handle categories that were absent from the training sample.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A JavaScript model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+        "options": [
+          "Fit preprocessing only on training data, then transform validation and test data",
+          "Delete the test set",
+          "Increase the UI font size",
+          "Shuffle labels after evaluation"
+        ],
+        "correctAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+        "explanation": "Fitting preprocessing on all rows leaks evaluation-set information and inflates the score.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+        "options": [
+          "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "Average row count",
+          "Dataset file size",
+          "Color-coded charts only"
+        ],
+        "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+        "explanation": "Imbalanced classes make raw accuracy misleading and require targeted metrics.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+        "options": [],
+        "correctAnswer": "df.groupby('region', as_index=False)['revenue'].sum()",
+        "explanation": "GroupBy aggregates revenue independently for each region.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 9,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "For a JavaScript-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+        "options": [
+          "To prevent information leakage into evaluation data",
+          "To increase the number of columns",
+          "To avoid writing unit tests",
+          "To change the database schema"
+        ],
+        "correctAnswer": "To prevent information leakage into evaluation data",
+        "explanation": "Statistics learned from the validation or test split can leak future information into training.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+        "options": [],
+        "correctAnswer": "Use a min-heap of size k (or a max-heap depending on language): push items and maintain size k; final root is k-th largest. Complexity O(n log k).",
+        "explanation": "Maintaining a size-k heap ensures each insertion is O(log k) and you process n elements.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Which checks are appropriate when validating JavaScript and React code used in business analytics system?",
+        "options": [
+          "Input and null handling",
+          "Boundary cases",
+          "Measured output against an expected result",
+          "Changing the requirements after a failure"
+        ],
+        "correctAnswer": "Input and null handling",
+        "explanation": "Robust technical validation covers invalid inputs, boundaries, and observable correctness.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+        "options": [],
+        "correctAnswer": "SELECT region, SUM(revenue) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC LIMIT 3;",
+        "explanation": "Grouping, aggregation, descending sort, and limiting the result identify the top regions.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      }
+    ],
+    "public_questions": [
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+        "options": [
+          "Missing values and schema drift",
+          "Irrelevant logging fields",
+          "UI color contrast",
+          "Page load speed"
+        ],
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Write a SQL query to count rows where JavaScript is not null and the value is greater than 0.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+        "options": [
+          "Data leakage and biased evaluation",
+          "Faster processing",
+          "Color output changes",
+          "Shorter model names"
+        ],
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When a resume highlights JavaScript and React, which practice best validates that those skills were used on a real project?",
+        "options": [
+          "Evaluating design tradeoffs and model metrics from the project",
+          "Rechecking only the resume formatting",
+          "Ignoring the project and focusing on certificates",
+          "Counting the number of libraries mentioned"
+        ],
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When monitoring a JavaScript model from business analytics system, which signal most strongly suggests data drift?",
+        "options": [
+          "The input feature distribution changes materially from the training distribution",
+          "The source file has a new name",
+          "The dashboard theme changes",
+          "The model has a shorter class name"
+        ],
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+        "options": [
+          "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "Drop the entire production batch",
+          "Fit the encoder on the production labels",
+          "Replace the category with a random value"
+        ],
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A JavaScript model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+        "options": [
+          "Fit preprocessing only on training data, then transform validation and test data",
+          "Delete the test set",
+          "Increase the UI font size",
+          "Shuffle labels after evaluation"
+        ],
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+        "options": [
+          "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "Average row count",
+          "Dataset file size",
+          "Color-coded charts only"
+        ],
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 9,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "For a JavaScript-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+        "options": [
+          "To prevent information leakage into evaluation data",
+          "To increase the number of columns",
+          "To avoid writing unit tests",
+          "To change the database schema"
+        ],
+        "points": 10
+      },
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Which checks are appropriate when validating JavaScript and React code used in business analytics system?",
+        "options": [
+          "Input and null handling",
+          "Boundary cases",
+          "Measured output against an expected result",
+          "Changing the requirements after a failure"
+        ],
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+        "options": [],
+        "points": 10
+      }
+    ],
+    "history": [
+      {
+        "question": {
+          "id": 8,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+          "options": [],
+          "correctAnswer": "3",
+          "explanation": "Even numbers in range(0..4) are 0,2,4 — three items.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "3",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 1,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "options": [
+            "Missing values and schema drift",
+            "Irrelevant logging fields",
+            "UI color contrast",
+            "Page load speed"
+          ],
+          "correctAnswer": "Missing values and schema drift",
+          "explanation": "Feature quality and schema consistency directly affect train/test reliability.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"JavaScript\", \"React\", \"REST APIs\", \"CSS\", \"MongoDB\", \"SQL\", \"Node.js\", \"Git\", \"GitHub\", \"Express.js\", \"Deployment\"], \"missing_skills\": [\"Vercel\", \"Au",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Missing values and schema drift",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      }
+    ],
+    "current_index": 2,
+    "max_questions": 15,
+    "is_finished": false
+  },
+  "fb376524-50be-4122-bc67-42c2f5ac5b60": {
+    "session_id": "fb376524-50be-4122-bc67-42c2f5ac5b60",
+    "field": "DataScienceEngineer",
+    "context": {
+      "matched_skills": [
+        "Python",
+        "SQL"
+      ],
+      "projects": [
+        "Test Project"
+      ]
+    },
+    "all_questions": [
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+        "options": [],
+        "correctAnswer": "Use a min-heap of size k (or a max-heap depending on language): push items and maintain size k; final root is k-th largest. Complexity O(n log k).",
+        "explanation": "Maintaining a size-k heap ensures each insertion is O(log k) and you process n elements.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "For the Test Project project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+        "options": [
+          "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "Drop the entire production batch",
+          "Fit the encoder on the production labels",
+          "Replace the category with a random value"
+        ],
+        "correctAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+        "explanation": "Inference pipelines must handle categories that were absent from the training sample.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 5,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+        "options": [],
+        "correctAnswer": "def factorial(n):\n    result = 1\n    for i in range(2, n+1):\n        result *= i\n    return result",
+        "explanation": "An iterative loop accumulates the product from 1 to n and returns the result.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which data quality issue is most important to validate before training a model for Test Project?",
+        "options": [
+          "Missing values and schema drift",
+          "Irrelevant logging fields",
+          "UI color contrast",
+          "Page load speed"
+        ],
+        "correctAnswer": "Missing values and schema drift",
+        "explanation": "Feature quality and schema consistency directly affect train/test reliability.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+        "options": [],
+        "correctAnswer": "3",
+        "explanation": "Even numbers in range(0..4) are 0,2,4 — three items.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 9,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "For a Python-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+        "options": [
+          "To prevent information leakage into evaluation data",
+          "To increase the number of columns",
+          "To avoid writing unit tests",
+          "To change the database schema"
+        ],
+        "correctAnswer": "To prevent information leakage into evaluation data",
+        "explanation": "Statistics learned from the validation or test split can leak future information into training.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 15,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When monitoring a Python model from Test Project, which signal most strongly suggests data drift?",
+        "options": [
+          "The input feature distribution changes materially from the training distribution",
+          "The source file has a new name",
+          "The dashboard theme changes",
+          "The model has a shorter class name"
+        ],
+        "correctAnswer": "The input feature distribution changes materially from the training distribution",
+        "explanation": "A distribution shift in model inputs is a direct indicator of data drift.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a DataScienceEngineer model used in Test Project?",
+        "options": [
+          "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "Average row count",
+          "Dataset file size",
+          "Color-coded charts only"
+        ],
+        "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+        "explanation": "Imbalanced classes make raw accuracy misleading and require targeted metrics.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "In a sales table used for the Test Project project, write a SQL query to return the top three regions by total revenue.",
+        "options": [],
+        "correctAnswer": "SELECT region, SUM(revenue) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC LIMIT 3;",
+        "explanation": "Grouping, aggregation, descending sort, and limiting the result identify the top regions.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A Python model for Test Project reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+        "options": [
+          "Fit preprocessing only on training data, then transform validation and test data",
+          "Delete the test set",
+          "Increase the UI font size",
+          "Shuffle labels after evaluation"
+        ],
+        "correctAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+        "explanation": "Fitting preprocessing on all rows leaks evaluation-set information and inflates the score.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A pipeline for Test Project drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+        "options": [
+          "Data leakage and biased evaluation",
+          "Faster processing",
+          "Color output changes",
+          "Shorter model names"
+        ],
+        "correctAnswer": "Data leakage and biased evaluation",
+        "explanation": "Leakage and leakage-like issues often arise from improper preprocessing before train/test separation.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Which checks are appropriate when validating Python and SQL code used in Test Project?",
+        "options": [
+          "Input and null handling",
+          "Boundary cases",
+          "Measured output against an expected result",
+          "Changing the requirements after a failure"
+        ],
+        "correctAnswer": "Input and null handling",
+        "explanation": "Robust technical validation covers invalid inputs, boundaries, and observable correctness.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the Test Project analysis.",
+        "options": [],
+        "correctAnswer": "df.groupby('region', as_index=False)['revenue'].sum()",
+        "explanation": "GroupBy aggregates revenue independently for each region.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Write a SQL query to count rows where Python is not null and the value is greater than 0.",
+        "options": [],
+        "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+        "explanation": "This validates filtering logic and null handling in data pipelines.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When a resume highlights Python and SQL, which practice best validates that those skills were used on a real project?",
+        "options": [
+          "Evaluating design tradeoffs and model metrics from the project",
+          "Rechecking only the resume formatting",
+          "Ignoring the project and focusing on certificates",
+          "Counting the number of libraries mentioned"
+        ],
+        "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+        "explanation": "Strong technical evidence comes from explaining decisions, systems, and measured outcomes.",
+        "points": 10,
+        "internal_prompt": "Role: DataScienceEngineer; candidate context: {\"matched_skills\": [\"Python\", \"SQL\"], \"projects\": [\"Test Project\"]}",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      }
+    ],
+    "public_questions": [
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "For the Test Project project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+        "options": [
+          "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "Drop the entire production batch",
+          "Fit the encoder on the production labels",
+          "Replace the category with a random value"
+        ],
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which data quality issue is most important to validate before training a model for Test Project?",
+        "options": [
+          "Missing values and schema drift",
+          "Irrelevant logging fields",
+          "UI color contrast",
+          "Page load speed"
+        ],
+        "points": 10
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 9,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "For a Python-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+        "options": [
+          "To prevent information leakage into evaluation data",
+          "To increase the number of columns",
+          "To avoid writing unit tests",
+          "To change the database schema"
+        ],
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When monitoring a Python model from Test Project, which signal most strongly suggests data drift?",
+        "options": [
+          "The input feature distribution changes materially from the training distribution",
+          "The source file has a new name",
+          "The dashboard theme changes",
+          "The model has a shorter class name"
+        ],
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a DataScienceEngineer model used in Test Project?",
+        "options": [
+          "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "Average row count",
+          "Dataset file size",
+          "Color-coded charts only"
+        ],
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "In a sales table used for the Test Project project, write a SQL query to return the top three regions by total revenue.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A Python model for Test Project reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+        "options": [
+          "Fit preprocessing only on training data, then transform validation and test data",
+          "Delete the test set",
+          "Increase the UI font size",
+          "Shuffle labels after evaluation"
+        ],
+        "points": 10
+      },
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A pipeline for Test Project drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+        "options": [
+          "Data leakage and biased evaluation",
+          "Faster processing",
+          "Color output changes",
+          "Shorter model names"
+        ],
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Which checks are appropriate when validating Python and SQL code used in Test Project?",
+        "options": [
+          "Input and null handling",
+          "Boundary cases",
+          "Measured output against an expected result",
+          "Changing the requirements after a failure"
+        ],
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the Test Project analysis.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Write a SQL query to count rows where Python is not null and the value is greater than 0.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When a resume highlights Python and SQL, which practice best validates that those skills were used on a real project?",
+        "options": [
+          "Evaluating design tradeoffs and model metrics from the project",
+          "Rechecking only the resume formatting",
+          "Ignoring the project and focusing on certificates",
+          "Counting the number of libraries mentioned"
+        ],
+        "points": 10
+      }
+    ],
+    "history": [],
+    "current_index": 0,
+    "max_questions": 15,
+    "is_finished": false
+  },
+  "16ed84c8-813e-415d-b15e-cf6f668b1ba4": {
+    "session_id": "16ed84c8-813e-415d-b15e-cf6f668b1ba4",
+    "field": "FullStackDeveloper",
+    "context": {
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "CSS",
+        "Git",
+        "Deployment",
+        "REST APIs",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "GitHub",
+        "React",
+        "Express.js",
+        "SQL"
+      ],
+      "missing_skills": [
+        "AWS",
+        "HTML",
+        "Vercel",
+        "Netlify",
+        "Authentication",
+        "Authorization"
+      ],
+      "projects": [],
+      "years_of_experience": 0,
+      "resume_snippet": "{\"action_plan\": [\"Obtain AWS certification.\", \"Rewrite experience bullets to include results.\", \"Update projects with links to source code.\", \"Ensure skills keywords are easily scannable.\"], \"ats_optimization_checklist\": [\"Use standard headings.\", \"Remove complex formatting.\", \"Target keyword density.\"], \"category_analysis\": {\"education\": {\"recommendations\": [\"Highlight specialized coursework.\"], \"status\": \"Gap\", \"strengths\": [\"Degree: B.Tech\"], \"weaknesses\": [\"Consider adding relevant certifications.\"]}, \"experience\": {\"recommendations\": [\"Quantify achievements with metrics.\", \"Clarify roles and responsibilities.\"], \"status\": \"Gap\", \"strengths\": [\"0 years of total experience\"], \"weaknesses\": [\"Relevant industry experience could be highlighted more.\"]}, \"skills\": {\"recommendations\": [\"Focus on learning missing technical skills.\", \"Update skills section with proficiency levels.\"], \"status\": \"Strength\", \"strengths\": [\"Matched 11 key skills\"], \"weaknesses\": [\"Missing 6 required skills\"]}}, \"executive_summary\": \"Rule-based assessment completed. The candidate scored 73.06% for the FullStackDeveloper role.\", \"experience_enhancement\": [\"Use STAR method for bullets.\", \"Include impact numbers ($ or %).\"], \"project_showcase_tips\": [\"Add GitHub links.\", \"Describe the tools used clearly.\"], \"skills_gap_analysis\": {\"high_priority_missing\": [\"AWS\", \"HTML\", \"Vercel\"], \"learning_roadmap\": [\"Complete online courses for missing tech.\", \"Build 2 small projects using new stack.\"], \"medium_priority_missing\": [\"Netlify\", \"Authentication\", \"Authorization\"]}}",
+      "relevant_technologies": [
+        "CSS",
+        "Git",
+        "Deployment",
+        "REST APIs",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "GitHub"
+      ]
+    },
+    "all_questions": [
+      {
+        "id": 9,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Identify the cause of an infinite re-render loop in this React component snippet:\n\nuseEffect(() => {\n  fetchData().then(res => setData(res));\n});",
+        "options": [
+          "fetchData function must be wrapped in async/await",
+          "Missing dependency array as second argument to useEffect",
+          "setData cannot be called inside useEffect",
+          "The Promise requires a catch block"
+        ],
+        "correctAnswer": "Missing dependency array as second argument to useEffect",
+        "explanation": "Without a dependency array (not even `[]`), `useEffect` runs after every single render. Updating state inside it triggers another render, causing an infinite loop.",
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which HTTP method is defined as idempotent and intended to completely replace the target resource with the request payload?",
+        "options": [
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE"
+        ],
+        "correctAnswer": "PUT",
+        "explanation": "PUT is idempotent and replaces the target resource entirely. POST is not idempotent, and PATCH typically applies partial updates.",
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "Given a compound MongoDB index `{ status: 1, createdAt: -1 }`, which query fails to effectively utilize this index for sorting or matching?",
+        "options": [
+          "db.orders.find({ status: 'active' }).sort({ createdAt: -1 })",
+          "db.orders.find({ status: 'active' })",
+          "db.orders.find({ createdAt: { $gt: new Date() } })",
+          "db.orders.find({ status: 'pending', createdAt: { $gte: new Date() } })"
+        ],
+        "correctAnswer": "db.orders.find({ createdAt: { $gt: new Date() } })",
+        "explanation": "MongoDB compound indexes follow the prefix rule. Queries that do not filter or sort using the first field (`status`) cannot utilize the compound index efficient prefix scanning.",
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When hosting a Node.js/Express application behind a reverse proxy like Nginx or AWS ALB, which Express setting must be enabled to ensure `req.ip` correctly resolves client IPs from the `X-Forwarded-For` header?",
+        "options": [
+          "app.set('trust proxy', true)",
+          "app.use(cors())",
+          "app.enable('x-forwarded-for')",
+          "process.env.NODE_ENV = 'production'"
+        ],
+        "correctAnswer": "app.set('trust proxy', true)",
+        "explanation": "Setting `app.set('trust proxy', true)` instructs Express to trust `X-Forwarded-*` headers set by reverse proxies, accurately populating `req.ip` and `req.protocol`.",
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "To secure authentication tokens in full-stack web applications against Cross-Site Scripting (XSS) token extraction, where should sensitive JWT tokens be stored on the client side?",
+        "options": [
+          "LocalStorage",
+          "SessionStorage",
+          "An HttpOnly, Secure HTTP Cookie",
+          "A global JavaScript variable"
+        ],
+        "correctAnswer": "An HttpOnly, Secure HTTP Cookie",
+        "explanation": "Cookies configured with the `HttpOnly` flag cannot be accessed via client-side JavaScript scripts, effectively isolating them from XSS token theft.",
+        "points": 10
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In standard SQL, which clause must be used to filter rows aggregated by a `GROUP BY` statement (e.g., finding users with count > 5)?",
+        "options": [
+          "WHERE",
+          "HAVING",
+          "FILTER",
+          "ORDER BY"
+        ],
+        "correctAnswer": "HAVING",
+        "explanation": "`WHERE` filters individual rows before grouping, while `HAVING` filters aggregate group results created by `GROUP BY`.",
+        "points": 10
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "What will be printed to the console when executing the following JavaScript code?\n\nconsole.log('A');\nsetTimeout(() => console.log('B'), 0);\nPromise.resolve().then(() => console.log('C'));\nconsole.log('D');",
+        "options": [
+          "A, B, C, D",
+          "A, D, C, B",
+          "A, D, B, C",
+          "A, C, D, B"
+        ],
+        "correctAnswer": "A, D, C, B",
+        "explanation": "Synchronous statements ('A' and 'D') run first. Microtasks like Promise callbacks ('C') run before macrotasks like setTimeout ('B').",
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In Node.js, how does `process.nextTick()` differ from `setImmediate()`?",
+        "options": [
+          "setImmediate runs before process.nextTick in every event loop phase",
+          "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+          "They are functional aliases for each other",
+          "process.nextTick runs asynchronously on a separate background thread"
+        ],
+        "correctAnswer": "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+        "explanation": "`process.nextTick()` callbacks are processed after the current operation completes, regardless of the current phase of the event loop. `setImmediate()` runs on the next check phase.",
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "What will be logged to the console when executing this JavaScript code?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+        "options": [
+          "0, 1, 2",
+          "3, 3, 3",
+          "0, 0, 0",
+          "undefined, undefined, undefined"
+        ],
+        "correctAnswer": "3, 3, 3",
+        "explanation": "Because `var` is function-scoped rather than block-scoped, all timeouts close over the same single `i` variable instance, which equals `3` when the callbacks execute.",
+        "points": 10
+      },
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In MongoDB aggregation pipelines, which stage acts analogously to a SQL `LEFT OUTER JOIN` between collections?",
+        "options": [
+          "$match",
+          "$group",
+          "$lookup",
+          "$project"
+        ],
+        "correctAnswer": "$lookup",
+        "explanation": "The `$lookup` stage performs a left outer join to an unsharded collection in the same database to filter in documents from the 'joined' collection.",
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Which state updater function call correctly increments the `count` state in React without risk of stale state bugs when triggered rapidly?",
+        "options": [
+          "setCount(count + 1)",
+          "setCount(prevCount => prevCount + 1)",
+          "setCount(++count)",
+          "setCount(count = count + 1)"
+        ],
+        "correctAnswer": "setCount(prevCount => prevCount + 1)",
+        "explanation": "Functional updates (`prev => prev + 1`) ensure the state update is based on the most recent state value rather than a stale render closure.",
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Given the CSS rules below, what will be the text color of `<header id='header'><h1 class='title'>Text</h1></header>`?\n\n#header .title { color: red; }\nheader h1.title { color: blue; }",
+        "options": [
+          "red",
+          "blue",
+          "transparent",
+          "black"
+        ],
+        "correctAnswer": "red",
+        "explanation": "`#header .title` has specificity (1, 1, 0) due to one ID and one class, whereas `header h1.title` has specificity (0, 1, 2) due to one class and two element selectors.",
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "What is the correct parameter signature for an Express.js custom error-handling middleware function?",
+        "options": [
+          "(req, res, next)",
+          "(err, req, res)",
+          "(err, req, res, next)",
+          "(req, res, err, next)"
+        ],
+        "correctAnswer": "(err, req, res, next)",
+        "explanation": "Express identifies error-handling middleware specifically by requiring four arguments: `(err, req, res, next)`.",
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "Which SQL transaction isolation level prevents both Dirty Reads and Non-Repeatable Reads, but allows Phantom Reads under standard ANSI SQL specifications?",
+        "options": [
+          "READ UNCOMMITTED",
+          "READ COMMITTED",
+          "REPEATABLE READ",
+          "SERIALIZABLE"
+        ],
+        "correctAnswer": "REPEATABLE READ",
+        "explanation": "`REPEATABLE READ` guarantees that reads within a transaction yield consistent data, preventing non-repeatable reads, but phantom reads (newly inserted rows) can still occur.",
+        "points": 10
+      },
+      {
+        "id": 7,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which Git command enables you to save your modified working directory state without committing, allowing you to switch branches cleanly?",
+        "options": [
+          "git reset --hard",
+          "git stash",
+          "git commit -m 'wip'",
+          "git branch --save"
+        ],
+        "correctAnswer": "git stash",
+        "explanation": "`git stash` temporarily shelves changes made to your working directory so you can work on something else.",
+        "points": 10
+      }
+    ],
+    "public_questions": [
+      {
+        "id": 9,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Identify the cause of an infinite re-render loop in this React component snippet:\n\nuseEffect(() => {\n  fetchData().then(res => setData(res));\n});",
+        "options": [
+          "fetchData function must be wrapped in async/await",
+          "Missing dependency array as second argument to useEffect",
+          "setData cannot be called inside useEffect",
+          "The Promise requires a catch block"
+        ],
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which HTTP method is defined as idempotent and intended to completely replace the target resource with the request payload?",
+        "options": [
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE"
+        ],
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "Given a compound MongoDB index `{ status: 1, createdAt: -1 }`, which query fails to effectively utilize this index for sorting or matching?",
+        "options": [
+          "db.orders.find({ status: 'active' }).sort({ createdAt: -1 })",
+          "db.orders.find({ status: 'active' })",
+          "db.orders.find({ createdAt: { $gt: new Date() } })",
+          "db.orders.find({ status: 'pending', createdAt: { $gte: new Date() } })"
+        ],
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When hosting a Node.js/Express application behind a reverse proxy like Nginx or AWS ALB, which Express setting must be enabled to ensure `req.ip` correctly resolves client IPs from the `X-Forwarded-For` header?",
+        "options": [
+          "app.set('trust proxy', true)",
+          "app.use(cors())",
+          "app.enable('x-forwarded-for')",
+          "process.env.NODE_ENV = 'production'"
+        ],
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "To secure authentication tokens in full-stack web applications against Cross-Site Scripting (XSS) token extraction, where should sensitive JWT tokens be stored on the client side?",
+        "options": [
+          "LocalStorage",
+          "SessionStorage",
+          "An HttpOnly, Secure HTTP Cookie",
+          "A global JavaScript variable"
+        ],
+        "points": 10
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In standard SQL, which clause must be used to filter rows aggregated by a `GROUP BY` statement (e.g., finding users with count > 5)?",
+        "options": [
+          "WHERE",
+          "HAVING",
+          "FILTER",
+          "ORDER BY"
+        ],
+        "points": 10
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "What will be printed to the console when executing the following JavaScript code?\n\nconsole.log('A');\nsetTimeout(() => console.log('B'), 0);\nPromise.resolve().then(() => console.log('C'));\nconsole.log('D');",
+        "options": [
+          "A, B, C, D",
+          "A, D, C, B",
+          "A, D, B, C",
+          "A, C, D, B"
+        ],
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In Node.js, how does `process.nextTick()` differ from `setImmediate()`?",
+        "options": [
+          "setImmediate runs before process.nextTick in every event loop phase",
+          "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+          "They are functional aliases for each other",
+          "process.nextTick runs asynchronously on a separate background thread"
+        ],
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "What will be logged to the console when executing this JavaScript code?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+        "options": [
+          "0, 1, 2",
+          "3, 3, 3",
+          "0, 0, 0",
+          "undefined, undefined, undefined"
+        ],
+        "points": 10
+      },
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In MongoDB aggregation pipelines, which stage acts analogously to a SQL `LEFT OUTER JOIN` between collections?",
+        "options": [
+          "$match",
+          "$group",
+          "$lookup",
+          "$project"
+        ],
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Which state updater function call correctly increments the `count` state in React without risk of stale state bugs when triggered rapidly?",
+        "options": [
+          "setCount(count + 1)",
+          "setCount(prevCount => prevCount + 1)",
+          "setCount(++count)",
+          "setCount(count = count + 1)"
+        ],
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Given the CSS rules below, what will be the text color of `<header id='header'><h1 class='title'>Text</h1></header>`?\n\n#header .title { color: red; }\nheader h1.title { color: blue; }",
+        "options": [
+          "red",
+          "blue",
+          "transparent",
+          "black"
+        ],
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "What is the correct parameter signature for an Express.js custom error-handling middleware function?",
+        "options": [
+          "(req, res, next)",
+          "(err, req, res)",
+          "(err, req, res, next)",
+          "(req, res, err, next)"
+        ],
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "Which SQL transaction isolation level prevents both Dirty Reads and Non-Repeatable Reads, but allows Phantom Reads under standard ANSI SQL specifications?",
+        "options": [
+          "READ UNCOMMITTED",
+          "READ COMMITTED",
+          "REPEATABLE READ",
+          "SERIALIZABLE"
+        ],
+        "points": 10
+      },
+      {
+        "id": 7,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which Git command enables you to save your modified working directory state without committing, allowing you to switch branches cleanly?",
+        "options": [
+          "git reset --hard",
+          "git stash",
+          "git commit -m 'wip'",
+          "git branch --save"
+        ],
+        "points": 10
+      }
+    ],
+    "history": [
+      {
+        "question": {
+          "id": 9,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "Identify the cause of an infinite re-render loop in this React component snippet:\n\nuseEffect(() => {\n  fetchData().then(res => setData(res));\n});",
+          "options": [
+            "fetchData function must be wrapped in async/await",
+            "Missing dependency array as second argument to useEffect",
+            "setData cannot be called inside useEffect",
+            "The Promise requires a catch block"
+          ],
+          "correctAnswer": "Missing dependency array as second argument to useEffect",
+          "explanation": "Without a dependency array (not even `[]`), `useEffect` runs after every single render. Updating state inside it triggers another render, causing an infinite loop.",
+          "points": 10
+        },
+        "userAnswer": "Without a dependency array, useEffect runs after every render. Since setData(res) updates the component's state, it triggers another render, which runs the effect again, creating an infinite loop.\nuseEffect(() => {\n  fetchData().then(res => setData(res));\n}, []);",
+        "evaluation": {
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      },
+      {
+        "question": {
+          "id": 5,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "Which HTTP method is defined as idempotent and intended to completely replace the target resource with the request payload?",
+          "options": [
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ],
+          "correctAnswer": "PUT",
+          "explanation": "PUT is idempotent and replaces the target resource entirely. POST is not idempotent, and PATCH typically applies partial updates.",
+          "points": 10
+        },
+        "userAnswer": "PUT",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 11,
+          "difficulty": "hard",
+          "type": "mcq",
+          "question": "Given a compound MongoDB index `{ status: 1, createdAt: -1 }`, which query fails to effectively utilize this index for sorting or matching?",
+          "options": [
+            "db.orders.find({ status: 'active' }).sort({ createdAt: -1 })",
+            "db.orders.find({ status: 'active' })",
+            "db.orders.find({ createdAt: { $gt: new Date() } })",
+            "db.orders.find({ status: 'pending', createdAt: { $gte: new Date() } })"
+          ],
+          "correctAnswer": "db.orders.find({ createdAt: { $gt: new Date() } })",
+          "explanation": "MongoDB compound indexes follow the prefix rule. Queries that do not filter or sort using the first field (`status`) cannot utilize the compound index efficient prefix scanning.",
+          "points": 10
+        },
+        "userAnswer": "db.orders.find({ createdAt: { $gt: new Date() } })",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 13,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "When hosting a Node.js/Express application behind a reverse proxy like Nginx or AWS ALB, which Express setting must be enabled to ensure `req.ip` correctly resolves client IPs from the `X-Forwarded-For` header?",
+          "options": [
+            "app.set('trust proxy', true)",
+            "app.use(cors())",
+            "app.enable('x-forwarded-for')",
+            "process.env.NODE_ENV = 'production'"
+          ],
+          "correctAnswer": "app.set('trust proxy', true)",
+          "explanation": "Setting `app.set('trust proxy', true)` instructs Express to trust `X-Forwarded-*` headers set by reverse proxies, accurately populating `req.ip` and `req.protocol`.",
+          "points": 10
+        },
+        "userAnswer": "app.set('trust proxy', true)",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 15,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "To secure authentication tokens in full-stack web applications against Cross-Site Scripting (XSS) token extraction, where should sensitive JWT tokens be stored on the client side?",
+          "options": [
+            "LocalStorage",
+            "SessionStorage",
+            "An HttpOnly, Secure HTTP Cookie",
+            "A global JavaScript variable"
+          ],
+          "correctAnswer": "An HttpOnly, Secure HTTP Cookie",
+          "explanation": "Cookies configured with the `HttpOnly` flag cannot be accessed via client-side JavaScript scripts, effectively isolating them from XSS token theft.",
+          "points": 10
+        },
+        "userAnswer": "An HttpOnly, Secure HTTP Cookie",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 8,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "In standard SQL, which clause must be used to filter rows aggregated by a `GROUP BY` statement (e.g., finding users with count > 5)?",
+          "options": [
+            "WHERE",
+            "HAVING",
+            "FILTER",
+            "ORDER BY"
+          ],
+          "correctAnswer": "HAVING",
+          "explanation": "`WHERE` filters individual rows before grouping, while `HAVING` filters aggregate group results created by `GROUP BY`.",
+          "points": 10
+        },
+        "userAnswer": "HAVING",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 1,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "What will be printed to the console when executing the following JavaScript code?\n\nconsole.log('A');\nsetTimeout(() => console.log('B'), 0);\nPromise.resolve().then(() => console.log('C'));\nconsole.log('D');",
+          "options": [
+            "A, B, C, D",
+            "A, D, C, B",
+            "A, D, B, C",
+            "A, C, D, B"
+          ],
+          "correctAnswer": "A, D, C, B",
+          "explanation": "Synchronous statements ('A' and 'D') run first. Microtasks like Promise callbacks ('C') run before macrotasks like setTimeout ('B').",
+          "points": 10
+        },
+        "userAnswer": "A, D, C, B",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 10,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "In Node.js, how does `process.nextTick()` differ from `setImmediate()`?",
+          "options": [
+            "setImmediate runs before process.nextTick in every event loop phase",
+            "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+            "They are functional aliases for each other",
+            "process.nextTick runs asynchronously on a separate background thread"
+          ],
+          "correctAnswer": "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+          "explanation": "`process.nextTick()` callbacks are processed after the current operation completes, regardless of the current phase of the event loop. `setImmediate()` runs on the next check phase.",
+          "points": 10
+        },
+        "userAnswer": "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 12,
+          "difficulty": "hard",
+          "type": "code_snippet",
+          "question": "What will be logged to the console when executing this JavaScript code?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+          "options": [
+            "0, 1, 2",
+            "3, 3, 3",
+            "0, 0, 0",
+            "undefined, undefined, undefined"
+          ],
+          "correctAnswer": "3, 3, 3",
+          "explanation": "Because `var` is function-scoped rather than block-scoped, all timeouts close over the same single `i` variable instance, which equals `3` when the callbacks execute.",
+          "points": 10
+        },
+        "userAnswer": "3\n3\n3",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 4,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "In MongoDB aggregation pipelines, which stage acts analogously to a SQL `LEFT OUTER JOIN` between collections?",
+          "options": [
+            "$match",
+            "$group",
+            "$lookup",
+            "$project"
+          ],
+          "correctAnswer": "$lookup",
+          "explanation": "The `$lookup` stage performs a left outer join to an unsharded collection in the same database to filter in documents from the 'joined' collection.",
+          "points": 10
+        },
+        "userAnswer": "$lookup",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 2,
+          "difficulty": "easy",
+          "type": "code_snippet",
+          "question": "Which state updater function call correctly increments the `count` state in React without risk of stale state bugs when triggered rapidly?",
+          "options": [
+            "setCount(count + 1)",
+            "setCount(prevCount => prevCount + 1)",
+            "setCount(++count)",
+            "setCount(count = count + 1)"
+          ],
+          "correctAnswer": "setCount(prevCount => prevCount + 1)",
+          "explanation": "Functional updates (`prev => prev + 1`) ensure the state update is based on the most recent state value rather than a stale render closure.",
+          "points": 10
+        },
+        "userAnswer": "setCount(prevCount => prevCount + 1);",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 6,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "Given the CSS rules below, what will be the text color of `<header id='header'><h1 class='title'>Text</h1></header>`?\n\n#header .title { color: red; }\nheader h1.title { color: blue; }",
+          "options": [
+            "red",
+            "blue",
+            "transparent",
+            "black"
+          ],
+          "correctAnswer": "red",
+          "explanation": "`#header .title` has specificity (1, 1, 0) due to one ID and one class, whereas `header h1.title` has specificity (0, 1, 2) due to one class and two element selectors.",
+          "points": 10
+        },
+        "userAnswer": "red",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 3,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "What is the correct parameter signature for an Express.js custom error-handling middleware function?",
+          "options": [
+            "(req, res, next)",
+            "(err, req, res)",
+            "(err, req, res, next)",
+            "(req, res, err, next)"
+          ],
+          "correctAnswer": "(err, req, res, next)",
+          "explanation": "Express identifies error-handling middleware specifically by requiring four arguments: `(err, req, res, next)`.",
+          "points": 10
+        },
+        "userAnswer": "(err, req, res, next)",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 14,
+          "difficulty": "hard",
+          "type": "mcq",
+          "question": "Which SQL transaction isolation level prevents both Dirty Reads and Non-Repeatable Reads, but allows Phantom Reads under standard ANSI SQL specifications?",
+          "options": [
+            "READ UNCOMMITTED",
+            "READ COMMITTED",
+            "REPEATABLE READ",
+            "SERIALIZABLE"
+          ],
+          "correctAnswer": "REPEATABLE READ",
+          "explanation": "`REPEATABLE READ` guarantees that reads within a transaction yield consistent data, preventing non-repeatable reads, but phantom reads (newly inserted rows) can still occur.",
+          "points": 10
+        },
+        "userAnswer": "REPEATABLE READ",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 7,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "Which Git command enables you to save your modified working directory state without committing, allowing you to switch branches cleanly?",
+          "options": [
+            "git reset --hard",
+            "git stash",
+            "git commit -m 'wip'",
+            "git branch --save"
+          ],
+          "correctAnswer": "git stash",
+          "explanation": "`git stash` temporarily shelves changes made to your working directory so you can work on something else.",
+          "points": 10
+        },
+        "userAnswer": "git stash",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      }
+    ],
+    "current_index": 15,
+    "max_questions": 15,
+    "is_finished": true
+  },
+  "f3d1d6c0-b9cb-4ab6-8375-d16f4e412c39": {
+    "session_id": "f3d1d6c0-b9cb-4ab6-8375-d16f4e412c39",
+    "field": "FullStackDeveloper",
+    "context": {
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "CSS",
+        "Git",
+        "Deployment",
+        "REST APIs",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "GitHub",
+        "React",
+        "Express.js",
+        "SQL"
+      ],
+      "missing_skills": [
+        "AWS",
+        "HTML",
+        "Vercel",
+        "Netlify",
+        "Authentication",
+        "Authorization"
+      ],
+      "projects": [],
+      "years_of_experience": 0,
+      "resume_snippet": "{\"action_plan\": [\"Obtain AWS certification.\", \"Rewrite experience bullets to include results.\", \"Update projects with links to source code.\", \"Ensure skills keywords are easily scannable.\"], \"ats_optimization_checklist\": [\"Use standard headings.\", \"Remove complex formatting.\", \"Target keyword density.\"], \"category_analysis\": {\"education\": {\"recommendations\": [\"Highlight specialized coursework.\"], \"status\": \"Gap\", \"strengths\": [\"Degree: B.Tech\"], \"weaknesses\": [\"Consider adding relevant certifications.\"]}, \"experience\": {\"recommendations\": [\"Quantify achievements with metrics.\", \"Clarify roles and responsibilities.\"], \"status\": \"Gap\", \"strengths\": [\"0 years of total experience\"], \"weaknesses\": [\"Relevant industry experience could be highlighted more.\"]}, \"skills\": {\"recommendations\": [\"Focus on learning missing technical skills.\", \"Update skills section with proficiency levels.\"], \"status\": \"Strength\", \"strengths\": [\"Matched 11 key skills\"], \"weaknesses\": [\"Missing 6 required skills\"]}}, \"executive_summary\": \"Rule-based assessment completed. The candidate scored 73.06% for the FullStackDeveloper role.\", \"experience_enhancement\": [\"Use STAR method for bullets.\", \"Include impact numbers ($ or %).\"], \"project_showcase_tips\": [\"Add GitHub links.\", \"Describe the tools used clearly.\"], \"skills_gap_analysis\": {\"high_priority_missing\": [\"AWS\", \"HTML\", \"Vercel\"], \"learning_roadmap\": [\"Complete online courses for missing tech.\", \"Build 2 small projects using new stack.\"], \"medium_priority_missing\": [\"Netlify\", \"Authentication\", \"Authorization\"]}}",
+      "relevant_technologies": [
+        "CSS",
+        "Git",
+        "Deployment",
+        "REST APIs",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "GitHub"
+      ]
+    },
+    "all_questions": [
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "In JavaScript's event loop model, which task queue has higher priority when the call stack clears?",
+        "options": [
+          "Macrotask queue (e.g., setTimeout, setInterval)",
+          "Microtask queue (e.g., Promise callbacks, process.nextTick)",
+          "RequestAnimationFrame queue",
+          "IO Callback queue"
+        ],
+        "correctAnswer": "Microtask queue (e.g., Promise callbacks, process.nextTick)",
+        "explanation": "The microtask queue is processed completely after the current task finishes and before moving to the next macrotask in the event loop.",
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "This React component has a stale closure bug: `const [count, setCount] = useState(0); const logCount = useCallback(() => { console.log(count); }, []);`. How do you fix logCount to always log the fresh count without re-creating callback unnecessarily?",
+        "options": [
+          "Include `count` in the dependency array: `useCallback(() => { console.log(count); }, [count]);`",
+          "Use `useCallback(() => { console.log(count++); })`",
+          "Change `count` to a global let variable outside the component.",
+          "Wrap the console log in `setTimeout`."
+        ],
+        "correctAnswer": "Include `count` in the dependency array: `useCallback(() => { console.log(count); }, [count]);`",
+        "explanation": "When dependencies are omitted from useCallback, the cached closure retains references to initial rendered state variables. Adding `count` to the dependency array invalidates the memoized callback when `count` updates.",
+        "points": 10
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Consider this Express async route handler: `app.get('/user/:id', async (req, res) => { const user = await User.findById(req.params.id); res.json(user); });`. What happens if `User.findById` throws an unexpected database connection error?",
+        "options": [
+          "Express catches it automatically and returns a 500 status in all Express versions.",
+          "The request hangs indefinitely or crashes Node.js with an unhandled rejection (if async error wrapper / Express 5 is not used).",
+          "The server returns a 404 response.",
+          "Express converts the error into a response header."
+        ],
+        "correctAnswer": "The request hangs indefinitely or crashes Node.js with an unhandled rejection (if async error wrapper / Express 5 is not used).",
+        "explanation": "In Express 4, unhandled promise rejections inside async route handlers are not caught automatically and must be caught via try/catch or wrapped with express-async-handler and passed to next(err).",
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When designing a REST API, which of the following HTTP methods is considered non-idempotent according to RFC specs?",
+        "options": [
+          "GET",
+          "PUT",
+          "DELETE",
+          "POST"
+        ],
+        "correctAnswer": "POST",
+        "explanation": "Idempotent methods yield the same server state regardless of how many identical requests are sent. Repeated POST requests typically create multiple resources.",
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "How does Express.js distinguish a standard middleware function from an error-handling middleware function?",
+        "options": [
+          "By registering it with app.useError() instead of app.use()",
+          "By placing it in a separate error module",
+          "By defining the callback signature with exactly 4 parameters: (err, req, res, next)",
+          "By returning a rejected Promise from the middleware"
+        ],
+        "correctAnswer": "By defining the callback signature with exactly 4 parameters: (err, req, res, next)",
+        "explanation": "Express checks function.length. Middleware with 4 parameters is treated as an error handler.",
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When refactoring Git history on a feature branch, what does `git rebase main` do compared to `git merge main`?",
+        "options": [
+          "Rebase replaces remote commits with local commits permanently.",
+          "Rebase creates a merge commit with two parent commits.",
+          "Rebase moves or applies local feature commits on top of the tip of the main branch, maintaining a linear history.",
+          "Rebase deletes working directory changes not tracked by main."
+        ],
+        "correctAnswer": "Rebase moves or applies local feature commits on top of the tip of the main branch, maintaining a linear history.",
+        "explanation": "Rebasing re-applies your branch's commits one by one onto the target branch, keeping git history linear without merge noise.",
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "What is the key difference between running 'git fetch' and 'git pull' in a full-stack project workflow?",
+        "options": [
+          "'git fetch' downloads remote changes without merging; 'git pull' fetches and automatically merges into the current branch.",
+          "'git fetch' creates a new remote branch; 'git pull' updates the local stash.",
+          "'git pull' downloads changes safely without modifying local branches, while 'git fetch' overwrites working code.",
+          "There is no difference; they are aliases for the same git command."
+        ],
+        "correctAnswer": "'git fetch' downloads remote changes without merging; 'git pull' fetches and automatically merges into the current branch.",
+        "explanation": "'git fetch' retrieves commits, files, and refs from a remote repository without updating your local working branch. 'git pull' executes 'git fetch' followed by 'git merge'.",
+        "points": 10
+      },
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a MongoDB compound index `{ category: 1, status: 1, createdAt: -1 }`, which query can NOT take full advantage of index prefix matching?",
+        "options": [
+          "db.orders.find({ category: 'electronics' })",
+          "db.orders.find({ category: 'electronics', status: 'shipped' })",
+          "db.orders.find({ status: 'shipped', createdAt: { $gt: new Date() } })",
+          "db.orders.find({ category: 'electronics', status: 'pending', createdAt: { $gt: new Date() } })"
+        ],
+        "correctAnswer": "db.orders.find({ status: 'shipped', createdAt: { $gt: new Date() } })",
+        "explanation": "MongoDB index prefixes require leading fields in index order. Queries missing 'category' cannot use the index prefix `{ category: 1, status: 1 }`.",
+        "points": 10
+      },
+      {
+        "id": 9,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In a SQL relational database, what does the 'I' in ACID compliance stand for, and what issue does read isolation prevent?",
+        "options": [
+          "Integrity; prevents missing primary keys.",
+          "Isolation; prevents dirty reads, non-repeatable reads, and phantom reads across concurrent transactions.",
+          "Inheritance; ensures child tables inherit foreign key constraints.",
+          "Indexability; ensures concurrent read queries always hit memory indexes."
+        ],
+        "correctAnswer": "Isolation; prevents dirty reads, non-repeatable reads, and phantom reads across concurrent transactions.",
+        "explanation": "Isolation determines how transaction integrity is visible to other users and systems during concurrent database operations.",
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "In a Node.js web server handling heavy JSON parsing operations, the API experiences degraded throughput. What core architectural limitation causes this?",
+        "options": [
+          "Node.js runs synchronous JS execution on a single main thread, causing heavy operations to block the event loop.",
+          "Node.js database connections automatically lock memory during JSON parsing.",
+          "Node.js spawns a separate OS process per request, running out of CPU memory.",
+          "V8 engine prevents asynchronous CPU processing by default."
+        ],
+        "correctAnswer": "Node.js runs synchronous JS execution on a single main thread, causing heavy operations to block the event loop.",
+        "explanation": "CPU-bound tasks block Node's single-threaded event loop, preventing incoming network IO tasks from executing until the synchronous task finishes.",
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Since authentication is flagged as a missing skill area, consider securing a full-stack App: Why is storing JWT tokens in `HttpOnly` cookies generally preferred over `localStorage`?",
+        "options": [
+          "HttpOnly cookies automatically encrypt payload data on the server.",
+          "HttpOnly cookies prevent client-side JavaScript access, mitigating Cross-Site Scripting (XSS) token theft.",
+          "localStorage cannot send tokens over HTTPS.",
+          "HttpOnly cookies prevent Cross-Site Request Forgery (CSRF) without additional headers."
+        ],
+        "correctAnswer": "HttpOnly cookies prevent client-side JavaScript access, mitigating Cross-Site Scripting (XSS) token theft.",
+        "explanation": "JavaScript cannot read HttpOnly cookies, protecting the JWT from malicious scripts executing via XSS vulnerabilities.",
+        "points": 10
+      },
+      {
+        "id": 4,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Identify the bug in this React component state update: `const addItem = () => { items.push('newItem'); setItems(items); };` What is the correct immutable fix?",
+        "options": [
+          "setItems([...items, 'newItem']);",
+          "items.concat('newItem'); setItems(items);",
+          "setItems(items.push('newItem'));",
+          "setItems(Object.assign(items, ['newItem']));"
+        ],
+        "correctAnswer": "setItems([...items, 'newItem']);",
+        "explanation": "Directly mutating state arrays using .push() does not trigger re-renders in React because the object reference remains unchanged. Spread operator creates a new array reference.",
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "What is the missing line to prevent memory leaks when fetching data in this React hook? `useEffect(() => { const controller = new AbortController(); fetch(url, { signal: controller.signal }).then(r => r.json()).then(setData); /* missing line */ }, [url]);`",
+        "options": [
+          "return () => controller.abort();",
+          "return controller.cancel();",
+          "useEffect.cleanup(() => controller.abort());",
+          "return { abort: true };"
+        ],
+        "correctAnswer": "return () => controller.abort();",
+        "explanation": "React useEffect allows returning a cleanup function that runs when the component unmounts or dependencies change, aborting ongoing network requests.",
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Analyze this MongoDB aggregation query: `db.users.aggregate([{ $match: { active: true } }, { $sort: { age: -1 } }, { $project: { name: 1, age: 1 } }]);` To execute this without in-memory sort caps, which index definition should be created?",
+        "options": [
+          "{ active: 1, age: -1 }",
+          "{ age: -1, active: 1 }",
+          "{ name: 1, age: -1, active: 1 }",
+          "{ active: 1, name: 1 }"
+        ],
+        "correctAnswer": "{ active: 1, age: -1 }",
+        "explanation": "Following ESR (Equality, Sort, Range) rule for MongoDB indexing, equality match on 'active' comes first, followed by the sort field 'age'.",
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which CSS property is used in a Flexbox container to align items along the cross axis?",
+        "options": [
+          "justify-content",
+          "align-items",
+          "flex-direction",
+          "align-content"
+        ],
+        "correctAnswer": "align-items",
+        "explanation": "'justify-content' aligns items along the main axis, whereas 'align-items' aligns flex items along the cross axis.",
+        "points": 10
+      }
+    ],
+    "public_questions": [
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "In JavaScript's event loop model, which task queue has higher priority when the call stack clears?",
+        "options": [
+          "Macrotask queue (e.g., setTimeout, setInterval)",
+          "Microtask queue (e.g., Promise callbacks, process.nextTick)",
+          "RequestAnimationFrame queue",
+          "IO Callback queue"
+        ],
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "This React component has a stale closure bug: `const [count, setCount] = useState(0); const logCount = useCallback(() => { console.log(count); }, []);`. How do you fix logCount to always log the fresh count without re-creating callback unnecessarily?",
+        "options": [
+          "Include `count` in the dependency array: `useCallback(() => { console.log(count); }, [count]);`",
+          "Use `useCallback(() => { console.log(count++); })`",
+          "Change `count` to a global let variable outside the component.",
+          "Wrap the console log in `setTimeout`."
+        ],
+        "points": 10
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Consider this Express async route handler: `app.get('/user/:id', async (req, res) => { const user = await User.findById(req.params.id); res.json(user); });`. What happens if `User.findById` throws an unexpected database connection error?",
+        "options": [
+          "Express catches it automatically and returns a 500 status in all Express versions.",
+          "The request hangs indefinitely or crashes Node.js with an unhandled rejection (if async error wrapper / Express 5 is not used).",
+          "The server returns a 404 response.",
+          "Express converts the error into a response header."
+        ],
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When designing a REST API, which of the following HTTP methods is considered non-idempotent according to RFC specs?",
+        "options": [
+          "GET",
+          "PUT",
+          "DELETE",
+          "POST"
+        ],
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "How does Express.js distinguish a standard middleware function from an error-handling middleware function?",
+        "options": [
+          "By registering it with app.useError() instead of app.use()",
+          "By placing it in a separate error module",
+          "By defining the callback signature with exactly 4 parameters: (err, req, res, next)",
+          "By returning a rejected Promise from the middleware"
+        ],
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When refactoring Git history on a feature branch, what does `git rebase main` do compared to `git merge main`?",
+        "options": [
+          "Rebase replaces remote commits with local commits permanently.",
+          "Rebase creates a merge commit with two parent commits.",
+          "Rebase moves or applies local feature commits on top of the tip of the main branch, maintaining a linear history.",
+          "Rebase deletes working directory changes not tracked by main."
+        ],
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "What is the key difference between running 'git fetch' and 'git pull' in a full-stack project workflow?",
+        "options": [
+          "'git fetch' downloads remote changes without merging; 'git pull' fetches and automatically merges into the current branch.",
+          "'git fetch' creates a new remote branch; 'git pull' updates the local stash.",
+          "'git pull' downloads changes safely without modifying local branches, while 'git fetch' overwrites working code.",
+          "There is no difference; they are aliases for the same git command."
+        ],
+        "points": 10
+      },
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a MongoDB compound index `{ category: 1, status: 1, createdAt: -1 }`, which query can NOT take full advantage of index prefix matching?",
+        "options": [
+          "db.orders.find({ category: 'electronics' })",
+          "db.orders.find({ category: 'electronics', status: 'shipped' })",
+          "db.orders.find({ status: 'shipped', createdAt: { $gt: new Date() } })",
+          "db.orders.find({ category: 'electronics', status: 'pending', createdAt: { $gt: new Date() } })"
+        ],
+        "points": 10
+      },
+      {
+        "id": 9,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "In a SQL relational database, what does the 'I' in ACID compliance stand for, and what issue does read isolation prevent?",
+        "options": [
+          "Integrity; prevents missing primary keys.",
+          "Isolation; prevents dirty reads, non-repeatable reads, and phantom reads across concurrent transactions.",
+          "Inheritance; ensures child tables inherit foreign key constraints.",
+          "Indexability; ensures concurrent read queries always hit memory indexes."
+        ],
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "In a Node.js web server handling heavy JSON parsing operations, the API experiences degraded throughput. What core architectural limitation causes this?",
+        "options": [
+          "Node.js runs synchronous JS execution on a single main thread, causing heavy operations to block the event loop.",
+          "Node.js database connections automatically lock memory during JSON parsing.",
+          "Node.js spawns a separate OS process per request, running out of CPU memory.",
+          "V8 engine prevents asynchronous CPU processing by default."
+        ],
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Since authentication is flagged as a missing skill area, consider securing a full-stack App: Why is storing JWT tokens in `HttpOnly` cookies generally preferred over `localStorage`?",
+        "options": [
+          "HttpOnly cookies automatically encrypt payload data on the server.",
+          "HttpOnly cookies prevent client-side JavaScript access, mitigating Cross-Site Scripting (XSS) token theft.",
+          "localStorage cannot send tokens over HTTPS.",
+          "HttpOnly cookies prevent Cross-Site Request Forgery (CSRF) without additional headers."
+        ],
+        "points": 10
+      },
+      {
+        "id": 4,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Identify the bug in this React component state update: `const addItem = () => { items.push('newItem'); setItems(items); };` What is the correct immutable fix?",
+        "options": [
+          "setItems([...items, 'newItem']);",
+          "items.concat('newItem'); setItems(items);",
+          "setItems(items.push('newItem'));",
+          "setItems(Object.assign(items, ['newItem']));"
+        ],
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "What is the missing line to prevent memory leaks when fetching data in this React hook? `useEffect(() => { const controller = new AbortController(); fetch(url, { signal: controller.signal }).then(r => r.json()).then(setData); /* missing line */ }, [url]);`",
+        "options": [
+          "return () => controller.abort();",
+          "return controller.cancel();",
+          "useEffect.cleanup(() => controller.abort());",
+          "return { abort: true };"
+        ],
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Analyze this MongoDB aggregation query: `db.users.aggregate([{ $match: { active: true } }, { $sort: { age: -1 } }, { $project: { name: 1, age: 1 } }]);` To execute this without in-memory sort caps, which index definition should be created?",
+        "options": [
+          "{ active: 1, age: -1 }",
+          "{ age: -1, active: 1 }",
+          "{ name: 1, age: -1, active: 1 }",
+          "{ active: 1, name: 1 }"
+        ],
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which CSS property is used in a Flexbox container to align items along the cross axis?",
+        "options": [
+          "justify-content",
+          "align-items",
+          "flex-direction",
+          "align-content"
+        ],
+        "points": 10
+      }
+    ],
+    "history": [],
+    "current_index": 0,
+    "max_questions": 15,
+    "is_finished": false
+  },
+  "54440fbd-2c6e-48b3-b4e4-48bc25b20bfd": {
+    "session_id": "54440fbd-2c6e-48b3-b4e4-48bc25b20bfd",
+    "field": "FullStackDeveloper",
+    "context": {
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "Git",
+        "GitHub",
+        "Deployment",
+        "Docker"
+      ],
+      "missing_skills": [
+        "Authentication",
+        "Authorization",
+        "AWS"
+      ],
+      "projects": [],
+      "years_of_experience": 0,
+      "resume_snippet": "{\"action_plan\": [\"Update Skills section with Cloud and Security keywords.\", \"Add live URLs/GitHub links to all projects.\", \"Flesh out the 'Relic Rush' project to emphasize full-stack security.\", \"Apply for Junior Full Stack roles specifically mentioning MERN expertise.\"], \"ats_optimization_checklist\": [\"Add 'AWS' to the Skills section.\", \"Include 'Authentication' and 'Authorization' keywords.\", \"Ensure the phone number is in international format (Done).\", \"Use standard section headers (Done).\"], \"category_analysis\": {\"education\": {\"recommendations\": [\"State clearly if looking for full-time or internship.\"], \"status\": \"Strength\", \"strengths\": [\"CSE degree path\", \"High CGPA\"], \"weaknesses\": [\"Currently a student (potential availability issues)\"]}, \"experience\": {\"recommendations\": [\"Focus on the 'Impact' of features built rather than just tasks.\"], \"status\": \"Gap\", \"strengths\": [\"Multiple internship rotations\", \"Agile environment exposure\"], \"weaknesses\": [\"Short tenure\", \"No full-time professional history\"]}, \"presentation\": {\"recommendations\": [\"Add LinkedIn and GitHub clickable links.\"], \"status\": \"Strength\", \"strengths\": [\"Clean layout\", \"Quantifiable achievements\"], \"weaknesses\": [\"Missing repository links\"]}, \"skills\": {\"recommendations\": [\"Complete an AWS Cloud Practitioner cert\", \"Implement JWT in a project\"], \"status\": \"Strength\", \"strengths\": [\"MERN Stack\", \"Python/Django\", \"REST APIs\"], \"weaknesses\": [\"Cloud Infrastructure\", \"Web Security\"]}}, \"executive_summary\": \"Kalyan is a high-potential junior developer with a strong technical foundation in JavaScript and Python environments. His resume demonstrates a rare combination of web development and AI/ML practical application. He is an ideal fit for entry-level Full Stack roles, provided he can demonstrate an understanding of cloud infrastructure.\", \"experience_enhancement\": [\"Quantify the VBS Company internship by mentioning the size of the databases optimized.\", \"Elaborate on 'Agile' involvement—did you lead",
+      "relevant_technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL"
+      ]
+    },
+    "all_questions": [
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+        "options": [
+          "Data leakage and biased evaluation",
+          "Faster processing",
+          "Color output changes",
+          "Shorter model names"
+        ],
+        "correctAnswer": "Data leakage and biased evaluation",
+        "explanation": "Leakage and leakage-like issues often arise from improper preprocessing before train/test separation.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+        "options": [],
+        "correctAnswer": "3",
+        "explanation": "Even numbers in range(0..4) are 0,2,4 — three items.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 16,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "For a FullStackDeveloper service handling concurrent requests with HTML, which caching strategy prevents stale reads after writes?",
+        "options": [
+          "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "Disabling database transactions",
+          "Caching every POST response indefinitely",
+          "Storing session secrets in client localStorage"
+        ],
+        "correctAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+        "explanation": "Coordinated invalidation or write-through keeps cache state consistent with the backing store.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Which checks are appropriate when validating HTML and CSS code used in business analytics system?",
+        "options": [
+          "Input and null handling",
+          "Boundary cases",
+          "Measured output against an expected result",
+          "Changing the requirements after a failure"
+        ],
+        "correctAnswer": "Input and null handling",
+        "explanation": "Robust technical validation covers invalid inputs, boundaries, and observable correctness.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 20,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "In distributed FullStackDeveloper architectures, why should message consumers be idempotent?",
+        "options": [
+          "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "Idempotency removes the need for authentication",
+          "It forces synchronous single-threaded execution",
+          "It disables TLS encryption"
+        ],
+        "correctAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+        "explanation": "Idempotent handlers safely tolerate retries and duplicate deliveries.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+        "options": [
+          "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "Drop the entire production batch",
+          "Fit the encoder on the production labels",
+          "Replace the category with a random value"
+        ],
+        "correctAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+        "explanation": "Inference pipelines must handle categories that were absent from the training sample.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+        "options": [],
+        "correctAnswer": "SELECT region, SUM(revenue) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC LIMIT 3;",
+        "explanation": "Grouping, aggregation, descending sort, and limiting the result identify the top regions.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 17,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a FullStackDeveloper endpoint?",
+        "options": [
+          "429 Too Many Requests with a Retry-After header",
+          "500 Internal Server Error with stack trace",
+          "200 OK with empty payload",
+          "301 Moved Permanently"
+        ],
+        "correctAnswer": "429 Too Many Requests with a Retry-After header",
+        "explanation": "HTTP 429 with Retry-After signals backpressure cleanly to API consumers.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 5,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+        "options": [],
+        "correctAnswer": "def factorial(n):\n    result = 1\n    for i in range(2, n+1):\n        result *= i\n    return result",
+        "explanation": "An iterative loop accumulates the product from 1 to n and returns the result.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+        "options": [
+          "Missing values and schema drift",
+          "Irrelevant logging fields",
+          "UI color contrast",
+          "Page load speed"
+        ],
+        "correctAnswer": "Missing values and schema drift",
+        "explanation": "Feature quality and schema consistency directly affect train/test reliability.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+        "options": [
+          "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "Average row count",
+          "Dataset file size",
+          "Color-coded charts only"
+        ],
+        "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+        "explanation": "Imbalanced classes make raw accuracy misleading and require targeted metrics.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When a resume highlights HTML and CSS, which practice best validates that those skills were used on a real project?",
+        "options": [
+          "Evaluating design tradeoffs and model metrics from the project",
+          "Rechecking only the resume formatting",
+          "Ignoring the project and focusing on certificates",
+          "Counting the number of libraries mentioned"
+        ],
+        "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+        "explanation": "Strong technical evidence comes from explaining decisions, systems, and measured outcomes.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 9,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "For a HTML-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+        "options": [
+          "To prevent information leakage into evaluation data",
+          "To increase the number of columns",
+          "To avoid writing unit tests",
+          "To change the database schema"
+        ],
+        "correctAnswer": "To prevent information leakage into evaluation data",
+        "explanation": "Statistics learned from the validation or test split can leak future information into training.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 19,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+        "options": [
+          "To catch contract mismatches across services and databases early",
+          "To skip code reviews completely",
+          "To increase bundle file sizes",
+          "To remove logging from APIs"
+        ],
+        "correctAnswer": "To catch contract mismatches across services and databases early",
+        "explanation": "Integration tests verify component boundaries before traffic reaches production.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 18,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Write a function or query in HTML (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+        "options": [],
+        "correctAnswer": "list(dict.fromkeys(items))",
+        "explanation": "Using dict.fromkeys or an ordered Set preserves first-seen order in O(n) time.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 15,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When monitoring a HTML system from business analytics system, which signal most strongly suggests production degradation or drift?",
+        "options": [
+          "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "The source file has a new name",
+          "The dashboard theme changes",
+          "The module has a shorter class name"
+        ],
+        "correctAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+        "explanation": "Shifts in telemetry and input distributions directly indicate drift or degradation.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Write a SQL query to count rows where HTML is not null and the value is greater than 0.",
+        "options": [],
+        "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+        "explanation": "This validates filtering logic and null handling in data pipelines.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+        "options": [],
+        "correctAnswer": "df.groupby('region', as_index=False)['revenue'].sum()",
+        "explanation": "GroupBy aggregates revenue independently for each region.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A HTML model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+        "options": [
+          "Fit preprocessing only on training data, then transform validation and test data",
+          "Delete the test set",
+          "Increase the UI font size",
+          "Shuffle labels after evaluation"
+        ],
+        "correctAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+        "explanation": "Fitting preprocessing on all rows leaks evaluation-set information and inflates the score.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      },
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+        "options": [],
+        "correctAnswer": "Use a min-heap of size k (or a max-heap depending on language): push items and maintain size k; final root is k-th largest. Complexity O(n log k).",
+        "explanation": "Maintaining a size-k heap ensures each insertion is O(log k) and you process n elements.",
+        "points": 10,
+        "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+        "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+      }
+    ],
+    "public_questions": [
+      {
+        "id": 4,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+        "options": [
+          "Data leakage and biased evaluation",
+          "Faster processing",
+          "Color output changes",
+          "Shorter model names"
+        ],
+        "points": 10
+      },
+      {
+        "id": 8,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 16,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "For a FullStackDeveloper service handling concurrent requests with HTML, which caching strategy prevents stale reads after writes?",
+        "options": [
+          "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "Disabling database transactions",
+          "Caching every POST response indefinitely",
+          "Storing session secrets in client localStorage"
+        ],
+        "points": 10
+      },
+      {
+        "id": 13,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Which checks are appropriate when validating HTML and CSS code used in business analytics system?",
+        "options": [
+          "Input and null handling",
+          "Boundary cases",
+          "Measured output against an expected result",
+          "Changing the requirements after a failure"
+        ],
+        "points": 10
+      },
+      {
+        "id": 20,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "In distributed FullStackDeveloper architectures, why should message consumers be idempotent?",
+        "options": [
+          "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "Idempotency removes the need for authentication",
+          "It forces synchronous single-threaded execution",
+          "It disables TLS encryption"
+        ],
+        "points": 10
+      },
+      {
+        "id": 12,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+        "options": [
+          "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "Drop the entire production batch",
+          "Fit the encoder on the production labels",
+          "Replace the category with a random value"
+        ],
+        "points": 10
+      },
+      {
+        "id": 10,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 17,
+        "difficulty": "hard",
+        "type": "mcq",
+        "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a FullStackDeveloper endpoint?",
+        "options": [
+          "429 Too Many Requests with a Retry-After header",
+          "500 Internal Server Error with stack trace",
+          "200 OK with empty payload",
+          "301 Moved Permanently"
+        ],
+        "points": 10
+      },
+      {
+        "id": 5,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 1,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+        "options": [
+          "Missing values and schema drift",
+          "Irrelevant logging fields",
+          "UI color contrast",
+          "Page load speed"
+        ],
+        "points": 10
+      },
+      {
+        "id": 3,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+        "options": [
+          "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "Average row count",
+          "Dataset file size",
+          "Color-coded charts only"
+        ],
+        "points": 10
+      },
+      {
+        "id": 6,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "When a resume highlights HTML and CSS, which practice best validates that those skills were used on a real project?",
+        "options": [
+          "Evaluating design tradeoffs and model metrics from the project",
+          "Rechecking only the resume formatting",
+          "Ignoring the project and focusing on certificates",
+          "Counting the number of libraries mentioned"
+        ],
+        "points": 10
+      },
+      {
+        "id": 9,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "For a HTML-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+        "options": [
+          "To prevent information leakage into evaluation data",
+          "To increase the number of columns",
+          "To avoid writing unit tests",
+          "To change the database schema"
+        ],
+        "points": 10
+      },
+      {
+        "id": 19,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+        "options": [
+          "To catch contract mismatches across services and databases early",
+          "To skip code reviews completely",
+          "To increase bundle file sizes",
+          "To remove logging from APIs"
+        ],
+        "points": 10
+      },
+      {
+        "id": 18,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Write a function or query in HTML (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 15,
+        "difficulty": "easy",
+        "type": "mcq",
+        "question": "When monitoring a HTML system from business analytics system, which signal most strongly suggests production degradation or drift?",
+        "options": [
+          "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "The source file has a new name",
+          "The dashboard theme changes",
+          "The module has a shorter class name"
+        ],
+        "points": 10
+      },
+      {
+        "id": 2,
+        "difficulty": "easy",
+        "type": "code_snippet",
+        "question": "Write a SQL query to count rows where HTML is not null and the value is greater than 0.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 14,
+        "difficulty": "hard",
+        "type": "code_snippet",
+        "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+        "options": [],
+        "points": 10
+      },
+      {
+        "id": 11,
+        "difficulty": "medium",
+        "type": "mcq",
+        "question": "A HTML model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+        "options": [
+          "Fit preprocessing only on training data, then transform validation and test data",
+          "Delete the test set",
+          "Increase the UI font size",
+          "Shuffle labels after evaluation"
+        ],
+        "points": 10
+      },
+      {
+        "id": 7,
+        "difficulty": "medium",
+        "type": "code_snippet",
+        "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+        "options": [],
+        "points": 10
+      }
+    ],
+    "history": [
+      {
+        "question": {
+          "id": 4,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+          "options": [
+            "Data leakage and biased evaluation",
+            "Faster processing",
+            "Color output changes",
+            "Shorter model names"
+          ],
+          "correctAnswer": "Data leakage and biased evaluation",
+          "explanation": "Leakage and leakage-like issues often arise from improper preprocessing before train/test separation.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Data leakage and biased evaluation",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 8,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+          "options": [],
+          "correctAnswer": "3",
+          "explanation": "Even numbers in range(0..4) are 0,2,4 — three items.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "3",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 16,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "For a FullStackDeveloper service handling concurrent requests with HTML, which caching strategy prevents stale reads after writes?",
+          "options": [
+            "Write-through or explicit cache invalidation on mutation with bounded TTL",
+            "Disabling database transactions",
+            "Caching every POST response indefinitely",
+            "Storing session secrets in client localStorage"
+          ],
+          "correctAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "explanation": "Coordinated invalidation or write-through keeps cache state consistent with the backing store.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 13,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "Which checks are appropriate when validating HTML and CSS code used in business analytics system?",
+          "options": [
+            "Input and null handling",
+            "Boundary cases",
+            "Measured output against an expected result",
+            "Changing the requirements after a failure"
+          ],
+          "correctAnswer": "Input and null handling",
+          "explanation": "Robust technical validation covers invalid inputs, boundaries, and observable correctness.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Measured output against an expected result",
+        "evaluation": {
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      },
+      {
+        "question": {
+          "id": 20,
+          "difficulty": "hard",
+          "type": "mcq",
+          "question": "In distributed FullStackDeveloper architectures, why should message consumers be idempotent?",
+          "options": [
+            "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+            "Idempotency removes the need for authentication",
+            "It forces synchronous single-threaded execution",
+            "It disables TLS encryption"
+          ],
+          "correctAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "explanation": "Idempotent handlers safely tolerate retries and duplicate deliveries.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 12,
+          "difficulty": "hard",
+          "type": "mcq",
+          "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+          "options": [
+            "Configure unknown categories to be ignored or mapped to a safe fallback",
+            "Drop the entire production batch",
+            "Fit the encoder on the production labels",
+            "Replace the category with a random value"
+          ],
+          "correctAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "explanation": "Inference pipelines must handle categories that were absent from the training sample.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 10,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+          "options": [],
+          "correctAnswer": "SELECT region, SUM(revenue) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC LIMIT 3;",
+          "explanation": "Grouping, aggregation, descending sort, and limiting the result identify the top regions.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "SELECT region, SUM(revenue) AS total_revenue\nFROM sales\nGROUP BY region\nORDER BY total_revenue DESC\nORDER BY total_revenue DESC\nLIMIT 3;",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 17,
+          "difficulty": "hard",
+          "type": "mcq",
+          "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a FullStackDeveloper endpoint?",
+          "options": [
+            "429 Too Many Requests with a Retry-After header",
+            "500 Internal Server Error with stack trace",
+            "200 OK with empty payload",
+            "301 Moved Permanently"
+          ],
+          "correctAnswer": "429 Too Many Requests with a Retry-After header",
+          "explanation": "HTTP 429 with Retry-After signals backpressure cleanly to API consumers.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "429 Too Many Requests with a Retry-After header",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 5,
+          "difficulty": "hard",
+          "type": "code_snippet",
+          "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+          "options": [],
+          "correctAnswer": "def factorial(n):\n    result = 1\n    for i in range(2, n+1):\n        result *= i\n    return result",
+          "explanation": "An iterative loop accumulates the product from 1 to n and returns the result.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "def factorial(n):\n  if n<0: \n   raise ValueError(\"factorial is not defined for negative number\")\n  result =1\n  for i in range(2,n+1):\n   result *=i\n  result result",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 1,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "options": [
+            "Missing values and schema drift",
+            "Irrelevant logging fields",
+            "UI color contrast",
+            "Page load speed"
+          ],
+          "correctAnswer": "Missing values and schema drift",
+          "explanation": "Feature quality and schema consistency directly affect train/test reliability.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Missing values and schema drift",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 3,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+          "options": [
+            "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+            "Average row count",
+            "Dataset file size",
+            "Color-coded charts only"
+          ],
+          "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "explanation": "Imbalanced classes make raw accuracy misleading and require targeted metrics.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 6,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "When a resume highlights HTML and CSS, which practice best validates that those skills were used on a real project?",
+          "options": [
+            "Evaluating design tradeoffs and model metrics from the project",
+            "Rechecking only the resume formatting",
+            "Ignoring the project and focusing on certificates",
+            "Counting the number of libraries mentioned"
+          ],
+          "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "explanation": "Strong technical evidence comes from explaining decisions, systems, and measured outcomes.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 9,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "For a HTML-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+          "options": [
+            "To prevent information leakage into evaluation data",
+            "To increase the number of columns",
+            "To avoid writing unit tests",
+            "To change the database schema"
+          ],
+          "correctAnswer": "To prevent information leakage into evaluation data",
+          "explanation": "Statistics learned from the validation or test split can leak future information into training.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "To prevent information leakage into evaluation data",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 19,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+          "options": [
+            "To catch contract mismatches across services and databases early",
+            "To skip code reviews completely",
+            "To increase bundle file sizes",
+            "To remove logging from APIs"
+          ],
+          "correctAnswer": "To catch contract mismatches across services and databases early",
+          "explanation": "Integration tests verify component boundaries before traffic reaches production.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "To catch contract mismatches across services and databases early",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 18,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "Write a function or query in HTML (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+          "options": [],
+          "correctAnswer": "list(dict.fromkeys(items))",
+          "explanation": "Using dict.fromkeys or an ordered Set preserves first-seen order in O(n) time.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "def feduplicate_ids(ids):\n  return list(dict.fromkeys(ids))",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 15,
+          "difficulty": "easy",
+          "type": "mcq",
+          "question": "When monitoring a HTML system from business analytics system, which signal most strongly suggests production degradation or drift?",
+          "options": [
+            "Error rates, latency percentiles, or input distributions shift materially from baseline",
+            "The source file has a new name",
+            "The dashboard theme changes",
+            "The module has a shorter class name"
+          ],
+          "correctAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "explanation": "Shifts in telemetry and input distributions directly indicate drift or degradation.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 2,
+          "difficulty": "easy",
+          "type": "code_snippet",
+          "question": "Write a SQL query to count rows where HTML is not null and the value is greater than 0.",
+          "options": [],
+          "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+          "explanation": "This validates filtering logic and null handling in data pipelines.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "SELECT COUNT(*)\nFROM table_name\nWHERE html IS NOT NULL AND html>0;",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 14,
+          "difficulty": "hard",
+          "type": "code_snippet",
+          "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+          "options": [],
+          "correctAnswer": "df.groupby('region', as_index=False)['revenue'].sum()",
+          "explanation": "GroupBy aggregates revenue independently for each region.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "df.groupby('region')['revunue'].sum()",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 11,
+          "difficulty": "medium",
+          "type": "mcq",
+          "question": "A HTML model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+          "options": [
+            "Fit preprocessing only on training data, then transform validation and test data",
+            "Delete the test set",
+            "Increase the UI font size",
+            "Shuffle labels after evaluation"
+          ],
+          "correctAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+          "explanation": "Fitting preprocessing on all rows leaks evaluation-set information and inflates the score.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+        "evaluation": {
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "feedback": "Correct."
+        }
+      },
+      {
+        "question": {
+          "id": 7,
+          "difficulty": "medium",
+          "type": "code_snippet",
+          "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+          "options": [],
+          "correctAnswer": "Use a min-heap of size k (or a max-heap depending on language): push items and maintain size k; final root is k-th largest. Complexity O(n log k).",
+          "explanation": "Maintaining a size-k heap ensures each insertion is O(log k) and you process n elements.",
+          "points": 10,
+          "internal_prompt": "Role: FullStackDeveloper; candidate context: {\"role\": \"FullStackDeveloper\", \"matched_skills\": [\"HTML\", \"CSS\", \"JavaScript\", \"React\", \"Node.js\", \"Express.js\", \"MongoDB\", \"SQL\", \"REST APIs\", \"Git\", \"GitHub\", \"Deployment\", \"Docker\"], \"missing_skill",
+          "grading_hint": "Use resume-aware technical reasoning and project-specific evidence."
+        },
+        "userAnswer": "intilialize a min-heap\niterate through the array\nreturn the result",
+        "evaluation": {
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      }
+    ],
+    "current_index": 20,
+    "max_questions": 20,
+    "is_finished": true
   }
 }

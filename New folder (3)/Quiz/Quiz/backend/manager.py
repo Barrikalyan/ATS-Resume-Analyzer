@@ -126,12 +126,11 @@ class QuizSession:
         if not self.all_questions:
             self.all_questions = last_questions if last_questions else []
 
-        # Enforce a 15-question MCQ/code-snippet Round 2.
-        desired_count = 15
-        target_types = [
-            'mcq','mcq','mcq','mcq','mcq','mcq','mcq','mcq',
-            'code_snippet','code_snippet','code_snippet','code_snippet','code_snippet','code_snippet','code_snippet'
-        ]
+        # Enforce a 20-question MCQ/code-snippet Round 2.
+        desired_count = 20
+        target_types = (
+            ['mcq'] * 12 + ['code_snippet'] * 8
+        )
         # Normalize all question types to mcq or code_snippet
         for q in self.all_questions:
             if str(q.get('type', 'mcq')).lower() not in {'mcq', 'code_snippet'}:
@@ -221,7 +220,7 @@ class QuizSession:
             selected.append(mq)
 
         self.all_questions = selected
-        # Normalize points so total maxScore is consistently 150 (15 questions * 10 pts)
+        # Normalize points so total maxScore is consistently 200 (20 questions * 10 pts)
         for q in self.all_questions:
             try:
                 q['points'] = 10

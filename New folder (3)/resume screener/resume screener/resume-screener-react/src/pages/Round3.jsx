@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { startRound3, submitRound3Result } from '../api';
 import { Card, Button } from '../components/Shared';
@@ -7,15 +7,18 @@ import {
     MicOff,
     Video,
     VideoOff,
-    Volume2,
     Sparkles,
     CheckCircle2,
     ArrowRight,
     Award,
     AlertCircle,
+    ShieldAlert,
     RotateCcw,
-    Send
+    Send,
+    Eye
 } from 'lucide-react';
+
+const INTERVIEW_API_BASE = import.meta.env.VITE_INTERVIEW_API_URL || 'http://localhost:8004';
 
 const INTERVIEW_QUESTIONS = [
     {
@@ -70,17 +73,40 @@ export default function Round3() {
     const [cameraEnabled, setCameraEnabled] = useState(false);
     const [cameraStream, setCameraStream] = useState(null);
 
+    // Real-time Webcam Proctoring & Visibility Alerts
+    const [proctorStatus, setProctorStatus] = useState('INITIALIZING'); // OK | CAMERA_OFF | CAMERA_COVERED | NOT_VISIBLE | TAB_SWITCH
+    const [proctorMessage, setProctorMessage] = useState('Initializing camera verification...');
+    const [proctorAlerts, setProctorAlerts] = useState([]);
+
     const [evaluating, setEvaluating] = useState(false);
     const [currentEvaluation, setCurrentEvaluation] = useState(null);
     const [interviewFinished, setInterviewFinished] = useState(false);
     const [finalReport, setFinalReport] = useState(null);
 
-    // Refs for speech recognition management
     const recognitionRef = useRef(null);
     const activeRecordingRef = useRef(false);
     const finalTranscriptRef = useRef('');
     const timerRef = useRef(null);
     const videoRef = useRef(null);
+    const canvasRef = useRef(null);
+    const faceDetectorRef = useRef(null);
+    const noFaceStreakRef = useRef(0);
+    const prevFrameRef = useRef(null);
+    const lastAlertCodeRef = useRef('');
+
+    const logProctorAlert = useCallback((code, message) => {
+        setProctorStatus(code);
+        setProctorMessage(message);
+        if (code !== 'OK' && lastAlertCodeRef.current !== code) {
+            lastAlertCodeRef.current = code;
+            setProctorAlerts((prev) => [
+                ...prev,
+                { code, message, timestamp: new Date().toLocaleTimeString() }
+            ]);
+        } else if (code === 'OK') {
+            lastAlertCodeRef.current = 'OK';
+        }
+    }, []);
 
     // Initialize Round 3 session
     useEffect(() => {
@@ -100,11 +126,10 @@ export default function Round3() {
                     sessionStorage.setItem('round3_candidate_id', data.candidate_id);
                 }
             } catch (err) {
-                // If service had transient error, provide demo fallback session so candidate is never blocked
                 setSession({
                     candidate_id: candidateId,
                     candidate_name: 'Candidate',
-                    domain: 'Full Stack Engineering',
+                    domain: 'Engineering',
                     status: 'ready'
                 });
             } finally {
@@ -115,20 +140,34 @@ export default function Round3() {
         init();
     }, [candidateId]);
 
-    // Check Speech Recognition support on mount
+    // Check Speech Recognition & FaceDetector support on mount
     useEffect(() => {
         const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRec) {
             setSpeechSupported(false);
         }
+        if ('FaceDetector' in window) {
+            try {
+                faceDetectorRef.current = new window.FaceDetector({ fastMode: true, maxDetectedFaces: 2 });
+            } catch (e) {
+                faceDetectorRef.current = null;
+            }
+        }
     }, []);
+
+    const stopCameraTracks = useCallback((streamToStop) => {
+        const target = streamToStop || cameraStream;
+        if (target) {
+            target.getTracks().forEach((track) => track.stop());
+        }
+    }, [cameraStream]);
 
     // Cleanup camera and mic on unmount
     useEffect(() => {
         return () => {
             stopListeningClean();
             if (cameraStream) {
-                cameraStream.getTracks().forEach(track => track.stop());
+                cameraStream.getTracks().forEach((track) => track.stop());
             }
             if (timerRef.current) {
                 clearInterval(timerRef.current);
@@ -136,49 +175,73 @@ export default function Round3() {
         };
     }, [cameraStream]);
 
-    // Automatically enable camera stream on mount as requested
+    // Automatically enable camera stream on mount
     useEffect(() => {
         let mounted = true;
         const autoStartCamera = async () => {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 }, audio: false });
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { width: 640, height: 480 },
+                    audio: false
+                });
                 if (mounted) {
+                    const videoTrack = stream.getVideoTracks()[0];
+                    if (videoTrack) {
+                        videoTrack.onended = () => {
+                            setCameraEnabled(false);
+                            logProctorAlert('CAMERA_OFF', 'Camera disconnected or turned off! Re-enable your webcam immediately.');
+                        };
+                        videoTrack.onmute = () => {
+                            logProctorAlert('CAMERA_OFF', 'Camera feed muted or hidden! Check your webcam shutter/permissions.');
+                        };
+                    }
                     setCameraStream(stream);
                     setCameraEnabled(true);
+                    logProctorAlert('OK', 'Webcam active • Candidate visible');
                     if (videoRef.current) {
                         videoRef.current.srcObject = stream;
                     }
                 } else {
-                    stream.getTracks().forEach(t => t.stop());
+                    stream.getTracks().forEach((t) => t.stop());
                 }
             } catch (err) {
-                console.warn('Auto-camera note (optional):', err.message);
+                if (mounted) {
+                    setCameraEnabled(false);
+                    logProctorAlert('CAMERA_OFF', 'Webcam access blocked or unavailable! Enable camera permissions for live interview proctoring.');
+                }
             }
         };
         autoStartCamera();
         return () => {
             mounted = false;
         };
-    }, []);
+    }, [logProctorAlert]);
 
-    // Toggle camera preview
     const toggleCamera = async () => {
         if (cameraEnabled) {
-            if (cameraStream) {
-                cameraStream.getTracks().forEach(track => track.stop());
-                setCameraStream(null);
-            }
+            stopCameraTracks();
+            setCameraStream(null);
             setCameraEnabled(false);
+            logProctorAlert('CAMERA_OFF', 'Webcam turned off! Please re-enable your camera so the proctor can verify your presence.');
         } else {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 }, audio: false });
+                const videoTrack = stream.getVideoTracks()[0];
+                if (videoTrack) {
+                    videoTrack.onended = () => {
+                        setCameraEnabled(false);
+                        logProctorAlert('CAMERA_OFF', 'Camera disconnected! Re-enable your webcam.');
+                    };
+                }
                 setCameraStream(stream);
                 setCameraEnabled(true);
+                noFaceStreakRef.current = 0;
+                logProctorAlert('OK', 'Webcam active • Candidate visible');
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
                 }
             } catch (err) {
-                alert('Could not access camera. Please check permissions: ' + err.message);
+                logProctorAlert('CAMERA_OFF', 'Could not access camera: ' + err.message);
             }
         }
     };
@@ -189,7 +252,120 @@ export default function Round3() {
         }
     }, [cameraEnabled, cameraStream]);
 
-    // --- ROBUST CONTINUOUS SPEECH RECOGNITION ENGINE ---
+    // Real-time frame analysis loop: detects covered/blocked camera & user absence
+    useEffect(() => {
+        if (interviewFinished) return;
+
+        if (!cameraEnabled || !cameraStream) {
+            logProctorAlert('CAMERA_OFF', 'Camera is turned off or hidden! Enable your webcam to avoid interview flagging.');
+            return;
+        }
+
+        const interval = setInterval(async () => {
+            const video = videoRef.current;
+            if (!video || video.readyState < 2 || video.videoWidth === 0) return;
+
+            if (!canvasRef.current) {
+                canvasRef.current = document.createElement('canvas');
+            }
+            const canvas = canvasRef.current;
+            const w = 96;
+            const h = 72;
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d', { willReadFrequently: true });
+            if (!ctx) return;
+
+            ctx.drawImage(video, 0, 0, w, h);
+            const imgData = ctx.getImageData(0, 0, w, h).data;
+
+            // 1. Compute frame luminance mean & variance (detect covered/blacked-out/uniform camera)
+            let sumLuma = 0;
+            let sumSqLuma = 0;
+            let skinLikePixels = 0;
+            let centerDiff = 0;
+            const pixelCount = w * h;
+            const currGray = new Uint8Array(pixelCount);
+
+            for (let y = 0; y < h; y++) {
+                for (let x = 0; x < w; x++) {
+                    const pIdx = y * w + x;
+                    const i = pIdx * 4;
+                    const r = imgData[i];
+                    const g = imgData[i + 1];
+                    const b = imgData[i + 2];
+                    const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+                    currGray[pIdx] = luma;
+                    sumLuma += luma;
+                    sumSqLuma += luma * luma;
+
+                    // Center ROI heuristic for human presence when FaceDetector isn't available
+                    if (x >= 20 && x <= 76 && y >= 10 && y <= 62) {
+                        if (r > 60 && g > 40 && b > 20 && r > g && r > b && Math.abs(r - g) > 10) {
+                            skinLikePixels++;
+                        }
+                        if (prevFrameRef.current) {
+                            centerDiff += Math.abs(luma - prevFrameRef.current[pIdx]);
+                        }
+                    }
+                }
+            }
+
+            const meanLuma = sumLuma / pixelCount;
+            const variance = Math.max(0, (sumSqLuma / pixelCount) - (meanLuma * meanLuma));
+            const stdDev = Math.sqrt(variance);
+            const avgMotion = prevFrameRef.current ? centerDiff / (56 * 52) : 5;
+            prevFrameRef.current = currGray;
+
+            // Covered lens / shutter closed / pitch-dark frame
+            if (meanLuma < 18 || stdDev < 7.5) {
+                noFaceStreakRef.current += 1;
+                logProctorAlert('CAMERA_COVERED', 'Alert: Webcam appears covered or blocked! Please uncover your camera immediately.');
+                return;
+            }
+
+            // 2. Check face / candidate visibility
+            let candidateVisible = true;
+            if (faceDetectorRef.current) {
+                try {
+                    const faces = await faceDetectorRef.current.detect(video);
+                    candidateVisible = Array.isArray(faces) && faces.length > 0;
+                } catch (e) {
+                    // Fallback to skin/motion presence check
+                    candidateVisible = skinLikePixels > 45 || avgMotion > 2.2;
+                }
+            } else {
+                // Heuristic fallback: requires meaningful skin-tone presence in center ROI or live subject motion
+                candidateVisible = skinLikePixels > 45 || avgMotion > 2.5;
+            }
+
+            if (!candidateVisible) {
+                noFaceStreakRef.current += 1;
+                if (noFaceStreakRef.current >= 2) {
+                    logProctorAlert('NOT_VISIBLE', 'Alert: Candidate is not clearly visible in camera frame! Please sit centered in front of the webcam.');
+                }
+            } else {
+                noFaceStreakRef.current = 0;
+                logProctorAlert('OK', 'Camera Active • Candidate Visible');
+            }
+        }, 1200);
+
+        return () => clearInterval(interval);
+    }, [cameraEnabled, cameraStream, interviewFinished, logProctorAlert]);
+
+    // Tab-switch / window blur alert in Round 3
+    useEffect(() => {
+        if (interviewFinished) return;
+        const onVisChange = () => {
+            if (document.hidden) {
+                logProctorAlert('TAB_SWITCH', 'Alert: Tab switch detected during live interview! Stay on this tab.');
+            }
+        };
+        document.addEventListener('visibilitychange', onVisChange);
+        return () => document.removeEventListener('visibilitychange', onVisChange);
+    }, [interviewFinished, logProctorAlert]);
+
+    // --- SPEECH RECOGNITION ---
     const startListening = () => {
         const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRec) {
@@ -197,7 +373,6 @@ export default function Round3() {
             return;
         }
 
-        // Clean up any lingering recognition instance
         stopListeningClean();
 
         try {
@@ -210,10 +385,9 @@ export default function Round3() {
             setIsListening(true);
             setRecordingDuration(0);
 
-            // Timer
             if (timerRef.current) clearInterval(timerRef.current);
             timerRef.current = setInterval(() => {
-                setRecordingDuration(prev => prev + 1);
+                setRecordingDuration((prev) => prev + 1);
             }, 1000);
 
             recognition.onresult = (event) => {
@@ -240,13 +414,12 @@ export default function Round3() {
                 }
             };
 
-            // Auto-restart if browser pauses speech recognition before user stops
             recognition.onend = () => {
                 if (activeRecordingRef.current) {
                     try {
                         recognition.start();
                     } catch (e) {
-                        // ignore if already starting
+                        // ignore
                     }
                 } else {
                     setIsListening(false);
@@ -305,7 +478,37 @@ export default function Round3() {
         setRecordingDuration(0);
     };
 
-    // Evaluate answer with AI
+    // Genuine local fallback only if port 8004 is unreachable
+    const computeHonestOfflineFallback = (answerText) => {
+        const words = answerText.trim().split(/\s+/).filter(Boolean).length;
+        const hasSTAR = /situation|task|action|result|because|improved|solved|team|built|led|designed|implemented|optimized|architecture|debugged|scaled/i.test(answerText);
+        if (words < 8) {
+            return {
+                confidence: { score: 3.5, justification: `Very brief response (${words} words).`, key_phrases: [] },
+                evidence: { score: 2.5, justification: 'Lacks concrete STAR examples or technical detail.', key_phrases: [] },
+                clarity: { score: 3.5, justification: 'Needs deeper explanation.', key_phrases: [] },
+                arrogance: { score: 0.5, justification: 'Neutral.', key_phrases: [] },
+                overall_score: 32,
+                feedback: 'Your answer is too short. Use the STAR method with concrete actions and measurable outcomes.',
+                model_used: 'offline-fallback'
+            };
+        }
+        const conf = Math.min(9.0, 5.2 + Math.min(words / 20, 2.8) + (hasSTAR ? 0.6 : 0));
+        const evid = Math.min(9.0, 4.5 + (hasSTAR ? 2.5 : 0.8) + Math.min(words / 30, 1.5));
+        const clar = Math.min(9.0, 5.5 + Math.min(words / 22, 2.5));
+        const overall = Math.round(((conf + evid + clar) / 3) * 10);
+        return {
+            confidence: { score: Number(conf.toFixed(1)), justification: `Delivered ${words} words.`, key_phrases: [] },
+            evidence: { score: Number(evid.toFixed(1)), justification: hasSTAR ? 'Included situational/action indicators.' : 'Add more specific STAR metrics.', key_phrases: [] },
+            clarity: { score: Number(clar.toFixed(1)), justification: 'Coherent response.', key_phrases: [] },
+            arrogance: { score: 0.6, justification: 'Collaborative tone.', key_phrases: [] },
+            overall_score: overall,
+            feedback: overall >= 80 ? 'Strong structured response.' : 'Add measurable outcomes and deeper technical reasoning to strengthen your score.',
+            model_used: 'offline-fallback'
+        };
+    };
+
+    // Evaluate answer with Gemini Flash via Round 3 backend
     const evaluateAnswer = async () => {
         if (!transcript.trim()) {
             alert('Please record or type your answer before submitting.');
@@ -318,91 +521,52 @@ export default function Round3() {
         const currentQ = INTERVIEW_QUESTIONS[currentQuestionIndex];
         const answerText = transcript.trim();
 
-        // Save answer
-        setAllAnswers(prev => ({
-            ...prev,
-            [currentQuestionIndex]: answerText
-        }));
+        const updatedAnswers = { ...allAnswers, [currentQuestionIndex]: answerText };
+        setAllAnswers(updatedAnswers);
 
         try {
-            // Attempt evaluation from interview service
             let evalResult = null;
             try {
-                const res = await fetch('http://localhost:8004/api/evaluate-answer', {
+                const res = await fetch(`${INTERVIEW_API_BASE}/api/evaluate-answer`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         question: currentQ.question,
                         answer: answerText,
-                        question_number: currentQuestionIndex + 1
+                        question_number: currentQuestionIndex + 1,
+                        resume_summary: session?.domain || ''
                     })
                 });
                 if (res.ok) {
                     evalResult = await res.json();
                 }
             } catch (netErr) {
-                console.warn('Using intelligent local evaluator fallback:', netErr);
+                console.warn('Interview API unreachable, using honest offline evaluator:', netErr);
             }
 
-            // High-quality deterministic AI synthesis: ensure right/good answers achieve >= 80% (82-95%)
-            const words = answerText.split(/\s+/).filter(Boolean).length;
-            const hasSTAR = /situation|task|action|result|because|improved|solved|team|built|led|designed|implemented|optimized|architecture|debugged|scaled|challenge/i.test(answerText);
-            const isSubstantive = words >= 8 || hasSTAR;
-
-            if (!evalResult || !evalResult.confidence || (isSubstantive && (evalResult.overall_score || 0) < 80)) {
-                const confidenceScore = Math.min(9.6, Math.max(8.2, 8.2 + (words > 25 ? 1.0 : 0.4)));
-                const evidenceScore = Math.min(9.7, Math.max(8.0, hasSTAR ? 8.9 : 8.2));
-                const clarityScore = Math.min(9.8, Math.max(8.4, words > 15 ? 8.8 : 8.4));
-                const professionalismScore = 9.2;
-                const computedOverall = Math.max(82, Math.min(95, Math.round(((confidenceScore + evidenceScore + clarityScore + professionalismScore) / 4) * 10)));
-
-                evalResult = {
-                    confidence: {
-                        score: confidenceScore,
-                        justification: `Delivered structured articulate response (${words} words) with high clarity.`,
-                        key_phrases: ["Structured delivery", "Strong articulation"]
-                    },
-                    evidence: {
-                        score: evidenceScore,
-                        justification: hasSTAR ? "Demonstrated clear STAR framework with direct real-world problem and outcome." : "Provided clear rationale, concrete engineering examples, and contextual depth.",
-                        key_phrases: ["Problem identification", "Impact driven"]
-                    },
-                    clarity: {
-                        score: clarityScore,
-                        justification: "Coherent phrasing, precise vocabulary, and well-organized explanation.",
-                        key_phrases: ["Concise vocabulary", "Logical flow"]
-                    },
-                    arrogance: {
-                        score: 0.6,
-                        justification: "Maintained collaborative, constructive, and humble professional demeanor.",
-                        key_phrases: ["Team player", "Growth mindset"]
-                    },
-                    overall_score: computedOverall
-                };
+            if (!evalResult || !evalResult.confidence || evalResult.overall_score === undefined) {
+                evalResult = computeHonestOfflineFallback(answerText);
             }
 
-            setAllEvaluations(prev => ({
-                ...prev,
-                [currentQuestionIndex]: evalResult
-            }));
+            const updatedEvals = { ...allEvaluations, [currentQuestionIndex]: evalResult };
+            setAllEvaluations(updatedEvals);
             setCurrentEvaluation(evalResult);
 
-            // Automatically turn off camera after submitting last question as required
+            // Auto-shutdown webcam immediately after submitting the final question
             if (currentQuestionIndex === INTERVIEW_QUESTIONS.length - 1) {
                 if (cameraStream) {
-                    cameraStream.getTracks().forEach(track => track.stop());
+                    cameraStream.getTracks().forEach((track) => track.stop());
                     setCameraStream(null);
                 }
                 setCameraEnabled(false);
             }
         } catch (err) {
-            alert('Evaluation note: ' + (err.message || err));
+            alert('Evaluation error: ' + (err.message || err));
         } finally {
             setEvaluating(false);
         }
     };
 
-    // Advance to next question or complete interview
     const handleNextQuestion = async () => {
         stopListeningClean();
         setCurrentEvaluation(null);
@@ -411,36 +575,60 @@ export default function Round3() {
         setRecordingDuration(0);
 
         if (currentQuestionIndex < INTERVIEW_QUESTIONS.length - 1) {
-            setCurrentQuestionIndex(prev => prev + 1);
+            setCurrentQuestionIndex((prev) => prev + 1);
         } else {
-            // Completed all questions! Disable camera immediately and build final report
             if (cameraStream) {
-                cameraStream.getTracks().forEach(track => track.stop());
+                cameraStream.getTracks().forEach((track) => track.stop());
                 setCameraStream(null);
             }
             setCameraEnabled(false);
-            generateFinalInterviewReport();
+            await generateFinalInterviewReport();
         }
     };
 
     const generateFinalInterviewReport = async () => {
         setEvaluating(true);
 
-        // Ensure camera is completely disabled
         if (cameraStream) {
-            cameraStream.getTracks().forEach(track => track.stop());
+            cameraStream.getTracks().forEach((track) => track.stop());
             setCameraStream(null);
         }
         setCameraEnabled(false);
 
+        const qaPayload = INTERVIEW_QUESTIONS.map((q, idx) => ({
+            question: q.question,
+            category: q.category,
+            answer: allAnswers[idx] || '',
+            evaluation: allEvaluations[idx] || {}
+        }));
+
+        let finalSummary = null;
+        try {
+            const res = await fetch(`${INTERVIEW_API_BASE}/api/evaluate-final`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    domain: session?.domain || 'Engineering',
+                    questions_evaluated: qaPayload,
+                    proctoring_alerts: proctorAlerts.length
+                })
+            });
+            if (res.ok) {
+                finalSummary = await res.json();
+            }
+        } catch (err) {
+            console.warn('Final AI summary fallback used:', err);
+        }
+
         const evals = Object.values(allEvaluations);
-        const avgConfidence = evals.length ? Math.round(evals.reduce((sum, e) => sum + (e.confidence?.score || 8.6), 0) / evals.length * 10) / 10 : 8.8;
-        const avgEvidence = evals.length ? Math.round(evals.reduce((sum, e) => sum + (e.evidence?.score || 8.4), 0) / evals.length * 10) / 10 : 8.5;
-        const avgClarity = evals.length ? Math.round(evals.reduce((sum, e) => sum + (e.clarity?.score || 8.8), 0) / evals.length * 10) / 10 : 8.9;
-        
-        // Calibrate overall score so good answers land firmly >= 80% (typically 84 - 94%)
-        const rawScore = Math.round(((avgConfidence + avgEvidence + avgClarity) / 3) * 10);
-        const overallScore = Math.max(82, Math.min(96, rawScore));
+        const avgConfidence = finalSummary?.avg_confidence ?? (evals.length ? Math.round((evals.reduce((sum, e) => sum + (e.confidence?.score || 5), 0) / evals.length) * 10) / 10 : 5.0);
+        const avgEvidence = finalSummary?.avg_evidence ?? (evals.length ? Math.round((evals.reduce((sum, e) => sum + (e.evidence?.score || 5), 0) / evals.length) * 10) / 10 : 5.0);
+        const avgClarity = finalSummary?.avg_clarity ?? (evals.length ? Math.round((evals.reduce((sum, e) => sum + (e.clarity?.score || 5), 0) / evals.length) * 10) / 10 : 5.0);
+        const overallScore = finalSummary?.overall_score ?? (evals.length
+            ? Math.round(evals.reduce((sum, e) => sum + (e.overall_score ?? 50), 0) / evals.length)
+            : 50);
+
+        const recommendation = finalSummary?.recommendation || (overallScore >= 80 ? 'STRONG FIT' : overallScore >= 60 ? 'CONSIDER' : 'NOT RECOMMENDED');
 
         const reportData = {
             candidate_id: candidateId,
@@ -451,24 +639,14 @@ export default function Round3() {
                 avg_confidence: avgConfidence,
                 avg_evidence: avgEvidence,
                 avg_clarity: avgClarity,
-                communication_score: Math.round(avgClarity * 10),
-                cultural_fit_score: 88,
-                recommendation: overallScore >= 75 ? "STRONG FIT" : overallScore >= 60 ? "CONSIDER" : "NOT RECOMMENDED",
-                executive_summary: `Candidate demonstrated exceptional verbal clarity (${avgClarity}/10) and structured technical storytelling (${avgEvidence}/10). Responses followed professional engineering norms with high team maturity and self-awareness.`,
-                questions_evaluated: INTERVIEW_QUESTIONS.map((q, idx) => ({
-                    question: q.question,
-                    category: q.category,
-                    answer: allAnswers[idx] || "Completed via voice recording",
-                    evaluation: allEvaluations[idx] || {}
-                })),
-                strengths: [
-                    "Strong STAR structure in situational examples",
-                    "Crisp communication with technical depth",
-                    "Clear accountability and growth mindset"
-                ],
-                improvement_areas: [
-                    "Can quantify technical business metrics even more granularly in failure scenarios"
-                ]
+                communication_score: finalSummary?.communication_score ?? Math.round(avgClarity * 10),
+                cultural_fit_score: Math.round(overallScore),
+                recommendation,
+                executive_summary: finalSummary?.executive_summary || `Candidate scored ${overallScore}% across 5 responses (Confidence ${avgConfidence}/10, STAR Evidence ${avgEvidence}/10, Clarity ${avgClarity}/10).`,
+                questions_evaluated: qaPayload,
+                proctoring_alerts: proctorAlerts,
+                strengths: finalSummary?.strengths?.length ? finalSummary.strengths : ['Completed all 5 interview questions'],
+                improvement_areas: finalSummary?.improvement_areas?.length ? finalSummary.improvement_areas : ['Provide stronger STAR metrics in situational responses']
             }
         };
 
@@ -491,25 +669,44 @@ export default function Round3() {
 
     const currentQuestion = INTERVIEW_QUESTIONS[currentQuestionIndex];
     const progressPercent = ((currentQuestionIndex + 1) / INTERVIEW_QUESTIONS.length) * 100;
+    const isProctorAlertActive = proctorStatus !== 'OK' && proctorStatus !== 'INITIALIZING';
 
     return (
-        <div style={{ maxWidth: '980px', margin: '0 auto', paddingBottom: '3rem' }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto', paddingBottom: '3rem' }}>
             {/* Header Stage Banner */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
                 <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                        <span className="badge-pill badge-active">Round 3: Behavioral & Technical</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
+                        <span className="badge-pill badge-active">Round 3: AI Voice & Video Interview</span>
                         <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Session: #{candidateId?.slice(-6) || 'LIVE'}</span>
+                        {!interviewFinished && (
+                            <span style={{
+                                fontSize: '0.75rem',
+                                padding: '3px 10px',
+                                borderRadius: '999px',
+                                background: isProctorAlertActive ? 'rgba(239, 68, 68, 0.16)' : 'rgba(16, 185, 129, 0.14)',
+                                color: isProctorAlertActive ? '#fca5a5' : '#34d399',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '5px',
+                                fontWeight: 600
+                            }}>
+                                <Eye size={12} />
+                                {isProctorAlertActive ? `Proctor Alert (${proctorAlerts.length})` : 'Proctoring Active'}
+                            </span>
+                        )}
                     </div>
                     <h1 style={{ margin: 0, fontSize: '1.85rem' }}>AI Autonomous Interview</h1>
                 </div>
 
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                    <Button variant="outline" className="btn-sm" onClick={toggleCamera}>
-                        {cameraEnabled ? <VideoOff size={16} color="#f87171" /> : <Video size={16} color="#38bdf8" />}
-                        <span>{cameraEnabled ? 'Disable Camera' : 'Enable Camera'}</span>
-                    </Button>
-                </div>
+                {!interviewFinished && (
+                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                        <Button variant="outline" className="btn-sm" onClick={toggleCamera}>
+                            {cameraEnabled ? <VideoOff size={16} color="#f87171" /> : <Video size={16} color="#38bdf8" />}
+                            <span>{cameraEnabled ? 'Disable Camera' : 'Enable Camera'}</span>
+                        </Button>
+                    </div>
+                )}
             </div>
 
             {loadingSession && (
@@ -528,6 +725,38 @@ export default function Round3() {
                 </Card>
             )}
 
+            {/* Live Webcam Visibility / Obstruction Alert Banner */}
+            {!interviewFinished && isProctorAlertActive && (
+                <div style={{
+                    marginBottom: '1.25rem',
+                    padding: '0.95rem 1.2rem',
+                    borderRadius: '12px',
+                    background: 'rgba(239, 68, 68, 0.16)',
+                    border: '1.5px solid rgba(239, 68, 68, 0.55)',
+                    color: '#fecaca',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '12px',
+                    flexWrap: 'wrap'
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <ShieldAlert size={22} color="#f87171" />
+                        <div>
+                            <strong style={{ display: 'block', fontSize: '0.95rem', color: '#fca5a5' }}>
+                                Live Proctoring Warning
+                            </strong>
+                            <span style={{ fontSize: '0.88rem' }}>{proctorMessage}</span>
+                        </div>
+                    </div>
+                    {!cameraEnabled && (
+                        <Button variant="outline" className="btn-sm" onClick={toggleCamera} style={{ borderColor: '#f87171', color: '#fecaca' }}>
+                            <Video size={14} /> Enable Webcam
+                        </Button>
+                    )}
+                </div>
+            )}
+
             {!interviewFinished ? (
                 <>
                     {/* Progress Bar */}
@@ -541,7 +770,7 @@ export default function Round3() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: cameraEnabled ? '1.3fr 1fr' : '1fr', gap: '1.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1.35fr 1fr', gap: '1.5rem', alignItems: 'start' }}>
                         <div>
                             {/* Question Card */}
                             <Card className="card-glow-accent">
@@ -593,7 +822,6 @@ export default function Round3() {
                                     </div>
                                 </div>
 
-                                {/* Live Soundwave */}
                                 {isListening && (
                                     <div className="sound-wave-container">
                                         <div className="wave-bar"></div>
@@ -649,7 +877,7 @@ export default function Round3() {
                                         >
                                             {evaluating ? (
                                                 <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                                    <Sparkles size={16} className="spin" /> Evaluating...
+                                                    <Sparkles size={16} className="spin" /> Evaluating with Gemini...
                                                 </span>
                                             ) : (
                                                 <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -673,40 +901,51 @@ export default function Round3() {
                             {/* Live AI Feedback on submitted question */}
                             {currentEvaluation && (
                                 <Card className="fade-in" style={{ borderColor: 'rgba(99, 102, 241, 0.35)', background: 'rgba(15, 23, 42, 0.9)' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '8px' }}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                            <CheckCircle2 color="#10b981" size={20} />
+                                            <CheckCircle2 color={currentEvaluation.overall_score >= 70 ? '#10b981' : '#f59e0b'} size={20} />
                                             <h3 style={{ margin: 0, fontSize: '1.1rem' }}>Question {currentQuestionIndex + 1} AI Evaluation</h3>
                                         </div>
-                                        <span className="badge-pill badge-passed">Score: {currentEvaluation.overall_score || 85}%</span>
+                                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                            {currentEvaluation.model_used && (
+                                                <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>{currentEvaluation.model_used}</span>
+                                            )}
+                                            <span className={`badge-pill ${currentEvaluation.overall_score >= 75 ? 'badge-passed' : 'badge-active'}`}>
+                                                Score: {currentEvaluation.overall_score}%
+                                            </span>
+                                        </div>
                                     </div>
 
                                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginBottom: '1rem' }}>
                                         <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
                                             <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Confidence</div>
-                                            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#38bdf8' }}>{currentEvaluation.confidence?.score || 8.5} <span style={{ fontSize: '0.75rem', color: '#64748b' }}>/10</span></div>
+                                            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#38bdf8' }}>{currentEvaluation.confidence?.score ?? 0} <span style={{ fontSize: '0.75rem', color: '#64748b' }}>/10</span></div>
                                         </div>
                                         <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
                                             <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>STAR Evidence</div>
-                                            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981' }}>{currentEvaluation.evidence?.score || 8.2} <span style={{ fontSize: '0.75rem', color: '#64748b' }}>/10</span></div>
+                                            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981' }}>{currentEvaluation.evidence?.score ?? 0} <span style={{ fontSize: '0.75rem', color: '#64748b' }}>/10</span></div>
                                         </div>
                                         <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
                                             <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Clarity</div>
-                                            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#a78bfa' }}>{currentEvaluation.clarity?.score || 8.8} <span style={{ fontSize: '0.75rem', color: '#64748b' }}>/10</span></div>
+                                            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#a78bfa' }}>{currentEvaluation.clarity?.score ?? 0} <span style={{ fontSize: '0.75rem', color: '#64748b' }}>/10</span></div>
                                         </div>
                                     </div>
 
                                     <p style={{ margin: 0, fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.6, background: 'rgba(99, 102, 241, 0.07)', padding: '10px 14px', borderRadius: '8px' }}>
-                                        💬 <strong>AI Feedback:</strong> {currentEvaluation.evidence?.justification || currentEvaluation.confidence?.justification}
+                                        💬 <strong>AI Feedback:</strong> {currentEvaluation.feedback || currentEvaluation.evidence?.justification || currentEvaluation.confidence?.justification}
                                     </p>
                                 </Card>
                             )}
                         </div>
 
-                        {/* Optional Camera Feed */}
-                        {cameraEnabled && (
-                            <div>
-                                <Card style={{ padding: '1rem', textAlign: 'center' }}>
+                        {/* Live Webcam Proctoring Panel */}
+                        <div>
+                            <Card style={{
+                                padding: '1rem',
+                                textAlign: 'center',
+                                border: isProctorAlertActive ? '1.5px solid rgba(239, 68, 68, 0.6)' : '1px solid rgba(16, 185, 129, 0.3)'
+                            }}>
+                                {cameraEnabled ? (
                                     <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', background: '#000', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
                                         <video
                                             ref={videoRef}
@@ -715,16 +954,49 @@ export default function Round3() {
                                             playsInline
                                             style={{ width: '100%', height: '240px', objectFit: 'cover', transform: 'scaleX(-1)' }}
                                         />
-                                        <div style={{ position: 'absolute', top: '10px', left: '10px', background: 'rgba(0,0,0,0.6)', padding: '3px 8px', borderRadius: '6px', fontSize: '0.75rem', color: '#34d399', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }}></span> Live Preview
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '10px',
+                                            left: '10px',
+                                            background: isProctorAlertActive ? 'rgba(127, 29, 29, 0.85)' : 'rgba(0,0,0,0.65)',
+                                            padding: '4px 10px',
+                                            borderRadius: '6px',
+                                            fontSize: '0.74rem',
+                                            color: isProctorAlertActive ? '#fecaca' : '#34d399',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '6px'
+                                        }}>
+                                            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: isProctorAlertActive ? '#ef4444' : '#10b981' }}></span>
+                                            {proctorStatus === 'OK' ? 'Face Visible • Live' : proctorStatus.replace('_', ' ')}
                                         </div>
                                     </div>
-                                    <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: '#94a3b8' }}>
-                                        Maintain steady eye contact and natural posture.
+                                ) : (
+                                    <div style={{ padding: '3rem 1rem', borderRadius: '12px', background: 'rgba(15, 23, 42, 0.8)', border: '1px dashed rgba(239, 68, 68, 0.45)', color: '#fca5a5' }}>
+                                        <VideoOff size={34} style={{ margin: '0 auto 10px' }} />
+                                        <div style={{ fontWeight: 700, fontSize: '0.92rem' }}>Webcam Disabled</div>
+                                        <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '6px' }}>Enable camera to stay compliant with live interview monitoring.</p>
                                     </div>
-                                </Card>
-                            </div>
-                        )}
+                                )}
+
+                                <div style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: isProctorAlertActive ? '#fca5a5' : '#94a3b8' }}>
+                                    {proctorMessage}
+                                </div>
+
+                                {proctorAlerts.length > 0 && (
+                                    <div style={{ marginTop: '0.85rem', textAlign: 'left', background: 'rgba(239, 68, 68, 0.08)', borderRadius: '8px', padding: '8px 10px', maxHeight: '110px', overflowY: 'auto' }}>
+                                        <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#fca5a5', marginBottom: '4px' }}>
+                                            Proctoring Log ({proctorAlerts.length})
+                                        </div>
+                                        {proctorAlerts.slice(-3).map((a, i) => (
+                                            <div key={i} style={{ fontSize: '0.74rem', color: '#cbd5e1' }}>
+                                                [{a.timestamp}] {a.code.replace('_', ' ')}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </Card>
+                        </div>
                     </div>
                 </>
             ) : (
@@ -739,30 +1011,30 @@ export default function Round3() {
                             Your AI speech, video presence, and technical competency analysis has been finalized and integrated into your comprehensive application dossier.
                         </p>
 
-                        <div className="score-circle" style={{ '--percentage': `${finalReport?.overall_score || 85}%`, color: '#10b981' }}>
-                            <span className="score-value">{finalReport?.overall_score || 85}%</span>
+                        <div className="score-circle" style={{ '--percentage': `${finalReport?.overall_score || 0}%`, color: (finalReport?.overall_score || 0) >= 80 ? '#10b981' : '#f59e0b' }}>
+                            <span className="score-value">{Math.round(finalReport?.overall_score || 0)}%</span>
                         </div>
 
                         <div style={{ display: 'inline-block', marginBottom: '2rem' }}>
-                            <span className="badge-pill badge-passed" style={{ fontSize: '0.9rem', padding: '6px 16px' }}>
-                                Verdict: {finalReport?.recommendation || 'STRONG FIT'}
+                            <span className={`badge-pill ${(finalReport?.overall_score || 0) >= 80 ? 'badge-passed' : 'badge-failed'}`} style={{ fontSize: '0.9rem', padding: '6px 16px' }}>
+                                Verdict: {finalReport?.recommendation || 'EVALUATED'}
                             </span>
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', textAlign: 'left', marginBottom: '2rem' }}>
                             <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1.2rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
                                 <div style={{ color: '#94a3b8', fontSize: '0.8rem', textTransform: 'uppercase' }}>Clarity Score</div>
-                                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#38bdf8' }}>{finalReport?.communication_score || 88}%</div>
+                                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#38bdf8' }}>{finalReport?.communication_score ?? 0}%</div>
                                 <small style={{ color: '#64748b' }}>Technical precision & articulation</small>
                             </div>
                             <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1.2rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
                                 <div style={{ color: '#94a3b8', fontSize: '0.8rem', textTransform: 'uppercase' }}>Vocal Confidence</div>
-                                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#10b981' }}>{finalReport?.avg_confidence ? `${finalReport.avg_confidence}/10` : '8.5/10'}</div>
-                                <small style={{ color: '#64748b' }}>Speech consistency & pacing</small>
+                                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#10b981' }}>{finalReport?.avg_confidence ?? 0}/10</div>
+                                <small style={{ color: '#64748b' }}>Speech consistency & conviction</small>
                             </div>
                             <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1.2rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
                                 <div style={{ color: '#94a3b8', fontSize: '0.8rem', textTransform: 'uppercase' }}>STAR Evidence Depth</div>
-                                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#818cf8' }}>{finalReport?.avg_evidence ? `${finalReport.avg_evidence}/10` : '8.2/10'}</div>
+                                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#818cf8' }}>{finalReport?.avg_evidence ?? 0}/10</div>
                                 <small style={{ color: '#64748b' }}>Scenario validation & metrics</small>
                             </div>
                         </div>

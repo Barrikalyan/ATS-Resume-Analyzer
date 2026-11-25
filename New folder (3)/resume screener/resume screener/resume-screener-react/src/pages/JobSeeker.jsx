@@ -45,11 +45,17 @@ const ScoreItem = ({ label, value, feedback }) => (
 );
 
 const JOB_ROLES = {
-    Cybersecurity: {},
-    FullStackDeveloper: {},
-    DataScienceEngineer: {},
-    AIMLEngineer: {},
-    JavaFullStackDeveloper: {}
+    FullStackDeveloper: { display_name: 'Full Stack Developer' },
+    FrontendDeveloper: { display_name: 'Frontend Developer' },
+    BackendDeveloper: { display_name: 'Backend Developer' },
+    JavaFullStackDeveloper: { display_name: 'Java Full Stack Developer' },
+    AIMLEngineer: { display_name: 'AI / ML Engineer' },
+    DataScienceEngineer: { display_name: 'Data Science Engineer' },
+    DataAnalyst: { display_name: 'Data Analyst' },
+    DevOpsCloudEngineer: { display_name: 'DevOps & Cloud Engineer' },
+    Cybersecurity: { display_name: 'Cybersecurity Engineer' },
+    MobileAppDeveloper: { display_name: 'Mobile App Developer' },
+    QAEngineer: { display_name: 'QA & Automation Engineer' }
 };
 
 export default function JobSeeker() {
@@ -191,10 +197,17 @@ export default function JobSeeker() {
                 {/* Dashboard Grid */}
                 <div className="dashboard-grid">
                     <Card className="card-glow-accent">
-                        <h3 style={{ color: 'var(--brand-primary)', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <TrendingUp size={20} />
-                            <span>Competency Dimensions</span>
-                        </h3>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+                            <h3 style={{ color: 'var(--brand-primary)', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <TrendingUp size={20} />
+                                <span>Competency Dimensions</span>
+                            </h3>
+                            {result.analysis.evaluation_engine && (
+                                <span style={{ fontSize: '0.72rem', padding: '3px 8px', borderRadius: '999px', background: 'rgba(99, 102, 241, 0.14)', color: '#a5b4fc', fontWeight: 600 }}>
+                                    {result.analysis.evaluation_engine}
+                                </span>
+                            )}
+                        </div>
                         <ScoreItem label="Technical Skills Match" value={result.analysis.breakdown.skills} feedback={result.analysis.feedback?.skills} />
                         <ScoreItem label="Experience Alignment" value={result.analysis.breakdown.experience} feedback={result.analysis.feedback?.experience} />
                         <ScoreItem label="Education & Credentials" value={result.analysis.breakdown.education} feedback={result.analysis.feedback?.education} />
@@ -205,12 +218,17 @@ export default function JobSeeker() {
                     <Card className="card-glow-accent">
                         <h3 style={{ color: '#10b981', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <CheckCircle2 size={20} />
-                            <span>Matched Competencies</span>
+                            <span>Matched Competencies ({result.analysis.matched_skills?.length || 0})</span>
                         </h3>
                         <div className="tags" style={{ marginBottom: '1.5rem' }}>
-                            {result.analysis.matched_skills?.map(skill => (
-                                <span key={skill} className="tag match">{skill}</span>
-                            ))}
+                            {result.analysis.matched_skills?.map(skill => {
+                                const inferred = result.analysis.inferred_skills?.find(i => i.skill === skill);
+                                return (
+                                    <span key={skill} className="tag match" title={inferred ? `Credibly inferred from ${inferred.via}` : 'Directly matched in resume'}>
+                                        {skill}{inferred ? ` (via ${inferred.via})` : ''}
+                                    </span>
+                                );
+                            })}
                             {(!result.analysis.matched_skills || result.analysis.matched_skills.length === 0) && (
                                 <small style={{ color: 'var(--text-muted)' }}>No direct keywords matched.</small>
                             )}
@@ -218,12 +236,15 @@ export default function JobSeeker() {
 
                         <h3 style={{ color: '#f59e0b', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <AlertCircle size={20} />
-                            <span>Recommended Skills to Acquire</span>
+                            <span>Recommended Skills to Acquire ({result.analysis.missing_skills?.length || 0})</span>
                         </h3>
                         <div className="tags">
                             {result.analysis.missing_skills?.map(skill => (
                                 <span key={skill} className="tag missing">{skill}</span>
                             ))}
+                            {(!result.analysis.missing_skills || result.analysis.missing_skills.length === 0) && (
+                                <small style={{ color: '#10b981' }}>All core skills for this role are covered!</small>
+                            )}
                         </div>
                     </Card>
 
@@ -238,7 +259,7 @@ export default function JobSeeker() {
                         </div>
                         <h3 style={{ margin: '0 0 8px', fontSize: '1.5rem' }}>Ready to Take Round 2: Technical Assessment?</h3>
                         <p style={{ color: 'var(--text-secondary)', maxWidth: '540px', margin: '0 auto 1.75rem', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                            You will answer 15 targeted technical questions (multiple choice, SQL, code debugging, and architecture). Achieve &gt;= 70% to qualify for Round 3.
+                            You will answer 20 proctored technical questions in fullscreen mode (multiple choice, SQL, code debugging, and architecture). Achieve &gt;= 70% to qualify for Round 3.
                         </p>
                         <Button
                             variant="primary"
@@ -320,7 +341,7 @@ export default function JobSeeker() {
                         </div>
                         <h3 style={{ fontSize: '1.25rem', margin: '0 0 8px' }}>Technical Assessment</h3>
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
-                            15 timed technical questions covering code snippets, SQL queries, debugging scenarios, and architecture fundamentals.
+                            20 proctored fullscreen technical questions covering code snippets, SQL queries, debugging scenarios, and architecture fundamentals.
                         </p>
                     </Card>
 
@@ -377,9 +398,17 @@ export default function JobSeeker() {
                             >
                                 <option value="" disabled>Select target position...</option>
                                 {Object.keys(roles).map(role => (
-                                    <option key={role} value={role}>{role.replace(/([A-Z])/g, ' $1').trim()}</option>
+                                    <option key={role} value={role}>
+                                        {roles[role]?.display_name || role.replace(/([A-Z])/g, ' $1').trim()}
+                                    </option>
                                 ))}
                             </select>
+                            {selectedRole && roles[selectedRole]?.skills_required && (
+                                <div style={{ marginTop: '8px', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                                    Key skills evaluated: {roles[selectedRole].skills_required.slice(0, 6).join(', ')}
+                                    {roles[selectedRole].skills_required.length > 6 ? ` +${roles[selectedRole].skills_required.length - 6} more` : ''}
+                                </div>
+                            )}
                         </div>
 
                         <div className="form-group">

@@ -1068,5 +1068,1565 @@
       "isFinished": true
     },
     "quiz_score": 66.67
+  },
+  {
+    "name": "kalyan6",
+    "role": "FullStackDeveloper",
+    "score": 73.06,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 88.78,
+        "experience": 40,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 73.06,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 88.78,
+        "experience": 40,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 19 matching skills. Missing: Vercel, Authorization, Authentication...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 19 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 73.06% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 11 key skills"
+            ],
+            "weaknesses": [
+              "Missing 6 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Vercel",
+            "Authorization",
+            "Authentication"
+          ],
+          "medium_priority_missing": [
+            "Netlify",
+            "AWS",
+            "HTML"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Vercel certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "JavaScript",
+        "React",
+        "REST APIs",
+        "CSS",
+        "MongoDB",
+        "SQL",
+        "Node.js",
+        "Git",
+        "GitHub",
+        "Express.js",
+        "Deployment"
+      ],
+      "missing_skills": [
+        "Vercel",
+        "Authorization",
+        "Authentication",
+        "Netlify",
+        "AWS",
+        "HTML"
+      ],
+      "overallScore": 73.06
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1010",
+    "timestamp": "Just now",
+    "quiz_session_id": "76508740-154f-4fcd-bb33-3c3d78ad48e6",
+    "quiz_started_at": "2026-09-13T17:53:32.321341+00:00"
+  },
+  {
+    "name": "john carter",
+    "role": "FullStackDeveloper",
+    "score": 73.06,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 88.78,
+        "experience": 40,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 73.06,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 88.78,
+        "experience": 40,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 19 matching skills. Missing: AWS, HTML, Vercel...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 19 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 73.06% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 11 key skills"
+            ],
+            "weaknesses": [
+              "Missing 6 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "AWS",
+            "HTML",
+            "Vercel"
+          ],
+          "medium_priority_missing": [
+            "Netlify",
+            "Authentication",
+            "Authorization"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain AWS certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "CSS",
+        "Git",
+        "Deployment",
+        "REST APIs",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "GitHub",
+        "React",
+        "Express.js",
+        "SQL"
+      ],
+      "missing_skills": [
+        "AWS",
+        "HTML",
+        "Vercel",
+        "Netlify",
+        "Authentication",
+        "Authorization"
+      ],
+      "overallScore": 73.06
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1011",
+    "timestamp": "Just now",
+    "quiz_session_id": "16ed84c8-813e-415d-b15e-cf6f668b1ba4",
+    "quiz_started_at": "2026-11-25T07:05:42.224633+00:00",
+    "quiz_report_full": {
+      "totalScore": 150,
+      "maxScore": 150,
+      "percentage": 100.0,
+      "results": [
+        {
+          "questionId": 9,
+          "question": "Identify the cause of an infinite re-render loop in this React component snippet:\n\nuseEffect(() => {\n  fetchData().then(res => setData(res));\n});",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Without a dependency array, useEffect runs after every render. Since setData(res) updates the component's state, it triggers another render, which runs the effect again, creating an infinite loop.\nuseEffect(() => {\n  fetchData().then(res => setData(res));\n}, []);",
+          "feedback": "Correct. The user correctly explained that the missing dependency array causes the effect to run on every render and provided the fix."
+        },
+        {
+          "questionId": 5,
+          "question": "Which HTTP method is defined as idempotent and intended to completely replace the target resource with the request payload?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "PUT",
+          "feedback": "Correct. PUT is idempotent and completely replaces the target resource."
+        },
+        {
+          "questionId": 11,
+          "question": "Given a compound MongoDB index `{ status: 1, createdAt: -1 }`, which query fails to effectively utilize this index for sorting or matching?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "db.orders.find({ createdAt: { $gt: new Date() } })",
+          "feedback": "Correct. Queries failing to match on the index prefix (`status`) cannot effectively use this compound index."
+        },
+        {
+          "questionId": 13,
+          "question": "When hosting a Node.js/Express application behind a reverse proxy like Nginx or AWS ALB, which Express setting must be enabled to ensure `req.ip` correctly resolves client IPs from the `X-Forwarded-For` header?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "app.set('trust proxy', true)",
+          "feedback": "Correct. Enabling 'trust proxy' allows Express to trust reverse proxy header values."
+        },
+        {
+          "questionId": 15,
+          "question": "To secure authentication tokens in full-stack web applications against Cross-Site Scripting (XSS) token extraction, where should sensitive JWT tokens be stored on the client side?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "An HttpOnly, Secure HTTP Cookie",
+          "feedback": "Correct. HttpOnly cookies prevent JavaScript access, protecting JWT tokens from XSS extraction."
+        },
+        {
+          "questionId": 8,
+          "question": "In standard SQL, which clause must be used to filter rows aggregated by a `GROUP BY` statement (e.g., finding users with count > 5)?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "HAVING",
+          "feedback": "Correct. The HAVING clause filters grouped/aggregated rows."
+        },
+        {
+          "questionId": 1,
+          "question": "What will be printed to the console when executing the following JavaScript code?\n\nconsole.log('A');\nsetTimeout(() => console.log('B'), 0);\nPromise.resolve().then(() => console.log('C'));\nconsole.log('D');",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "A, D, C, B",
+          "feedback": "Correct. Synchronous code logs 'A' and 'D', microtask Promise logs 'C', and macrotask setTimeout logs 'B'."
+        },
+        {
+          "questionId": 10,
+          "question": "In Node.js, how does `process.nextTick()` differ from `setImmediate()`?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "process.nextTick fires immediately after the current operation finishes, before the event loop continues",
+          "feedback": "Correct. `process.nextTick` executes microtasks immediately following the current operation."
+        },
+        {
+          "questionId": 12,
+          "question": "What will be logged to the console when executing this JavaScript code?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "3\n3\n3",
+          "feedback": "Correct. Due to function-scoped `var`, all callbacks log the final value of `i`, which is 3."
+        },
+        {
+          "questionId": 4,
+          "question": "In MongoDB aggregation pipelines, which stage acts analogously to a SQL `LEFT OUTER JOIN` between collections?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "$lookup",
+          "feedback": "Correct. `$lookup` performs a left outer join to combine documents from another collection."
+        },
+        {
+          "questionId": 2,
+          "question": "Which state updater function call correctly increments the `count` state in React without risk of stale state bugs when triggered rapidly?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "setCount(prevCount => prevCount + 1);",
+          "feedback": "Correct. Functional updates prevent stale closure bugs."
+        },
+        {
+          "questionId": 6,
+          "question": "Given the CSS rules below, what will be the text color of `<header id='header'><h1 class='title'>Text</h1></header>`?\n\n#header .title { color: red; }\nheader h1.title { color: blue; }",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "red",
+          "feedback": "Correct. `#header .title` has higher CSS specificity (1, 1, 0) than `header h1.title` (0, 1, 2)."
+        },
+        {
+          "questionId": 3,
+          "question": "What is the correct parameter signature for an Express.js custom error-handling middleware function?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "(err, req, res, next)",
+          "feedback": "Correct. Express error handlers require a 4-argument signature."
+        },
+        {
+          "questionId": 14,
+          "question": "Which SQL transaction isolation level prevents both Dirty Reads and Non-Repeatable Reads, but allows Phantom Reads under standard ANSI SQL specifications?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "REPEATABLE READ",
+          "feedback": "Correct. REPEATABLE READ prevents dirty and non-repeatable reads while allowing phantom reads."
+        },
+        {
+          "questionId": 7,
+          "question": "Which Git command enables you to save your modified working directory state without committing, allowing you to switch branches cleanly?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "git stash",
+          "feedback": "Correct. `git stash` shelves uncommitted changes to clean the working directory."
+        }
+      ],
+      "overallFeedback": "Outstanding performance! The candidate achieved a perfect score of 100%, demonstrating mastery across JavaScript event loop mechanics, React state/lifecycle patterns, Express.js middleware, SQL isolation levels, CSS specificity, and database querying.",
+      "isSelected": true,
+      "isFinished": true
+    },
+    "quiz_score": 100.0,
+    "interview_session_id": 38,
+    "interview_started_at": "2026-11-25T07:21:21.600339+00:00",
+    "interview_score": 89.0,
+    "round3_report": {
+      "overall_score": 89,
+      "avg_confidence": 9.2,
+      "avg_evidence": 8.6,
+      "avg_clarity": 8.8,
+      "communication_score": 88,
+      "cultural_fit_score": 88,
+      "recommendation": "STRONG FIT",
+      "executive_summary": "Candidate demonstrated exceptional verbal clarity (8.8/10) and structured technical storytelling (8.6/10). Responses followed professional engineering norms with high team maturity and self-awareness.",
+      "questions_evaluated": [
+        {
+          "question": "Please introduce yourself, highlight your primary technical competencies, and explain what motivates your engineering approach.",
+          "category": "Professional Background & Core Strengths",
+          "answer": "I'm Kalyan, finally AB tech student. I am currently a full stack developer where I am learning technologies on Mongo DB, React, Node JS and I'm fluent in Python where I can work with Flask, Django frameworks. I'm developing full stack web applications and I'm also learning AI technologies where I'm learning. Systems with length chain and some other technologies and working with an agent and so on.",
+          "evaluation": {
+            "confidence": {
+              "score": 9.2,
+              "justification": "Delivered structured articulate response (68 words) with high clarity.",
+              "key_phrases": [
+                "Structured delivery",
+                "Strong articulation"
+              ]
+            },
+            "evidence": {
+              "score": 8.2,
+              "justification": "Provided clear rationale, concrete engineering examples, and contextual depth.",
+              "key_phrases": [
+                "Problem identification",
+                "Impact driven"
+              ]
+            },
+            "clarity": {
+              "score": 8.8,
+              "justification": "Coherent phrasing, precise vocabulary, and well-organized explanation.",
+              "key_phrases": [
+                "Concise vocabulary",
+                "Logical flow"
+              ]
+            },
+            "arrogance": {
+              "score": 0.6,
+              "justification": "Maintained collaborative, constructive, and humble professional demeanor.",
+              "key_phrases": [
+                "Team player",
+                "Growth mindset"
+              ]
+            },
+            "overall_score": 89
+          }
+        },
+        {
+          "question": "Describe a complex technical challenge or production issue you resolved. Walk us through your diagnosis, approach, and outcome.",
+          "category": "Technical Problem Solving & Architecture",
+          "answer": "While developing my project ATS score and resume analyzer and a interview I have faced many issues were working with the third round. It is an interview based round where the candidate was and his communication boards are being monitored and when coming to that I have faced. Just like evaluating the candidate score and in second round I have faced challenges like getting dynamic questions and I'm used Gemini API for dynamic questions and I approach this one systematic software discipline principle to overcome all these challenges.",
+          "evaluation": {
+            "confidence": {
+              "score": 9.2,
+              "justification": "Delivered structured articulate response (88 words) with high clarity.",
+              "key_phrases": [
+                "Structured delivery",
+                "Strong articulation"
+              ]
+            },
+            "evidence": {
+              "score": 8.9,
+              "justification": "Demonstrated clear STAR framework with direct real-world problem and outcome.",
+              "key_phrases": [
+                "Problem identification",
+                "Impact driven"
+              ]
+            },
+            "clarity": {
+              "score": 8.8,
+              "justification": "Coherent phrasing, precise vocabulary, and well-organized explanation.",
+              "key_phrases": [
+                "Concise vocabulary",
+                "Logical flow"
+              ]
+            },
+            "arrogance": {
+              "score": 0.6,
+              "justification": "Maintained collaborative, constructive, and humble professional demeanor.",
+              "key_phrases": [
+                "Team player",
+                "Growth mindset"
+              ]
+            },
+            "overall_score": 90
+          }
+        },
+        {
+          "question": "Tell us about a time you had a technical disagreement with a team member or stakeholder. How did you navigate it to consensus?",
+          "category": "Collaboration & Conflict Management",
+          "answer": "Well working on an internship in my diploma, I have small disagreement with my team members where they are just using the A to write the code. And I am said that analyze the code and debug the code so that you can understand and you can write better than anyone and I will navigate them to follow some certain principles.",
+          "evaluation": {
+            "confidence": {
+              "score": 9.2,
+              "justification": "Delivered structured articulate response (61 words) with high clarity.",
+              "key_phrases": [
+                "Structured delivery",
+                "Strong articulation"
+              ]
+            },
+            "evidence": {
+              "score": 8.9,
+              "justification": "Demonstrated clear STAR framework with direct real-world problem and outcome.",
+              "key_phrases": [
+                "Problem identification",
+                "Impact driven"
+              ]
+            },
+            "clarity": {
+              "score": 8.8,
+              "justification": "Coherent phrasing, precise vocabulary, and well-organized explanation.",
+              "key_phrases": [
+                "Concise vocabulary",
+                "Logical flow"
+              ]
+            },
+            "arrogance": {
+              "score": 0.6,
+              "justification": "Maintained collaborative, constructive, and humble professional demeanor.",
+              "key_phrases": [
+                "Team player",
+                "Growth mindset"
+              ]
+            },
+            "overall_score": 90
+          }
+        },
+        {
+          "question": "Describe a project or technical decision that did not go as planned. What was the impact, what did you learn, and how did you adapt?",
+          "category": "Resilience, Failure & Continuous Learning",
+          "answer": "Welcome to Really Chris. I have planned a technical project for my fest and it's doesn't go on well. For the final round there's a great and I have used the database credits to display the score and I adapted that process to overcome the next problems.",
+          "evaluation": {
+            "confidence": {
+              "score": 9.2,
+              "justification": "Delivered structured articulate response (47 words) with high clarity.",
+              "key_phrases": [
+                "Structured delivery",
+                "Strong articulation"
+              ]
+            },
+            "evidence": {
+              "score": 8.2,
+              "justification": "Provided clear rationale, concrete engineering examples, and contextual depth.",
+              "key_phrases": [
+                "Problem identification",
+                "Impact driven"
+              ]
+            },
+            "clarity": {
+              "score": 8.8,
+              "justification": "Coherent phrasing, precise vocabulary, and well-organized explanation.",
+              "key_phrases": [
+                "Concise vocabulary",
+                "Logical flow"
+              ]
+            },
+            "arrogance": {
+              "score": 0.6,
+              "justification": "Maintained collaborative, constructive, and humble professional demeanor.",
+              "key_phrases": [
+                "Team player",
+                "Growth mindset"
+              ]
+            },
+            "overall_score": 89
+          }
+        },
+        {
+          "question": "Where do you envision your technical leadership in the next 2-3 years, and why is this role the ideal catalyst for your growth?",
+          "category": "Future Impact & Role Alignment",
+          "answer": "I want to become a successful software project manager so that can I can monitor my team members and I can develop good projects and I can help my company.",
+          "evaluation": {
+            "confidence": {
+              "score": 9.2,
+              "justification": "Delivered structured articulate response (30 words) with high clarity.",
+              "key_phrases": [
+                "Structured delivery",
+                "Strong articulation"
+              ]
+            },
+            "evidence": {
+              "score": 8.9,
+              "justification": "Demonstrated clear STAR framework with direct real-world problem and outcome.",
+              "key_phrases": [
+                "Problem identification",
+                "Impact driven"
+              ]
+            },
+            "clarity": {
+              "score": 8.8,
+              "justification": "Coherent phrasing, precise vocabulary, and well-organized explanation.",
+              "key_phrases": [
+                "Concise vocabulary",
+                "Logical flow"
+              ]
+            },
+            "arrogance": {
+              "score": 0.6,
+              "justification": "Maintained collaborative, constructive, and humble professional demeanor.",
+              "key_phrases": [
+                "Team player",
+                "Growth mindset"
+              ]
+            },
+            "overall_score": 90
+          }
+        }
+      ],
+      "strengths": [
+        "Strong STAR structure in situational examples",
+        "Crisp communication with technical depth",
+        "Clear accountability and growth mindset"
+      ],
+      "improvement_areas": [
+        "Can quantify technical business metrics even more granularly in failure scenarios"
+      ]
+    },
+    "round3_completed_at": "2026-11-25T07:27:33.180152+00:00",
+    "final_result": {
+      "round1_score": 73.06,
+      "round2_score": 100.0,
+      "round3_score": 89.0,
+      "composite_score": 85.9,
+      "verdict": "SHORTLISTED",
+      "recommendation": "STRONGLY RECOMMENDED",
+      "round1_cleared": true,
+      "round2_cleared": true,
+      "round3_cleared": true,
+      "evaluated_at": "2026-11-25T07:27:33.180339+00:00"
+    }
+  },
+  {
+    "name": "chandu",
+    "role": "FullStackDeveloper",
+    "score": 73.06,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 88.78,
+        "experience": 40,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 73.06,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 88.78,
+        "experience": 40,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 19 matching skills. Missing: AWS, HTML, Vercel...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 19 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 73.06% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 11 key skills"
+            ],
+            "weaknesses": [
+              "Missing 6 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "AWS",
+            "HTML",
+            "Vercel"
+          ],
+          "medium_priority_missing": [
+            "Netlify",
+            "Authentication",
+            "Authorization"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain AWS certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "CSS",
+        "Git",
+        "Deployment",
+        "REST APIs",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "GitHub",
+        "React",
+        "Express.js",
+        "SQL"
+      ],
+      "missing_skills": [
+        "AWS",
+        "HTML",
+        "Vercel",
+        "Netlify",
+        "Authentication",
+        "Authorization"
+      ],
+      "overallScore": 73.06
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1012",
+    "timestamp": "Just now",
+    "quiz_session_id": "f3d1d6c0-b9cb-4ab6-8375-d16f4e412c39",
+    "quiz_started_at": "2026-11-25T07:39:40.768325+00:00"
+  },
+  {
+    "name": "ramyaaaaaaaa",
+    "role": "FullStackDeveloper",
+    "score": 76.58,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 84.3,
+        "experience": 62.8,
+        "education": 87.2,
+        "projects": 89,
+        "format": 86.2
+      },
+      "final_score": 76.58,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 84.3,
+        "experience": 62.8,
+        "education": 87.2,
+        "projects": 89,
+        "format": 86.2
+      },
+      "feedback": {
+        "skills": "Excellent MERN and Python alignment; must add AWS and specific security terms like JWT/OAuth to bridge the Auth gap.",
+        "experience": "Internships show good technical activity but lack long-term ownership; fix by highlighting specific architectural decisions made.",
+        "education": "Strong academic record and relevant B.Tech path; clarify graduation year/availability for full-time vs. internship roles.",
+        "projects": "Projects include great metrics like '100+ users'; improve by adding live deployment links to verify performance claims.",
+        "ats": "Good structure, but missing keywords for 'Authentication' and 'Cloud'. Include these in a dedicated 'Core Competencies' section."
+      },
+      "ai_analysis": {
+        "final_score": 72,
+        "breakdown": {
+          "skills_match": 85,
+          "experience_relevance": 60,
+          "education": 85,
+          "projects": 80,
+          "presentation": 75
+        },
+        "dimension_feedback": {
+          "skills": "Excellent MERN and Python alignment; must add AWS and specific security terms like JWT/OAuth to bridge the Auth gap.",
+          "experience": "Internships show good technical activity but lack long-term ownership; fix by highlighting specific architectural decisions made.",
+          "education": "Strong academic record and relevant B.Tech path; clarify graduation year/availability for full-time vs. internship roles.",
+          "projects": "Projects include great metrics like '100+ users'; improve by adding live deployment links to verify performance claims.",
+          "ats": "Good structure, but missing keywords for 'Authentication' and 'Cloud'. Include these in a dedicated 'Core Competencies' section."
+        },
+        "strengths": [
+          "Proven full-stack capability with MERN stack used in real-world technical events.",
+          "High-impact metrics in AI internship, specifically boosting model accuracy by 16%.",
+          "Diverse project portfolio spanning Web, AI, and Quantum computing, showing high adaptability.",
+          "Active participation in hackathons demonstrates competitive coding and problem-solving skills."
+        ],
+        "weaknesses": [
+          "Missing enterprise-level cloud experience (AWS/Azure) which is a key requirement.",
+          "Lacks explicit mention of security protocols such as Authentication and Authorization in the skills list.",
+          "Professional experience is limited to short-term internships under 6 months each.",
+          "Vague mention of 'Deployment' without specifying the platforms used (e.g., Vercel, Heroku, AWS)."
+        ],
+        "improvements": [
+          "Add a 'Cloud/DevOps' category to the Skills section including AWS, Docker, and CI/CD.",
+          "Detail how 'Relic Rush' handled security; specifically mention JWT, bcrypt, or OAuth.",
+          "Convert 'Deployment' into specific skills like 'AWS EC2', 'S3', or 'GitHub Actions'.",
+          "Hyperlink all project titles to their respective GitHub repositories or live URLs."
+        ],
+        "recommendation": "SHORTLIST",
+        "recommendation_reasoning": "The candidate has a strong foundational grasp of the MERN stack and AI, supported by practical project metrics and hackathon wins. While they lack formal AWS and security experience, their trajectory suggests they can quickly bridge these gaps in a junior role.",
+        "final_report": {
+          "executive_summary": "Kalyan is a high-potential junior developer with a strong technical foundation in JavaScript and Python environments. His resume demonstrates a rare combination of web development and AI/ML practical application. He is an ideal fit for entry-level Full Stack roles, provided he can demonstrate an understanding of cloud infrastructure.",
+          "category_analysis": {
+            "skills": {
+              "status": "Strength",
+              "strengths": [
+                "MERN Stack",
+                "Python/Django",
+                "REST APIs"
+              ],
+              "weaknesses": [
+                "Cloud Infrastructure",
+                "Web Security"
+              ],
+              "recommendations": [
+                "Complete an AWS Cloud Practitioner cert",
+                "Implement JWT in a project"
+              ]
+            },
+            "experience": {
+              "status": "Gap",
+              "strengths": [
+                "Multiple internship rotations",
+                "Agile environment exposure"
+              ],
+              "weaknesses": [
+                "Short tenure",
+                "No full-time professional history"
+              ],
+              "recommendations": [
+                "Focus on the 'Impact' of features built rather than just tasks."
+              ]
+            },
+            "education": {
+              "status": "Strength",
+              "strengths": [
+                "CSE degree path",
+                "High CGPA"
+              ],
+              "weaknesses": [
+                "Currently a student (potential availability issues)"
+              ],
+              "recommendations": [
+                "State clearly if looking for full-time or internship."
+              ]
+            },
+            "presentation": {
+              "status": "Strength",
+              "strengths": [
+                "Clean layout",
+                "Quantifiable achievements"
+              ],
+              "weaknesses": [
+                "Missing repository links"
+              ],
+              "recommendations": [
+                "Add LinkedIn and GitHub clickable links."
+              ]
+            }
+          },
+          "skills_gap_analysis": {
+            "high_priority_missing": [
+              "AWS",
+              "Authentication",
+              "Authorization"
+            ],
+            "medium_priority_missing": [
+              "Unit Testing (Jest/Mocha)",
+              "CI/CD Pipelines",
+              "Redux/Context API"
+            ],
+            "learning_roadmap": [
+              "Learn AWS S3 and EC2 for hosting.",
+              "Implement OAuth2.0 in the ATS Resume Analyzer project.",
+              "Explore TypeScript to enhance the MERN stack projects."
+            ]
+          },
+          "experience_enhancement": [
+            "Quantify the VBS Company internship by mentioning the size of the databases optimized.",
+            "Elaborate on 'Agile' involvement—did you lead any stand-ups or use Jira?"
+          ],
+          "project_showcase_tips": [
+            "For 'Relic Rush', describe the database schema design (SQL vs NoSQL trade-offs).",
+            "For 'ATS Resume Analyzer', mention the specific NLP libraries used (Spacy, NLTK)."
+          ],
+          "ats_optimization_checklist": [
+            "Add 'AWS' to the Skills section.",
+            "Include 'Authentication' and 'Authorization' keywords.",
+            "Ensure the phone number is in international format (Done).",
+            "Use standard section headers (Done)."
+          ],
+          "action_plan": [
+            "Update Skills section with Cloud and Security keywords.",
+            "Add live URLs/GitHub links to all projects.",
+            "Flesh out the 'Relic Rush' project to emphasize full-stack security.",
+            "Apply for Junior Full Stack roles specifically mentioning MERN expertise."
+          ]
+        },
+        "_model_used": "gemini-3-flash-preview"
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "The candidate has a strong foundational grasp of the MERN stack and AI, supported by practical project metrics and hackathon wins. While they lack formal AWS and security experience, their trajectory suggests they can quickly bridge these gaps in a junior role.",
+      "final_report": {
+        "executive_summary": "Kalyan is a high-potential junior developer with a strong technical foundation in JavaScript and Python environments. His resume demonstrates a rare combination of web development and AI/ML practical application. He is an ideal fit for entry-level Full Stack roles, provided he can demonstrate an understanding of cloud infrastructure.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "MERN Stack",
+              "Python/Django",
+              "REST APIs"
+            ],
+            "weaknesses": [
+              "Cloud Infrastructure",
+              "Web Security"
+            ],
+            "recommendations": [
+              "Complete an AWS Cloud Practitioner cert",
+              "Implement JWT in a project"
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "Multiple internship rotations",
+              "Agile environment exposure"
+            ],
+            "weaknesses": [
+              "Short tenure",
+              "No full-time professional history"
+            ],
+            "recommendations": [
+              "Focus on the 'Impact' of features built rather than just tasks."
+            ]
+          },
+          "education": {
+            "status": "Strength",
+            "strengths": [
+              "CSE degree path",
+              "High CGPA"
+            ],
+            "weaknesses": [
+              "Currently a student (potential availability issues)"
+            ],
+            "recommendations": [
+              "State clearly if looking for full-time or internship."
+            ]
+          },
+          "presentation": {
+            "status": "Strength",
+            "strengths": [
+              "Clean layout",
+              "Quantifiable achievements"
+            ],
+            "weaknesses": [
+              "Missing repository links"
+            ],
+            "recommendations": [
+              "Add LinkedIn and GitHub clickable links."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "AWS",
+            "Authentication",
+            "Authorization"
+          ],
+          "medium_priority_missing": [
+            "Unit Testing (Jest/Mocha)",
+            "CI/CD Pipelines",
+            "Redux/Context API"
+          ],
+          "learning_roadmap": [
+            "Learn AWS S3 and EC2 for hosting.",
+            "Implement OAuth2.0 in the ATS Resume Analyzer project.",
+            "Explore TypeScript to enhance the MERN stack projects."
+          ]
+        },
+        "experience_enhancement": [
+          "Quantify the VBS Company internship by mentioning the size of the databases optimized.",
+          "Elaborate on 'Agile' involvement—did you lead any stand-ups or use Jira?"
+        ],
+        "project_showcase_tips": [
+          "For 'Relic Rush', describe the database schema design (SQL vs NoSQL trade-offs).",
+          "For 'ATS Resume Analyzer', mention the specific NLP libraries used (Spacy, NLTK)."
+        ],
+        "ats_optimization_checklist": [
+          "Add 'AWS' to the Skills section.",
+          "Include 'Authentication' and 'Authorization' keywords.",
+          "Ensure the phone number is in international format (Done).",
+          "Use standard section headers (Done)."
+        ],
+        "action_plan": [
+          "Update Skills section with Cloud and Security keywords.",
+          "Add live URLs/GitHub links to all projects.",
+          "Flesh out the 'Relic Rush' project to emphasize full-stack security.",
+          "Apply for Junior Full Stack roles specifically mentioning MERN expertise."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "Git",
+        "GitHub",
+        "Deployment",
+        "Docker"
+      ],
+      "direct_matched_skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "Git",
+        "GitHub",
+        "Deployment",
+        "Docker"
+      ],
+      "inferred_skills": [],
+      "missing_skills": [
+        "Authentication",
+        "Authorization",
+        "AWS"
+      ],
+      "evaluation_engine": "Python ATS + gemini-3-flash-preview",
+      "overallScore": 76.58
+    },
+    "status": "On Hold",
+    "resume_url": "",
+    "id": "REF-1013",
+    "timestamp": "Just now",
+    "quiz_session_id": "54440fbd-2c6e-48b3-b4e4-48bc25b20bfd",
+    "quiz_started_at": "2026-11-25T08:13:09.698227+00:00",
+    "quiz_report_full": {
+      "totalScore": 150,
+      "maxScore": 200,
+      "percentage": 75.0,
+      "results": [
+        {
+          "questionId": 4,
+          "question": "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Data leakage and biased evaluation",
+          "feedback": "Correctly identified that preprocessing on the full dataset before splitting leads to leakage."
+        },
+        {
+          "questionId": 8,
+          "question": "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "3",
+          "feedback": "Correctly calculated the length of the list containing [0, 2, 4]."
+        },
+        {
+          "questionId": 16,
+          "question": "For a FullStackDeveloper service handling concurrent requests with HTML, which caching strategy prevents stale reads after writes?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Write-through or explicit cache invalidation on mutation with bounded TTL",
+          "feedback": "Correct selection of cache consistency strategies."
+        },
+        {
+          "questionId": 13,
+          "question": "Which checks are appropriate when validating HTML and CSS code used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Measured output against an expected result",
+          "feedback": "Selected 'Measured output against an expected result', but 'Input and null handling' is the correct technical check for robust validation in this context."
+        },
+        {
+          "questionId": 20,
+          "question": "In distributed FullStackDeveloper architectures, why should message consumers be idempotent?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "At-least-once delivery can redeliver messages, so duplicate processing must not corrupt state",
+          "feedback": "Correctly identified the relationship between at-least-once delivery and idempotency."
+        },
+        {
+          "questionId": 12,
+          "question": "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+          "feedback": "Correctly identified the standard industry practice for handling unseen categories during inference."
+        },
+        {
+          "questionId": 10,
+          "question": "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "SELECT region, SUM(revenue) AS total_revenue\nFROM sales\nGROUP BY region\nORDER BY total_revenue DESC\nORDER BY total_revenue DESC\nLIMIT 3;",
+          "feedback": "The query contains a syntax error due to the repeated 'ORDER BY' clause, which makes it non-executable."
+        },
+        {
+          "questionId": 17,
+          "question": "Which HTTP status code and behavior is best when an API client exceeds rate limits for a FullStackDeveloper endpoint?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "429 Too Many Requests with a Retry-After header",
+          "feedback": "Correct identification of HTTP 429 for rate limiting."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "def factorial(n):\n  if n<0: \n   raise ValueError(\"factorial is not defined for negative number\")\n  result =1\n  for i in range(2,n+1):\n   result *=i\n  result result",
+          "feedback": "The code contains a syntax error ('result result') and is missing the 'return' keyword."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Missing values and schema drift",
+          "feedback": "Correctly identified critical data quality concerns for modeling."
+        },
+        {
+          "questionId": 3,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a FullStackDeveloper model used in business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Correct choice for imbalanced class evaluation."
+        },
+        {
+          "questionId": 6,
+          "question": "When a resume highlights HTML and CSS, which practice best validates that those skills were used on a real project?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Correct. Technical interviewing should focus on the reasoning behind design decisions."
+        },
+        {
+          "questionId": 9,
+          "question": "For a HTML-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To prevent information leakage into evaluation data",
+          "feedback": "Correctly identified the importance of avoiding data leakage."
+        },
+        {
+          "questionId": 19,
+          "question": "When deploying updates for business analytics system, why are automated integration tests executed before production rollout?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "To catch contract mismatches across services and databases early",
+          "feedback": "Correct understanding of the purpose of integration testing."
+        },
+        {
+          "questionId": 18,
+          "question": "Write a function or query in HTML (or Python/JS) to deduplicate a list of IDs while preserving their original order.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "def feduplicate_ids(ids):\n  return list(dict.fromkeys(ids))",
+          "feedback": "Functionally correct implementation using Python dictionary keys to preserve order."
+        },
+        {
+          "questionId": 15,
+          "question": "When monitoring a HTML system from business analytics system, which signal most strongly suggests production degradation or drift?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Error rates, latency percentiles, or input distributions shift materially from baseline",
+          "feedback": "Correct identification of monitoring signals for performance and data drift."
+        },
+        {
+          "questionId": 2,
+          "question": "Write a SQL query to count rows where HTML is not null and the value is greater than 0.",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "SELECT COUNT(*)\nFROM table_name\nWHERE html IS NOT NULL AND html>0;",
+          "feedback": "Correct SQL logic using the context-appropriate 'html' column name."
+        },
+        {
+          "questionId": 14,
+          "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "df.groupby('region')['revunue'].sum()",
+          "feedback": "The user answer contains a typo ('revunue' instead of 'revenue'), which would cause a KeyError in Pandas."
+        },
+        {
+          "questionId": 11,
+          "question": "A HTML model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+          "feedback": "Correctly identified the fix for invalid train/test separation logic."
+        },
+        {
+          "questionId": 7,
+          "question": "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "intilialize a min-heap\niterate through the array\nreturn the result",
+          "feedback": "The description is incomplete. It fails to mention maintaining the heap at size k, which is the essential step to achieve O(n log k) complexity."
+        }
+      ],
+      "overallFeedback": "The candidate demonstrates strong conceptual knowledge of data engineering and Full Stack development practices, particularly in caching, idempotency, and data leakage. However, attention to detail in code syntax and algorithmic constraints is lacking, as evidenced by multiple syntax errors in SQL and Python and an incomplete algorithmic description.",
+      "isSelected": true,
+      "isFinished": true
+    },
+    "quiz_score": 75.0,
+    "interview_session_id": 40,
+    "interview_started_at": "2026-11-25T08:31:44.174690+00:00",
+    "interview_score": 55.2,
+    "round3_report": {
+      "overall_score": 55.2,
+      "avg_confidence": 7,
+      "avg_evidence": 5.1,
+      "avg_clarity": 5.6,
+      "communication_score": 56,
+      "cultural_fit_score": 55,
+      "recommendation": "NOT RECOMMENDED",
+      "executive_summary": "Kalyan demonstrated solid low-level technical troubleshooting skills, such as diagnosing database query bottlenecks using EXPLAIN ANALYZE, and exhibited strong accountability when abandoning a problematic custom authentication build for a standard provider. However, several answers lacked completeness and clear articulation, notably leaving out the resolution steps during a technical disagreement and the final impact of a production database fix. Overall, his interview showed promising engineering fundamentals mixed with inconsistent application of the complete STAR framework.",
+      "questions_evaluated": [
+        {
+          "question": "Please introduce yourself, highlight your primary technical competencies, and explain what motivates your engineering approach.",
+          "category": "Professional Background & Core Strengths",
+          "answer": "I am Kalyan and I specializing in full stack web development, my core taking a screenshot of Python, react and node JS and Marn and I build microservices products and full stop web applications along my coding skills I focus on. Like this and functional teams when I'm solving the real world problems through reliable maintainable systems.",
+          "evaluation": {
+            "confidence": {
+              "score": 5,
+              "justification": "The candidate lists technologies with some certainty but the delivery is undermined by garbled phrasing and lack of fluid transition.",
+              "key_phrases": [
+                "my core",
+                "I build microservices"
+              ]
+            },
+            "evidence": {
+              "score": 4,
+              "justification": "While specific technologies are mentioned, there are zero examples of projects, scales of systems, or measurable results.",
+              "key_phrases": [
+                "Python, react and node JS",
+                "microservices"
+              ]
+            },
+            "clarity": {
+              "score": 3,
+              "justification": "The response contains significant grammatical issues and nonsensical phrases like 'taking a screenshot of Python' and 'full stop web applications'.",
+              "key_phrases": [
+                "taking a screenshot of",
+                "full stop web applications"
+              ]
+            },
+            "arrogance": {
+              "score": 2,
+              "justification": "The candidate appears humble and emphasizes solving problems for teams and reliable systems.",
+              "key_phrases": [
+                "functional teams",
+                "solving the real world problems"
+              ]
+            },
+            "overall_score": 45,
+            "feedback": "The response touches on relevant technologies but is severely hindered by poor articulation and a lack of concrete project examples. To improve, the candidate needs to clearly define their 'tech stack' and provide a specific instance where they applied these tools to solve a problem.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        },
+        {
+          "question": "Describe a complex technical challenge or production issue you resolved. Walk us through your diagnosis, approach, and outcome.",
+          "category": "Technical Problem Solving & Architecture",
+          "answer": "In previous project we faced a critical products initiative where our checkout a pay began experiencing several latency spikes and timeouts during peak traffic hours causing a noticeable drop in computer orders. To diagnose the root causes started by checking out APM dashboards in applications logs. I noticed that when CPU uses on our web servers was normal, database connection poor utilization was 100%. Response times correlated directly with specific get orders history query. EXPLAIN ANALYZE on that query revealed A sequencer table scan on table with millions of rows because a newly deployed filter wasn't eating on existing Composite Index.",
+          "evaluation": {
+            "confidence": {
+              "score": 8.5,
+              "justification": "The candidate uses technical terminology decisively and correctly describes a standard database troubleshooting workflow.",
+              "key_phrases": [
+                "EXPLAIN ANALYZE",
+                "database connection poor utilization"
+              ]
+            },
+            "evidence": {
+              "score": 6.8,
+              "justification": "While the technical diagnosis is highly specific and realistic, the response ends abruptly without detailing the final resolution or measurable outcome.",
+              "key_phrases": [
+                "sequencer table scan",
+                "Composite Index"
+              ]
+            },
+            "clarity": {
+              "score": 7.5,
+              "justification": "The progression from symptom to root cause is logical, despite minor speech disfluencies.",
+              "key_phrases": [
+                "latency spikes and timeouts",
+                "correlated directly"
+              ]
+            },
+            "arrogance": {
+              "score": 1,
+              "justification": "The candidate maintains a factual, objective tone focused on system metrics rather than self-aggrandizement.",
+              "key_phrases": []
+            },
+            "overall_score": 72,
+            "feedback": "The technical diagnosis involving EXPLAIN ANALYZE and connection pool saturation was excellent and credible. To improve, you must complete the STAR format by describing the specific fix you implemented and the resulting impact on system performance.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        },
+        {
+          "question": "Tell us about a time you had a technical disagreement with a team member or stakeholder. How did you navigate it to consensus?",
+          "category": "Collaboration & Conflict Management",
+          "answer": "During a recent project to migrate legacy service, a senior development disagreed on database architecture. They wanted to stick with a traditional database for familiarity where I advocated for a no SQL solution to handle the expected high volume unstructured data.",
+          "evaluation": {
+            "confidence": {
+              "score": 5.5,
+              "justification": "The candidate state their position clearly but the response lacks the decisiveness of a completed narrative.",
+              "key_phrases": [
+                "advocated for a no SQL solution"
+              ]
+            },
+            "evidence": {
+              "score": 2,
+              "justification": "The response identifies the conflict but entirely fails to explain the actions taken to reach consensus or the final outcome.",
+              "key_phrases": [
+                "disagreed on database architecture"
+              ]
+            },
+            "clarity": {
+              "score": 4.5,
+              "justification": "The technical topic is understandable, but the response is grammatically fragmented and ends abruptly without answering the prompt's core question.",
+              "key_phrases": [
+                "senior development disagreed"
+              ]
+            },
+            "arrogance": {
+              "score": 2,
+              "justification": "The candidate describes the differing viewpoints neutrally without disparaging the senior developer's preference for familiarity.",
+              "key_phrases": []
+            },
+            "overall_score": 45,
+            "feedback": "You successfully identified a technical conflict, but you missed the most important part of the question: how you reached consensus. In the future, ensure you describe the specific steps you took to negotiate and what the final result was.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        },
+        {
+          "question": "Describe a project or technical decision that did not go as planned. What was the impact, what did you learn, and how did you adapt?",
+          "category": "Resilience, Failure & Continuous Learning",
+          "answer": "During a recent web application project, I decided to build a custom authentication system from Sketch rather than using established toward party library. Digging it would give us more flexibility and save on future. The impact was as the process killed handling education, select token experience and password resets and security patches took much longer than expected. These delayed our better launched by a week and pulled my focus away from core. Once I realise the custom build was becoming a bottleneck, I owned a miscalculation, communicated a delay to the team and provided the integrating an industry standard path provider. I migrated our existing user schema over a weekend so we could get back on schedule.",
+          "evaluation": {
+            "confidence": {
+              "score": 8.5,
+              "justification": "The candidate takes clear ownership of a technical mistake and the subsequent pivot without making excuses.",
+              "key_phrases": [
+                "owned a miscalculation",
+                "communicated a delay"
+              ]
+            },
+            "evidence": {
+              "score": 8.2,
+              "justification": "The answer follows a clear STAR structure with specific technical components and a quantified impact on the launch timeline.",
+              "key_phrases": [
+                "delayed our better launched by a week",
+                "migrated our existing user schema"
+              ]
+            },
+            "clarity": {
+              "score": 6.8,
+              "justification": "The narrative is logically sound, though phonetic transcription errors like 'from Sketch' and 'handling education' create minor hurdles.",
+              "key_phrases": [
+                "toward party library",
+                "handling education"
+              ]
+            },
+            "arrogance": {
+              "score": 1,
+              "justification": "The candidate shows high accountability and humility by admitting a poor decision and working through the weekend to fix it.",
+              "key_phrases": [
+                "owned a miscalculation",
+                "so we could get back on schedule"
+              ]
+            },
+            "overall_score": 78,
+            "feedback": "A very solid answer that demonstrates accountability and the ability to course-correct under pressure. To improve, the candidate could more deeply explain the specific technical 'flexibility' they were originally seeking to better justify the initial decision.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        },
+        {
+          "question": "Where do you envision your technical leadership in the next 2-3 years, and why is this role the ideal catalyst for your growth?",
+          "category": "Future Impact & Role Alignment",
+          "answer": "Over next two or three years, I envision myself growing from a strong individual contributor into a technical leader who wants end to end system architecture and actively mentors junior teammates. My goal is to be the go to person for solving complex technica bottlenecks and translating broad business goals into scalable engineering solutions. As a step integrated technical ownership peer, I am ex excited to help accelerate project delivery, improve code quality across the team, and contributors strong engineering culture.",
+          "evaluation": {
+            "confidence": {
+              "score": 7.5,
+              "justification": "The candidate speaks decisively about their transition from IC to leader without hesitation.",
+              "key_phrases": [
+                "I envision myself growing",
+                "go to person"
+              ]
+            },
+            "evidence": {
+              "score": 4.5,
+              "justification": "The answer relies on generic leadership goals without referencing specific technical domains or previous successes.",
+              "key_phrases": [
+                "complex technica bottlenecks",
+                "scalable engineering solutions"
+              ]
+            },
+            "clarity": {
+              "score": 6,
+              "justification": "While the goals are clear, the transcript contains garbled phrasing that obscures the specific role alignment.",
+              "key_phrases": [
+                "step integrated technical ownership peer",
+                "contributors strong"
+              ]
+            },
+            "arrogance": {
+              "score": 2,
+              "justification": "The candidate emphasizes mentorship and team culture, indicating a collaborative mindset.",
+              "key_phrases": [
+                "mentors junior teammates",
+                "engineering culture"
+              ]
+            },
+            "overall_score": 66,
+            "feedback": "The candidate has a clear vision for their career path, but the answer lacks specific technical examples or past experiences to ground the ambition. To improve, they should explain *how* their current skills make them ready for this transition.",
+            "model_used": "gemini-3-flash-preview"
+          }
+        }
+      ],
+      "proctoring_alerts": [
+        {
+          "code": "CAMERA_OFF",
+          "message": "Camera is turned off or hidden! Enable your webcam to avoid interview flagging.",
+          "timestamp": "2:01:39 pm"
+        },
+        {
+          "code": "CAMERA_COVERED",
+          "message": "Alert: Webcam appears covered or blocked! Please uncover your camera immediately.",
+          "timestamp": "2:01:44 pm"
+        },
+        {
+          "code": "CAMERA_COVERED",
+          "message": "Alert: Webcam appears covered or blocked! Please uncover your camera immediately.",
+          "timestamp": "2:02:12 pm"
+        },
+        {
+          "code": "CAMERA_OFF",
+          "message": "Camera is turned off or hidden! Enable your webcam to avoid interview flagging.",
+          "timestamp": "2:09:53 pm"
+        }
+      ],
+      "strengths": [
+        "Strong technical diagnostic capability, effectively using APM dashboards and EXPLAIN ANALYZE to pinpoint database connection pool saturation and query indexing issues.",
+        "High level of accountability and pragmatic decision-making, demonstrated by recognizing the bottlenecks of a custom authentication build and swiftly pivoting to an industry-standard solution."
+      ],
+      "improvement_areas": [
+        "Structuring behavioral responses with complete STAR components, particularly articulating the actions taken to reach consensus in conflicts and quantifiable outcomes of fixes.",
+        "Verbal clarity and articulation during introductory and high-level technical summaries to present core competencies more persuasively."
+      ]
+    },
+    "round3_completed_at": "2026-11-25T08:40:14.053870+00:00",
+    "final_result": {
+      "round1_score": 76.58,
+      "round2_score": 75.0,
+      "round3_score": 55.2,
+      "composite_score": 69.7,
+      "verdict": "ON HOLD",
+      "recommendation": "RECOMMENDED",
+      "round1_cleared": true,
+      "round2_cleared": true,
+      "round3_cleared": false,
+      "evaluated_at": "2026-11-25T08:40:14.054004+00:00"
+    }
   }
 ]
