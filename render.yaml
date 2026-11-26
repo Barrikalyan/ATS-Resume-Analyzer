@@ -88,7 +88,6 @@ services:
   - type: web
     name: talentai-frontend
     runtime: static
-    plan: free
     rootDir: resumeanalyzer/resume screener/resume screener/resume-screener-react
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
