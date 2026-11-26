@@ -14,7 +14,7 @@ email-validator==2.1.0
 moviepy==1.0.3
 librosa==0.10.1
 openai-whisper>=20240930
-faster-whisper==0.10.0
+faster-whisper==1.1.0
 av==12.0.0
 mediapipe==0.10.11
 deepface==0.0.86
