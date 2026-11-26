@@ -186,11 +186,11 @@ npm run dev
 
 ## ☁️ Deploy to Render
 
-The root `render.yaml` Blueprint adds the ATS API, Interview API, and React frontend as free Render services. It leaves the existing Quiz API service alone and points the ATS API to `https://talent-ai-ov2n.onrender.com`.
+The root `render.yaml` Blueprint creates the ATS API, Quiz API, Interview API, and React frontend as free Render services. The ATS API is configured to call the new Quiz API service.
 
-1. Rotate any credentials that have been shared outside Render. In Render, open **New > Blueprint**, connect this repository, and deploy the Blueprint from the repository root.
-2. Set the Blueprint's `sync: false` variables in each service's **Environment** page. The ATS API and Interview API require `SUPABASE_URL` and a new backend-only `SUPABASE_SERVICE_ROLE_KEY`; the Interview API also requires `DATABASE_URL`. Add at least one valid `GEMINI_API_KEY` or `GROQ_API_KEY` to each API service. Set matching new `AGGREGATOR_WEBHOOK_SECRET` values on both APIs and a new `RECRUITER_API_KEY` on the ATS API.
-3. Update the existing Quiz service to use `ENVIRONMENT=production`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and at least one AI provider key. The backends expect the Supabase secret under `SUPABASE_SERVICE_ROLE_KEY` (or legacy `SUPABASE_KEY`); `SUPABASE_SECRET_KEY` is not read by this code.
+1. Rotate any credentials that have been shared outside Render. Delete the old Quiz service when ready, then open **New > Blueprint**, connect this repository, and deploy from the repository root.
+2. Set the Blueprint's `sync: false` variables in each service's **Environment** page. All three APIs require `SUPABASE_URL` and a new backend-only `SUPABASE_SERVICE_ROLE_KEY`. The Quiz API requires at least one valid `GEMINI_API_KEY` or `GROQ_API_KEY`; set an AI key on the ATS and Interview APIs to enable their AI-backed analysis. The Interview API also requires `DATABASE_URL`.
+3. Set matching new `AGGREGATOR_WEBHOOK_SECRET` values on the ATS and Interview APIs, plus a new `RECRUITER_API_KEY` on the ATS API. The backends expect the Supabase secret under `SUPABASE_SERVICE_ROLE_KEY` (or legacy `SUPABASE_KEY`); `SUPABASE_SECRET_KEY` is not read by this code.
 4. Run [`resumeanalyzer/supabase_schema.sql`](./resumeanalyzer/supabase_schema.sql) in the Supabase SQL Editor before using the deployed app. Set `DATABASE_URL` on the Interview API to the rotated PostgreSQL connection string; URL-encode special characters in its password.
 
 Never put Supabase secret/service-role keys, database URLs, or AI keys in frontend `VITE_` variables or source control. The `SUPABASE_PUBLISHABLE_KEY` and `SUPABASE_JWKS_URL` values are not used by these backend services. Render's free web instances sleep when idle and do not provide persistent local storage; production data is configured to use Supabase.
