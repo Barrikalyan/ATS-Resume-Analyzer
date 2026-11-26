@@ -1,0 +1,77 @@
+services:
+  - type: web
+    name: talentai-ats-api
+    runtime: python
+    plan: free
+    rootDir: resumeanalyzer/resume screener/resume screener
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENVIRONMENT
+        value: production
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: RECRUITER_API_KEY
+        sync: false
+      - key: AGGREGATOR_WEBHOOK_SECRET
+        sync: false
+      - key: QUIZ_API_URL
+        value: https://talent-ai-ov2n.onrender.com
+      - key: INTERVIEW_API_URL
+        value: https://talentai-interview-api.onrender.com
+      - key: ALLOWED_ORIGINS
+        value: https://talentai-frontend.onrender.com
+
+  - type: web
+    name: talentai-interview-api
+    runtime: python
+    plan: free
+    rootDir: resumeanalyzer/analysis/analysis/backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENVIRONMENT
+        value: production
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: AGGREGATOR_WEBHOOK_SECRET
+        sync: false
+      - key: RESUME_API_URL
+        value: https://talentai-ats-api.onrender.com
+
+  - type: web
+    name: talentai-frontend
+    runtime: static
+    plan: free
+    rootDir: resumeanalyzer/resume screener/resume screener/resume-screener-react
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://talentai-ats-api.onrender.com
+      - key: VITE_INTERVIEW_API_URL
+        value: https://talentai-interview-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
